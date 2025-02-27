@@ -1,13 +1,20 @@
+import { BrowserRouter, Route, Routes } from "react-router";
+import "./App.css";
+import Home from "./components/Home";
+import Navi from "./components/Navi";
+import Content from "./components/Content";
 
-import './App.css'
-
-function App() {
-
+const App = () => {
   return (
-    <>
-    <p className='text-red-700'>react ecom</p>
-    </>
-  )
-}
+    <BrowserRouter>
+    <Navi/>
+    <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path="/content" element={<Content/>} />
 
-export default App
+    </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default App;
