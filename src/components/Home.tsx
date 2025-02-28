@@ -58,7 +58,7 @@ const Home = () => {
         <div className="ml-20 mt-10">
           <div className="text-white bg-black w-[90%] h-[400px] p-10 ">
             <img
-              src="/src/assets/iphoneSlider.JPG"
+              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722034/iphoneSlider_yc1km0.jpg"
               alt="image"
               className="w-[100%]"
             />
@@ -115,7 +115,7 @@ const Home = () => {
           </div>
         </div>
 
-        <Sales />
+        <Sales/>
       </div>
     </>
   );
