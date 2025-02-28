@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
+import Sales from "./Sales";
 
 const Home = () => {
 
   
     const calcTime = () => {
-        let time={};
+        let time = { days: 0, hours: 0, minutes: 0, seconds: 0 };
         const now = +new Date("2025-12-31") - +new Date();
    
         time = {
@@ -19,7 +20,7 @@ const Home = () => {
           return time;
         //   console.log(time);
     };
-  const [time, setTime] = useState({});
+  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -113,6 +114,8 @@ const Home = () => {
             </ul>
           </div>
         </div>
+
+        <Sales />
       </div>
     </>
   );
