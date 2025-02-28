@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import Sales from "./Sales";
+import Besto from "./Besto";
 
 const Home = () => {
 
@@ -116,6 +117,7 @@ const Home = () => {
         </div>
 
         <Sales/>
+        <Besto/>
       </div>
     </>
   );

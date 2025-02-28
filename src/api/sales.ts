@@ -41,3 +41,38 @@ export const salesProducts = [
     }
   
 ];
+
+export const bestSellers = [
+  {
+    id:6,
+    name: 'The north coat',
+    price: 260,
+    afterdiscount: 360,
+    stars: 5,
+    image:'https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722431/k_i7wucl.png'
+  },
+  {
+    id: 7,
+    name: 'Gucci duffle bag',
+    price: 1160,
+    afterdiscount: 960,
+    stars: 4,
+    image:'https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722429/kk_fqzg8a.png'
+  },
+    {
+        id: 8,
+        name: 'RGB liquid CPU Cooler',
+        price: 400,
+        afterdiscount: 370,
+        stars: 5,
+        image:'https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722430/kkk_w2tcsv.png'
+    },
+    {
+        id: 9,
+        name: 'Small BookSelf',
+        price: 400,
+        afterdiscount: 375,
+        stars: 3,
+        image:'https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722432/kkkk_tbento.png'
+    },
+];
