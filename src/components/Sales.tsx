@@ -1,5 +1,7 @@
 
+import { CiStar } from "react-icons/ci";
 import { salesProducts } from "../api/sales";
+import { FaStar } from "react-icons/fa";
 
 type Productpro = {
     id: number;
@@ -21,9 +23,18 @@ const Sales = () => {
               <p>{product.name}</p>
               <del>${product.price}</del>
             </div>
-            <div>
-              <p>${product.afterdiscount}</p>
-              <p>{product.stars}</p>
+            <div className="flex">
+              {
+                [...Array(5)].map((_, i) => (
+                  <span key={i} className="flex">
+                    {product.stars > i ? (
+                        <FaStar className="text-yellow-500" />
+                    ) : (
+                        <CiStar className="text-gray-400" />
+                    )}
+                  </span>
+                ))
+              }
             </div>
           </div>
         ))
