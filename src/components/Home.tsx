@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import Sales from "./Sales";
@@ -6,32 +6,6 @@ import Besto from "./Besto";
 
 const Home = () => {
 
-  
-    const calcTime = () => {
-        let time = { days: 0, hours: 0, minutes: 0, seconds: 0 };
-        const now = +new Date("2025-12-31") - +new Date();
-   
-        time = {
-            days: 3,
-            hours: Math.floor((now / (1000 * 60 * 60)) % 24),
-            minutes: Math.floor((now / 1000 / 60) % 60),
-            seconds: Math.floor((now / 1000) % 60),
-          };
-
-          return time;
-        //   console.log(time);
-    };
-  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setTime(calcTime());
-          }, 1000);
-      
-          return () => clearInterval(timer);
-   
-    }
-    , []);
 
   return (
     <>
@@ -86,39 +60,9 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex mt-10">
-        <img src="/src/assets/Rectangle 17.png" alt="" />
-        <p className="text-red-500 font-bold ml-5 mt-2">Today’s</p>
-      </div>
-
-      <div>
-        <div>
-          <h1>Flash Sales</h1>
-          <div>
-            <ul className="flex">
-              <li className="pl-3">Days </li>
-              <li className="pl-3">
-                <span>:</span> Hours
-              </li>
-              <li className="pl-3">
-                <span>:</span>Minutes
-              </li>
-              <li className="pl-3">
-                <span>:</span>Seconds
-              </li>
-            </ul>
-            <ul className="flex">
-              <li className="p-5">{time.days || '00'}</li>
-              <li className="p-5">{time.hours || '00'}</li>
-              <li className="p-5">{time.minutes || '00'}</li>
-              <li className="p-5">{time.seconds || '00'}</li>
-            </ul>
-          </div>
-        </div>
-
-        <Sales/>
-        <Besto/>
-      </div>
+        <Sales />
+        <Besto />
+    
     </>
   );
 };
