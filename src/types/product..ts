@@ -1,0 +1,8 @@
+export type Productpro = {
+    id: number;
+        name: string;
+        image: string;
+        price?: number;
+        afterdiscount: number;
+        stars: number;
+    };

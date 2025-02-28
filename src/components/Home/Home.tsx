@@ -5,10 +5,8 @@ import Sales from "./Sales";
 import Besto from "./Besto";
 
 const Home = () => {
-
-
   return (
-    <>
+    <div className="mt-40">
       <div className="flex">
         <div className="border-r-2 border-black-100 w-[280px] pr-20">
           <div className="w-[250px] pt-10 pl-10">
@@ -60,10 +58,9 @@ const Home = () => {
         </div>
       </div>
 
-        <Sales />
-        <Besto />
-    
-    </>
+      <Sales />
+      <Besto />
+    </div>
   );
 };
 
