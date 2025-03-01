@@ -32,13 +32,28 @@ const Navi = () => {
           </div>
           <ul className="flex flex-wrap justify-center xl:pl-3 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.8rem] ">
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-              <Link to="/"> Home</Link>
+              <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/"
+              >
+                Home
+              </Link>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-              <Link to="/content"> Content</Link>
+              <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/content"
+              >
+                Content
+              </Link>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-              <Link to="/about"> About</Link>
+              <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/about"
+              >
+                About
+              </Link>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               Sign Up

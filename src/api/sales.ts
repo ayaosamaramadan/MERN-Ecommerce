@@ -147,10 +147,6 @@ export const salesProducts = [
   },
 ];
 
-// export const bestSellers = [
-
-// ];
-
 export const catigorys = [
   {
     id: 1,

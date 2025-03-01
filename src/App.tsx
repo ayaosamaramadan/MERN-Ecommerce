@@ -4,8 +4,8 @@ import "./App.css";
 import Home from "./components/Home/Home";
 import Navi from "./components/Navi";
 import Content from "./components/Content";
-import About from "./components/Home/About";
-
+import About from "./components/About";
+import NotFound from "./components/NotFound";
 
 const App = () => {
   return (
@@ -15,6 +15,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/content" element={<Content />} />
         <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+     
       </Routes>
     </BrowserRouter>
   );

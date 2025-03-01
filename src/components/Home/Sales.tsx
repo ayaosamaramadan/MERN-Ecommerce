@@ -22,13 +22,11 @@ const Sales = () => {
                 <IoIosHeartEmpty className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1" />
                 <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
               </div>
-
               <img
                 src={product.image}
                 alt="product"
                 className="w-[230px] h-[180px] hover:opacity-80"
               />
-
               <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
                 <button type="submit">Add To Cart</button>
               </div>

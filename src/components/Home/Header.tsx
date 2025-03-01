@@ -2,9 +2,10 @@
 import { FaChevronRight } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 
-
 const Header = () => {
-    return ( <> <div className="flex">
+  return (
+    <>
+      <div className="flex">
         <div className="border-r-2 border-black-100 w-[280px] pr-20">
           <div className="w-[250px] pt-10 pl-10">
             <ul>
@@ -53,7 +54,9 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div></> );
-}
- 
+      </div>
+    </>
+  );
+};
+
 export default Header;

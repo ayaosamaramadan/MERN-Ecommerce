@@ -11,7 +11,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import Products from "./Products";
 import { salesProducts } from "../../api/sales";
 import { Productpro } from "../../types/product.";
-// import { servicees } from "../../api/sales";
+
 import Serv from "./Serv";
 
 const Besto = () => {
@@ -182,7 +182,7 @@ const Besto = () => {
         </div>
       </div>
 
-    <Serv/>
+      <Serv />
 
       <div
         className={`fixed right-5 bottom-5 transition-opacity duration-300 ${
@@ -190,10 +190,8 @@ const Besto = () => {
         }`}
         onClick={handlescrow}
       >
-       <div className="flex ml-12 text-[2.5rem]">
-          
+        <div className="flex ml-12 text-[2.5rem]">
           <IoIosArrowRoundUp className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 p-2 cursor-pointer rounded-3xl" />
-        
         </div>
       </div>
     </>
