@@ -15,3 +15,16 @@ input::placeholder {
 /* .scrolled{
   overflow-y: ;
 } */
+
+.inputt{
+  width: 100%;
+  max-width: 300px;
+
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.inputt::placeholder{
+  color: #494949;
+  font-size: 0.8rem;
+}
