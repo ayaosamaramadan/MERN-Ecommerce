@@ -1,8 +1,7 @@
 import { servicees } from "../../api/sales";
 
 const Serv = () => {
-  return (
-    <>
+    return ( <>
       <div className="flex justify-center mt-20">
         {servicees.map((service) => (
           <div key={service.id} className="mt-10 text-center m-8">
@@ -14,8 +13,7 @@ const Serv = () => {
           </div>
         ))}
       </div>
-    </>
-  );
-};
-
+    </> );
+}
+ 
 export default Serv;
