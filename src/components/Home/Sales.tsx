@@ -9,8 +9,17 @@ import {
   IoIosHeartEmpty,
 } from "react-icons/io";
 import { Productpro } from "../../types/product.";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../reducers/cart";
 
 const Sales = () => {
+
+  const dispatch = useDispatch();
+  const handleAddToCart = (product: Productpro) => {
+    dispatch(addToCart(product));
+  };
+
+
   return (
     <>
       <Timeoutt />
@@ -28,7 +37,7 @@ const Sales = () => {
                 className="w-[230px] h-[180px] hover:opacity-80"
               />
               <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
-                <button type="submit">Add To Cart</button>
+                <button type="submit" onClick={() => handleAddToCart(product)}>Add To Cart</button>
               </div>
             </div>
             <div className="flex flex-col rounded hover:opacity-100 relative group mt-4 p-4">

@@ -71,7 +71,7 @@ const Navi = () => {
 
           <div className="text-black flex 2xl:text-[26px] xl:text-[26px] sm:text-[22px] 2sm:text-[22px]  mt-4 lg:mt-0 lg:mr-[50px] xl:pl-5">
             <IoIosHeartEmpty className="mr-[10px]" />
-            <IoCartOutline className="ml-[10px]" />
+          <Link to="./cart"><IoCartOutline className="ml-[10px]" /></Link>
           </div>
         </div>
       </div>
