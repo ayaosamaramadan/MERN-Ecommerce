@@ -11,7 +11,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import Products from "./Products";
 import { salesProducts } from "../../api/sales";
 import { Productpro } from "../../types/product.";
-import { servicees } from "../../api/sales";
+// import { servicees } from "../../api/sales";
 import Serv from "./Serv";
 
 const Besto = () => {
