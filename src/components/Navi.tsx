@@ -1,6 +1,7 @@
 import { CiSearch } from "react-icons/ci";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Navi = () => {
   return (
@@ -31,13 +32,13 @@ const Navi = () => {
           </div>
           <ul className="flex flex-wrap justify-center xl:pl-3 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.8rem] ">
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-              Home
+              <Link to="/"> Home</Link>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-              Content
+              <Link to="/content"> Content</Link>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-              About
+              <Link to="/about"> About</Link>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               Sign Up

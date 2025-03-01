@@ -12,6 +12,7 @@ import Products from "./Products";
 import { salesProducts } from "../../api/sales";
 import { Productpro } from "../../types/product.";
 import { servicees } from "../../api/sales";
+import Serv from "./Serv";
 
 const Besto = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -181,17 +182,7 @@ const Besto = () => {
         </div>
       </div>
 
-      <div className="flex justify-center mt-20">
-        {servicees.map((service) => (
-          <div key={service.id} className="mt-10 text-center m-8">
-            <div className="flex flex-col items-center">
-              <img src={service.image} alt="" className="w-[70px] h-[70px]" />
-              <p className="text-lg font-semibold mt-3">{service.title}</p>
-              <p className="mt-2">{service.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <Serv/>
 
       <div
         className={`fixed right-5 bottom-5 transition-opacity duration-300 ${
