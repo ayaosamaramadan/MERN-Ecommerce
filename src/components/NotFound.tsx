@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import Footer from "./Home/Footer";
+// import Footer from "./Home/Footer";
 
 const NotFound = () => {
   return (
@@ -21,7 +21,7 @@ const NotFound = () => {
           </button>
         </Link>
       </div>
-      <Footer />
+   
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { FiTwitter } from "react-icons/fi";
 import { aboutt, aboutt2 } from "../api/sales";
-import Footer from "./Home/Footer";
+// import Footer from "./Home/Footer";
 import Serv from "./Home/Serv";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
@@ -72,7 +72,7 @@ const About = () => {
       </div>
 
       <Serv />
-      <Footer />
+     
     </>
   );
 };

@@ -1,7 +1,6 @@
 import Sales from "./Sales";
 import Besto from "./Besto";
 import Header from "./Header";
-import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -9,7 +8,7 @@ const Home = () => {
       <Header />
       <Sales />
       <Besto />
-      <Footer />
+
     </div>
   );
 };

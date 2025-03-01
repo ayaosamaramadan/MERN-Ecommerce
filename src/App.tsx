@@ -6,6 +6,7 @@ import Navi from "./components/Navi";
 import Content from "./components/Content";
 import About from "./components/About";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Home/Footer";
 
 const App = () => {
   return (
@@ -16,8 +17,8 @@ const App = () => {
         <Route path="/content" element={<Content />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
-     
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 };
