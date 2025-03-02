@@ -22,6 +22,7 @@ import { RootState } from "../../main";
 const Besto = () => {
   // const item1 = useSelector((state: RootState) => state.cartt.items);
   const wishitem = useSelector((state: RootState) => state.wish.items);
+  
   const dispatch = useDispatch();
   const handleAddToCart = (product: Productpro) => {
     dispatch(addToCart(product));
@@ -88,12 +89,12 @@ const Besto = () => {
               <div className="justify-items-end w-full">
               {wishitem.find((item) => item.id === product.id) ? (
                 <IoIosHeart
-                  className="text-red-500 bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                  className="cursor-pointer text-red-500 bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
                   onClick={() => removefromwish(product)}
                 />
               ) : (
                 <IoIosHeartEmpty
-                  className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                  className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
                   onClick={() => addtowish(product)}
                 />
               )}

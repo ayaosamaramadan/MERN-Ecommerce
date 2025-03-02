@@ -7,15 +7,16 @@ import { BsTrash3 } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
 const Wishlist = () => {
   const items = useSelector((state: RootState) => state.wish.items);
+  const wishItemCount = items.reduce((total, item) => total + (item.quantity || 0), 0);
 
   return (
     <>
-      <div className="mt-52 ml-40">
-        <div className="justify-between flex">
-          <span className="text-[1.3rem]">Wishlist ({3})</span>
+      <div className="mt-52 ml-24 mr-20">
+        <div className="justify-between flex ml-5">
+          <span className="text-[1.3rem]">Wishlist ({wishItemCount})</span>
           <button
             type="submit"
-            className="mr-[7.4rem] border-2 border-gray-300 hover:bg-red-500 px-8 rounded text-black hover:text-white py-3 text-center"
+            className="mr-[1rem] border-2 border-gray-300 hover:bg-red-500 px-8 rounded text-black hover:text-white py-3 text-center"
           >
             Move All To Bag
           </button>

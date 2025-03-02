@@ -1,14 +1,17 @@
-import { IoIosHeartEmpty } from "react-icons/io";
+import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { salesProducts } from "../../api/sales";
 import { IoEyeOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { Productpro } from "../../types/product";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../reducers/cart";
-import { addToWish } from "../../reducers/wishlistt";
+import { addToWish ,removeFromWish} from "../../reducers/wishlistt";
+import { RootState } from "../../main";
 
 const Products = () => {
+  const wishitem = useSelector((state: RootState) => state.wish.items);
+ 
   const dispatch = useDispatch();
 
   const handleAddToCart = (product: Productpro) => {
@@ -18,16 +21,29 @@ const Products = () => {
   const addtowish = (product: Productpro) => {
     dispatch(addToWish(product));
   };
+
+  const removefromwish = (product: Productpro) => {
+    dispatch(removeFromWish(product
+    ));
+  }
   return (
     <>
       {salesProducts.slice(9, 17).map((product: Productpro) => (
         <div key={product.id}>
           <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
             <div className="justify-items-end w-full">
-              <IoIosHeartEmpty
-                className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
-                onClick={() => addtowish(product)}
-              />
+                {wishitem.find((item) => item.id === product.id) ? (
+                             <IoIosHeart
+                               className="cursor-pointer text-red-500 bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                               onClick={() => removefromwish(product)}
+                             />
+                           ) : (
+                             <IoIosHeartEmpty
+                               className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                               onClick={() => addtowish(product)}
+                             />
+                           )}
+             
               <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
             </div>
 
