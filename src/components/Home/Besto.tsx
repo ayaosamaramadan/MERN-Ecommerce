@@ -34,8 +34,7 @@ const Besto = () => {
   };
 
   const removefromwish = (product: Productpro) => {
-    dispatch(removeFromWish(product
-    ));
+    dispatch(removeFromWish(product));
   };
 
   const [isScrolled, setIsScrolled] = useState(false);

@@ -4,13 +4,14 @@ import { BsTrash3 } from "react-icons/bs";
 import { IoCartOutline } from "react-icons/io5";
 import { Productpro } from "../types/product";
 import { addToCart } from "../reducers/cart";
+import { removeFromWish } from "../reducers/wishlistt";
 
 const Wishlist = () => {
 
   const items = useSelector((state: RootState) => state.wish.items);
-  // const cartitemms = useSelector((state: RootState) => state.cartt.items);
 
   const dispatch = useDispatch();
+
   const wishItemCount = items.reduce(
     (total, item) => total + (item.quantity || 0),
     0
@@ -18,6 +19,10 @@ const Wishlist = () => {
 
     const handleAddToCart = (product: Productpro) => {
       dispatch(addToCart(product));
+    };
+
+    const removefromwish   = (product: Productpro) => {
+     dispatch(removeFromWish(product));
     };
 
   return (
@@ -34,7 +39,7 @@ const Wishlist = () => {
         </div>
 
         {items.length === 0 ? (
-          <div className="justify-center flex w-[90%] mt-10 py-10 border-2">
+          <div className="justify-center flex w-[90%] mt-10 py-10 border-2 ml-14">
             <p className="text-center text-gray-500">Your wishlist is empty</p>
           </div>
         ) : (
@@ -44,7 +49,10 @@ const Wishlist = () => {
                 <div key={item.id}>
                   <div className="flex flex-col col-span-4 rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
                     <div className="justify-items-end w-full">
-                      <BsTrash3 className="bg-white mt-2 rounded-2xl cursor-pointer text-[2rem] p-1.5 mr-[14px]" />
+                      <BsTrash3 className="bg-white mt-2 rounded-2xl cursor-pointer text-[2rem] p-1.5 mr-[14px]" 
+                       onClick={() => removefromwish(item)}
+                      
+                      />
                     </div>
 
                     <img
