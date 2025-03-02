@@ -1,10 +1,22 @@
 // import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../main";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { addToCart,decFromCart } from "../reducers/cart";
+import { Productpro } from "../types/product.";
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cartt.items);
+
+
+  const dispatch = useDispatch();
+  const inc = (cartitem:Productpro) => {
+    dispatch(addToCart(cartitem));
+  };
+
+  const dec = (cartitem:Productpro) => {
+    dispatch(decFromCart(cartitem.id));
+  };
 
   return (
     <div className="mt-52 ml-40">
@@ -42,8 +54,8 @@ const Cart = () => {
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <button type="submit" title="btn" className="mb-1"><IoIosArrowUp /></button>
-                    <button type="submit" title="btn" className="mt-1"><IoIosArrowDown /></button>
+                    <button type="submit" title="btn" onClick={()=>inc(item)} className="mb-1"><IoIosArrowUp /></button>
+                    <button type="submit" title="btn" onClick={()=>dec(item)} className="mt-1"><IoIosArrowDown /></button>
                   </div>
                 </li>
                 <li>${item.afterdiscount * (item.quantity || 1)}</li>

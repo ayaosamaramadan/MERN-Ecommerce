@@ -25,7 +25,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const index = state.items.findIndex((item) => item.id === action.payload.id);
+      const index = state.items.findIndex((item) => item.id ===action.payload.id);
       if (index >= 0) {
         state.items[index].quantity++;
     } else {
@@ -36,6 +36,21 @@ const cartSlice = createSlice({
       toast.success("Added to cart");
       localStorage.setItem("cartiteem", JSON.stringify(state.items));
     },
+
+    decFromCart: (state, action) => {
+      const data = localStorage.getItem("cartiteem");
+
+      if (data) {
+        const index = state.items.findIndex((item) => item.id === action.payload);
+        if (index >= 0) {
+      state.items[index].quantity--;
+        if (state.items[index].quantity === 0) {
+          state.items.splice(index, 1);
+          }
+        }
+        localStorage.setItem("cartiteem", JSON.stringify(state.items));
+      }
+    }
   },
 });
 
@@ -44,5 +59,5 @@ const cartSlice = createSlice({
             
         
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart,decFromCart } = cartSlice.actions;
 export default cartSlice.reducer;

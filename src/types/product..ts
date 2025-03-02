@@ -5,5 +5,5 @@ export type Productpro = {
   price?: number;
   afterdiscount: number;
   stars: number;
-  quantity: number;
+  quantity?: number;
 };
