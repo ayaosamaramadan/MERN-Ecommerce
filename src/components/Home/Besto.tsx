@@ -125,7 +125,7 @@ const Besto = () => {
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="flex pr-1 mt-2">
-                    {product.stars > i ? (
+                    {(product.stars||0)  > i ? (
                       <FaStar className="text-yellow-500" />
                     ) : (
                       <CiStar className="text-gray-900" />

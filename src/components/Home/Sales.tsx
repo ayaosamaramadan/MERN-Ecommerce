@@ -12,7 +12,7 @@ import {
 import { Productpro } from "../../types/product";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../reducers/cart";
-import { addToWish ,removeFromWish} from "../../reducers/wishlistt";
+import { addToWish, removeFromWish } from "../../reducers/wishlistt";
 import { RootState } from "../../main";
 
 const Sales = () => {
@@ -28,7 +28,7 @@ const Sales = () => {
 
   const removefromwish = (product: Productpro) => {
     dispatch(removeFromWish(product));
-  }
+  };
   return (
     <>
       <Timeoutt />
@@ -37,17 +37,17 @@ const Sales = () => {
           <div key={product.id}>
             <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
               <div className="justify-items-end w-full">
-                    {wishitem.find((item) => item.id === product.id) ? (
-                                             <IoIosHeart
-                                               className="cursor-pointer text-red-500 bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
-                                               onClick={() => removefromwish(product)}
-                                             />
-                                           ) : (
-                                             <IoIosHeartEmpty
-                                               className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
-                                               onClick={() => addtowish(product)}
-                                             />
-                                           )}
+                {wishitem.find((item) => item.id === product.id) ? (
+                  <IoIosHeart
+                    className="cursor-pointer text-red-500 bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                    onClick={() => removefromwish(product)}
+                  />
+                ) : (
+                  <IoIosHeartEmpty
+                    className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                    onClick={() => addtowish(product)}
+                  />
+                )}
                 <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
               </div>
               <img
@@ -72,7 +72,7 @@ const Sales = () => {
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="flex pr-1 mt-2">
-                    {product.stars > i ? (
+                    {(product.stars||0) > i ? (
                       <FaStar className="text-yellow-500" />
                     ) : (
                       <CiStar className="text-gray-900" />

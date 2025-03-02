@@ -4,9 +4,9 @@ export type Productpro = {
   image: string;
   price?: number;
   afterdiscount: number;
-  stars: number;
+  stars?: number;
   quantity?: number;
   isLove?: boolean;
-  
+
 };
 
