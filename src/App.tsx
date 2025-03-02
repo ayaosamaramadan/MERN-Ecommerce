@@ -8,6 +8,7 @@ import About from "./components/About";
 import NotFound from "./components/NotFound";
 import Footer from "./components/Home/Footer";
 import Cart from "./components/Cart";
+import Wishlist from "./components/Wishlist";
 import { ToastContainer } from "react-toastify";
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/wishlist" element={<Wishlist />} />
 
       </Routes>
       <Footer/>

@@ -6,10 +6,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
 import cartReducer from "./reducers/cart";
+import wishReducer from "./reducers/wishlistt";
 
 const store = configureStore({
   reducer: {
     cartt: cartReducer,
+    wish: wishReducer,
   },
 });
 

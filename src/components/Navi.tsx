@@ -76,13 +76,24 @@ const Navi = () => {
           </div>
 
           <div className="text-black flex 2xl:text-[26px] xl:text-[26px] sm:text-[22px] 2sm:text-[22px]  mt-4 lg:mt-0 lg:mr-[50px] xl:pl-5">
-            <IoIosHeartEmpty className="mr-[10px]" />
-          <Link to="./cart">
-          <IoCartOutline className="ml-[10px]" />
-          <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[7.3rem] right-[2.5rem] text-[0.8rem] pb-[0.4rem]">
+
+            <Link to="./wishlist"> 
+             <IoIosHeartEmpty className="mr-[10px]" />
+           {cartItemCount===0 ? null :  <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]">
               {cartItemCount}
             </span>
+            }
+
+            </Link>
+          
+          <Link to="./cart">
+          <IoCartOutline className="ml-[10px]" />
+         
           </Link>
+          {cartItemCount===0 ? null :   <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[2.5rem] text-[0.8rem] pb-[0.4rem]">
+              {cartItemCount}
+            </span>
+            }
           </div>
         </div>
       </div>
