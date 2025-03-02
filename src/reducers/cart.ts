@@ -16,7 +16,7 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  items: [],
+  items:  localStorage.getItem("cartiteem") ? JSON.parse(localStorage.getItem("cartiteem")!) : [],
   status: null,
 };
 
@@ -27,6 +27,7 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       state.items.push(action.payload);
       toast.success("Added to cart");
+      localStorage.setItem("cartiteem", JSON.stringify(state.items));
     },
   },
 });
