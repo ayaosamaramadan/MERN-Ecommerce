@@ -3,7 +3,7 @@ import { salesProducts } from "../../api/sales";
 import { IoEyeOutline } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
-import { Productpro } from "../../types/product.";
+import { Productpro } from "../../types/product";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../reducers/cart";
 import { addToWish } from "../../reducers/wishlistt";
@@ -15,16 +15,19 @@ const Products = () => {
     dispatch(addToCart(product));
   };
 
-    const addtowish = (product: Productpro) => {
-      dispatch(addToWish(product));
-    }
+  const addtowish = (product: Productpro) => {
+    dispatch(addToWish(product));
+  };
   return (
     <>
       {salesProducts.slice(9, 17).map((product: Productpro) => (
         <div key={product.id}>
           <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
             <div className="justify-items-end w-full">
-              <IoIosHeartEmpty className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1" onClick={()=>addtowish(product)}/>
+              <IoIosHeartEmpty
+                className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                onClick={() => addtowish(product)}
+              />
               <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
             </div>
 
@@ -35,7 +38,9 @@ const Products = () => {
             />
 
             <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
-              <button type="submit" onClick={()=>handleAddToCart(product)}>Add To Cart</button>
+              <button type="submit" onClick={() => handleAddToCart(product)}>
+                Add To Cart
+              </button>
             </div>
           </div>
           <div className="flex flex-col rounded hover:opacity-100 relative group mt-4 p-4">
@@ -59,10 +64,6 @@ const Products = () => {
           </div>
         </div>
       ))}
-
-
-
-
     </>
   );
 };

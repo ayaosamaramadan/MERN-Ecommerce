@@ -3,6 +3,7 @@ import {
   IoIosArrowRoundBack,
   IoIosArrowRoundForward,
   IoIosArrowRoundUp,
+  IoIosHeart,
   IoIosHeartEmpty,
 } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
@@ -10,24 +11,31 @@ import { CiStar } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import Products from "./Products";
 import { salesProducts } from "../../api/sales";
-import { Productpro } from "../../types/product.";
+import { Productpro } from "../../types/product";
 
 import Serv from "./Serv";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../reducers/cart";
-import { addToWish } from "../../reducers/wishlistt";
+import { addToWish, removeFromWish } from "../../reducers/wishlistt";
+import { RootState } from "../../main";
 
 const Besto = () => {
+  // const item1 = useSelector((state: RootState) => state.cartt.items);
+  const wishitem = useSelector((state: RootState) => state.wish.items);
   const dispatch = useDispatch();
   const handleAddToCart = (product: Productpro) => {
     dispatch(addToCart(product));
   };
 
-  
-    const addtowish = (product: Productpro) => {
-        dispatch(addToWish(product));
-      }
+  // const [isLove, setIsLove] = useState<{ [key: number]: boolean }>({});
+  const addtowish = (product: Productpro) => {
+    dispatch(addToWish(product));
+  };
 
+  const removefromwish = (product: Productpro) => {
+    dispatch(removeFromWish(product
+    ));
+  };
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -52,8 +60,6 @@ const Besto = () => {
       behavior: "smooth",
     });
   };
-
-
 
   return (
     <>
@@ -80,7 +86,18 @@ const Besto = () => {
           <div key={product.id}>
             <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
               <div className="justify-items-end w-full">
-                <IoIosHeartEmpty className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1" onClick={()=>addtowish(product)}/>
+              {wishitem.find((item) => item.id === product.id) ? (
+                <IoIosHeart
+                  className="text-red-500 bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                  onClick={() => removefromwish(product)}
+                />
+              ) : (
+                <IoIosHeartEmpty
+                  className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                  onClick={() => addtowish(product)}
+                />
+              )}
+
                 <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
               </div>
 
@@ -91,7 +108,9 @@ const Besto = () => {
               />
 
               <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
-                <button type="submit" onClick={()=>handleAddToCart(product)}>Add To Cart</button>
+                <button type="submit" onClick={() => handleAddToCart(product)}>
+                  Add To Cart
+                </button>
               </div>
             </div>
             <div className="flex flex-col rounded hover:opacity-100 relative group mt-4 p-4">

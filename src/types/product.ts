@@ -6,7 +6,7 @@ export type Productpro = {
   afterdiscount: number;
   stars: number;
   quantity?: number;
+  isLove?: boolean;
   
-
 };
 
