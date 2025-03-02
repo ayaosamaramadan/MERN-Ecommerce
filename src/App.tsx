@@ -8,10 +8,18 @@ import About from "./components/About";
 import NotFound from "./components/NotFound";
 import Footer from "./components/Home/Footer";
 import Cart from "./components/Cart";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <BrowserRouter>
+     <ToastContainer 
+     
+       hideProgressBar={true}
+         toastClassName="custom-toast"
+           position="bottom-right"
+      />
+     
       <Navi />
       <Routes>
         <Route path="/" element={<Home />} />

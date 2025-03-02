@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {toast} from "react-toastify";
 
 interface CartItem {
   id: string;
@@ -25,6 +26,7 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       state.items.push(action.payload);
+      toast.success("Added to cart");
     },
   },
 });
