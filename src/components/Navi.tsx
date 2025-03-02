@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import { RootState } from "../main";
 
 const Navi = () => {
-  const items = useSelector((state: RootState) => state.cartt.items);
-  const cartItemCount = items.reduce((total, item) => total + item.quantity, 0);
+  const item1 = useSelector((state: RootState) => state.cartt.items);
+  const items2 = useSelector((state: RootState) => state.wish.items);
+  const cartItemCount = item1.reduce((total, item) => total + item.quantity, 0);
+  const wishItemCount = items2.reduce((total, item) => total + (item.quantity || 0), 0);
 
 
   return (
@@ -79,8 +81,8 @@ const Navi = () => {
 
             <Link to="./wishlist"> 
              <IoIosHeartEmpty className="mr-[10px]" />
-           {cartItemCount===0 ? null :  <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]">
-              {cartItemCount}
+           {wishItemCount===0 ? null :  <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]">
+              {wishItemCount}
             </span>
             }
 

@@ -6,6 +6,7 @@ import { CiStar } from "react-icons/ci";
 import { Productpro } from "../../types/product.";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../reducers/cart";
+import { addToWish } from "../../reducers/wishlistt";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -13,13 +14,17 @@ const Products = () => {
   const handleAddToCart = (product: Productpro) => {
     dispatch(addToCart(product));
   };
+
+    const addtowish = (product: Productpro) => {
+      dispatch(addToWish(product));
+    }
   return (
     <>
       {salesProducts.slice(9, 17).map((product: Productpro) => (
         <div key={product.id}>
           <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
             <div className="justify-items-end w-full">
-              <IoIosHeartEmpty className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1" />
+              <IoIosHeartEmpty className="bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1" onClick={()=>addtowish(product)}/>
               <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
             </div>
 

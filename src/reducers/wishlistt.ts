@@ -8,6 +8,7 @@ export interface WishItem {
     name: string;
     price: number;
     afterdiscount: number;
+    quantity?: number;
   }
 
 interface WishState {
