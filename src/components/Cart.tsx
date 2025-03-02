@@ -1,21 +1,21 @@
-// import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../main";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { addToCart,decFromCart } from "../reducers/cart";
-import { Productpro } from "../types/product.";
+import { inctoCart, decFromCart } from "../reducers/cart";
+import { CartItem } from "../reducers/cart";
+
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cartt.items);
 
-
   const dispatch = useDispatch();
-  const inc = (cartitem:Productpro) => {
-    dispatch(addToCart(cartitem));
+
+  const inc = (product: CartItem) => {
+    dispatch(inctoCart(product));
   };
 
-  const dec = (cartitem:Productpro) => {
-    dispatch(decFromCart(cartitem.id));
+  const dec = (product: CartItem) => {
+    dispatch(decFromCart(product.id));
   };
 
   return (
@@ -24,7 +24,9 @@ const Cart = () => {
       <span>Cart</span>
 
       {items.length === 0 ? (
-        <p>Your cart is empty</p>
+        <div className="justify-center flex w-[90%] mt-10 py-10 border-2">
+          <p className="text-center text-gray-500">Your cart is empty</p>
+        </div>
       ) : (
         <>
           <div>
@@ -36,8 +38,11 @@ const Cart = () => {
             </ul>
 
             {items.map((item) => (
-                         <ul className="items-left flex justify-between w-[90%] mt-5 p-5 px-12 border-2">
-                <li className="flex ">
+              <ul
+                className="items-left flex justify-between w-[90%] mt-5 p-5 px-12 border-2"
+                key={item.id}
+              >
+                <li className="flex">
                   <img
                     src={item.image}
                     alt="product img"
@@ -54,11 +59,25 @@ const Cart = () => {
                   </div>
 
                   <div className="flex flex-col items-center">
-                    <button type="submit" title="btn" onClick={()=>inc(item)} className="mb-1"><IoIosArrowUp /></button>
-                    <button type="submit" title="btn" onClick={()=>dec(item)} className="mt-1"><IoIosArrowDown /></button>
+                    <button
+                      type="submit"
+                      title="btn"
+                      onClick={() => inc(item)}
+                      className="mb-1"
+                    >
+                      <IoIosArrowUp />
+                    </button>
+                    <button
+                      type="submit"
+                      title="btn"
+                      onClick={() => dec(item)}
+                      className="mt-1"
+                    >
+                      <IoIosArrowDown />
+                    </button>
                   </div>
                 </li>
-                <li>${item.afterdiscount * (item.quantity || 1)}</li>
+                <li>${item.afterdiscount * item.quantity}</li>
               </ul>
             ))}
           </div>
