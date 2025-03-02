@@ -38,7 +38,7 @@ const Cart = () => {
                 <li>${item.afterdiscount}</li>
                 <li className="items-center text-[0.8rem] rounded flex border-2 px-2">
                   <div className="">
-                    <p className="pr-2">03</p>
+                    <p className="pr-2">{item.quantity}</p>
                   </div>
 
                   <div className="flex flex-col items-center">
