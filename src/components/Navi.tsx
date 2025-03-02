@@ -1,9 +1,15 @@
 import { CiSearch } from "react-icons/ci";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { RootState } from "../main";
 
 const Navi = () => {
+  const items = useSelector((state: RootState) => state.cartt.items);
+  const cartItemCount = items.reduce((total, item) => total + item.quantity, 0);
+
+
   return (
     <>
       <div className="border-b-2 border-black-100 fixed top-0 left-0 w-full z-50 bg-white">
@@ -71,7 +77,12 @@ const Navi = () => {
 
           <div className="text-black flex 2xl:text-[26px] xl:text-[26px] sm:text-[22px] 2sm:text-[22px]  mt-4 lg:mt-0 lg:mr-[50px] xl:pl-5">
             <IoIosHeartEmpty className="mr-[10px]" />
-          <Link to="./cart"><IoCartOutline className="ml-[10px]" /></Link>
+          <Link to="./cart">
+          <IoCartOutline className="ml-[10px]" />
+          <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[7.3rem] right-[2.5rem] text-[0.8rem] pb-[0.4rem]">
+              {cartItemCount}
+            </span>
+          </Link>
           </div>
         </div>
       </div>
