@@ -61,6 +61,10 @@ const Besto = () => {
     });
   };
 
+  
+  const goToProduct = (id: number) => {
+    window.location.href = `/product/${id}`;
+  };
   return (
     <>
       <div className="justify-between flex ml-32 mt-24 mr-32">
@@ -107,6 +111,8 @@ const Besto = () => {
               <img
                 src={product.image}
                 alt="product"
+                onClick={()=>goToProduct(product.id)}
+              
                 className="w-[230px] h-[180px] hover:opacity-80"
               />
 

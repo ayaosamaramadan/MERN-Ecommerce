@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../reducers/cart";
 import { addToWish, removeFromWish } from "../../reducers/wishlistt";
 import { RootState } from "../../main";
+// import { Link } from "react-router";
 
 const Products = () => {
   const wishitem = useSelector((state: RootState) => state.wish.items);
@@ -24,6 +25,12 @@ const Products = () => {
 
   const removefromwish = (product: Productpro) => {
     dispatch(removeFromWish(product));
+  };
+
+  const goToProduct = (id: number) => {
+    // window.location.href = `/product/${id}`;
+    window.location.href = `/product/${id}`;
+    // <Link to={`/product/${id}`} />
   };
   return (
     <>
@@ -46,7 +53,10 @@ const Products = () => {
               <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
             </div>
 
-            <img
+            <img 
+
+            onClick={()=>goToProduct(product.id)}
+            
               src={product.image}
               alt="product"
               className="w-[230px] h-[180px] hover:opacity-80"

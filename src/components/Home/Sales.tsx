@@ -29,6 +29,13 @@ const Sales = () => {
   const removefromwish = (product: Productpro) => {
     dispatch(removeFromWish(product));
   };
+
+
+  const goToProduct = (id: number) => {
+ 
+    window.location.href = `/product/${id}`;
+   
+  };
   return (
     <>
       <Timeoutt />
@@ -53,6 +60,8 @@ const Sales = () => {
               <img
                 src={product.image}
                 alt="product"
+                onClick={()=>goToProduct(product.id)}
+             
                 className="w-[230px] h-[180px] hover:opacity-80"
               />
               <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
