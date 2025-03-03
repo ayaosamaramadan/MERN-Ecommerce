@@ -3,7 +3,7 @@ import { RootState } from "../main";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { inctoCart, decFromCart } from "../reducers/cart";
 import { CartItem } from "../reducers/cart";
-
+import { Link } from "react-router";
 
 const Cart = () => {
   const items = useSelector((state: RootState) => state.cartt.items);
@@ -83,6 +83,55 @@ const Cart = () => {
           </div>
         </>
       )}
+
+      <div className="justify-between w-[91.4%] mt-10 flex">
+        <Link to="/">
+          <button className="mr-[1rem] border-2 border-gray-300 hover:bg-red-500 px-8 rounded text-black hover:text-white py-3 text-center">
+            Return To Shop
+          </button>
+        </Link>
+        <button className="mr-[1rem] border-2 border-gray-300 hover:bg-red-500 px-8 rounded text-black hover:text-white py-3 text-center">
+          Update Cart
+        </button>
+      </div>
+
+      <div className="justify-between mt-14 mr-[7.3rem] flex">
+        <div className="w-[49%]">
+          <input
+            className="input"
+            type="text"
+            name=""
+            id=""
+            placeholder="Coupon Code"
+          />
+          <button className="bg-red-500 px-8  rounded m-5 mt-10 text-white py-3 text-center">
+            Apply Coupon
+          </button>
+        </div>
+        <div className="border-[0.1rem] border-black p-5 px-10 rounded">
+          <h1 className="text-[1.2rem]">Cart Total</h1>
+          <div className="flex justify-between mt-5 pb-3 border-gray-400 border-b-[0.1rem] w-full">
+         
+            <p>Subtotal</p>
+            <p>
+              ${items.reduce((a, b) => a + b.afterdiscount * b.quantity, 0)}
+            </p>
+          </div>
+          <div className="flex justify-between mt-5 pb-3 border-gray-400 border-b-[0.1rem] w-full">
+            <p>Shipping</p>
+            <p>Free</p>
+          </div>
+          <div className="flex justify-between mt-5">
+            <p>Total</p>
+            <p>
+              ${items.reduce((a, b) => a + b.afterdiscount * b.quantity, 0)}
+            </p>
+          </div>
+          <button className="ml-14 bg-red-500 px-8 justify-center rounded m-5 mt-10 text-white py-3 text-center">
+            Procees To Checkout
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -19,6 +19,15 @@ input::placeholder {
   background-color: transparent;
 }
 
+.input {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #3b3b3b;
+}
+
 .inputt::placeholder {
   color: #494949;
   font-size: 0.8rem;

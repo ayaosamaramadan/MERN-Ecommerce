@@ -36,7 +36,7 @@ const Timeoutt = () => {
       <div className="flex ml-32 mt-32 mr-32 justify-between">
         <div>
           <div className="flex mt-10">
-            <img src="/src/assets/Rectangle 17.png" alt="" />
+            <img src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png" alt="" />
             <p className="text-red-500 font-bold ml-5 mt-2">Today’s</p>
           </div>
           <div>

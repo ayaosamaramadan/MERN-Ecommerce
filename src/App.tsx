@@ -10,6 +10,7 @@ import Footer from "./components/Home/Footer";
 import Cart from "./components/Cart";
 import Wishlist from "./components/Wishlist";
 import { ToastContainer } from "react-toastify";
+import Checkout from "./components/Checkout";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/checkout" element={<Checkout />} />
 
       </Routes>
       <Footer/>

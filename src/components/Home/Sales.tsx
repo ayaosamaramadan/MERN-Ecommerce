@@ -1,5 +1,5 @@
 import { CiStar } from "react-icons/ci";
-import { catigorys, salesProducts } from "../../api/sales";
+import { catigorys, salesProducts } from "../../api/productss";
 import { FaStar } from "react-icons/fa";
 import Timeoutt from "./Timeoutt";
 import { IoEyeOutline } from "react-icons/io5";
@@ -72,7 +72,7 @@ const Sales = () => {
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="flex pr-1 mt-2">
-                    {(product.stars||0) > i ? (
+                    {(product.stars || 0) > i ? (
                       <FaStar className="text-yellow-500" />
                     ) : (
                       <CiStar className="text-gray-900" />
@@ -96,7 +96,10 @@ const Sales = () => {
       <div className="justify-between flex ml-32 mt-24 mr-32">
         <div>
           <div className="flex mt-10">
-            <img src="/src/assets/Rectangle 17.png" alt="" />
+            <img
+              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
+              alt=""
+            />
             <p className="text-red-500 font-bold ml-5 mt-2">Categories</p>
           </div>
           <div className=" mt-5">

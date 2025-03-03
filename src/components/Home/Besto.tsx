@@ -10,7 +10,7 @@ import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
 import Products from "./Products";
-import { salesProducts } from "../../api/sales";
+import { salesProducts } from "../../api/productss";
 import { Productpro } from "../../types/product";
 
 import Serv from "./Serv";
@@ -22,7 +22,7 @@ import { RootState } from "../../main";
 const Besto = () => {
   // const item1 = useSelector((state: RootState) => state.cartt.items);
   const wishitem = useSelector((state: RootState) => state.wish.items);
-  
+
   const dispatch = useDispatch();
   const handleAddToCart = (product: Productpro) => {
     dispatch(addToCart(product));
@@ -66,7 +66,10 @@ const Besto = () => {
       <div className="justify-between flex ml-32 mt-24 mr-32">
         <div>
           <div className="flex mt-10">
-            <img src="/src/assets/Rectangle 17.png" alt="" />
+            <img
+              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
+              alt=""
+            />
             <p className="text-red-500 font-bold ml-5 mt-2">This Month</p>
           </div>
           <div className=" mt-5">
@@ -86,17 +89,17 @@ const Besto = () => {
           <div key={product.id}>
             <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
               <div className="justify-items-end w-full">
-              {wishitem.find((item) => item.id === product.id) ? (
-                <IoIosHeart
-                  className="cursor-pointer text-red-500 bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
-                  onClick={() => removefromwish(product)}
-                />
-              ) : (
-                <IoIosHeartEmpty
-                  className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
-                  onClick={() => addtowish(product)}
-                />
-              )}
+                {wishitem.find((item) => item.id === product.id) ? (
+                  <IoIosHeart
+                    className="cursor-pointer text-red-500 bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                    onClick={() => removefromwish(product)}
+                  />
+                ) : (
+                  <IoIosHeartEmpty
+                    className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
+                    onClick={() => addtowish(product)}
+                  />
+                )}
 
                 <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
               </div>
@@ -124,7 +127,7 @@ const Besto = () => {
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <span key={i} className="flex pr-1 mt-2">
-                    {(product.stars||0)  > i ? (
+                    {(product.stars || 0) > i ? (
                       <FaStar className="text-yellow-500" />
                     ) : (
                       <CiStar className="text-gray-900" />
@@ -148,7 +151,10 @@ const Besto = () => {
       <div className="justify-between flex ml-32 mt-24 mb-16 mr-32">
         <div>
           <div className="flex mt-10">
-            <img src="/src/assets/Rectangle 17.png" alt="" />
+            <img
+              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
+              alt=""
+            />
             <p className="text-red-500 font-bold ml-5 mt-2">Our Products</p>
           </div>
           <div className=" mt-5">
@@ -177,7 +183,10 @@ const Besto = () => {
 
       <div className="justify-between ml-40 mt-24 mb-10 mr-32">
         <div className="flex mt-10">
-          <img src="/src/assets/Rectangle 17.png" alt="" />
+          <img
+            src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
+            alt=""
+          />
           <p className="text-red-500 font-bold ml-5 mt-2">Featured</p>
         </div>
         <div className=" mt-5">
