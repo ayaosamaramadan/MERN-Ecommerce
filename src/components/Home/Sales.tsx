@@ -71,6 +71,7 @@ const Sales = () => {
               </div>
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
+                  <>
                   <span key={i} className="flex pr-1 mt-2">
                     {(product.stars || 0) > i ? (
                       <FaStar className="text-yellow-500" />
@@ -78,8 +79,13 @@ const Sales = () => {
                       <CiStar className="text-gray-900" />
                     )}
                   </span>
+                 
+                  
+                  </>
                 ))}
-              </div>
+                    <div className="text-gray-600 mt-2 ml-1 text-sm">({product.rate})</div>
+              </div> 
+            
             </div>
           </div>
         ))}

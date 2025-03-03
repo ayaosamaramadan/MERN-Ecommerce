@@ -7,6 +7,7 @@ export const salesProducts = [
     stars: 5,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740719900/2_fsqbfc.png",
+    rate: 88,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const salesProducts = [
     stars: 4,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740719900/1_2_pakfrj.png",
+    rate: 75,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const salesProducts = [
     stars: 5,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740719900/3_mv7axr.png",
+    rate: 93,
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const salesProducts = [
     stars: 3,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740719900/5_dekkex.png",
+    rate: 34,
   },
   {
     id: 5,
@@ -43,6 +47,7 @@ export const salesProducts = [
     stars: 4,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740721025/Frame_608_ruubxm.png",
+    rate: 44,
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ export const salesProducts = [
     stars: 5,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722431/k_i7wucl.png",
+    rate: 64,
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ export const salesProducts = [
     stars: 4,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722429/kk_fqzg8a.png",
+    rate: 84,
   },
   {
     id: 8,
@@ -70,6 +77,7 @@ export const salesProducts = [
     stars: 5,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722430/kkk_w2tcsv.png",
+    rate: 76,
   },
   {
     id: 9,
@@ -79,6 +87,7 @@ export const salesProducts = [
     stars: 3,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722432/kkkk_tbento.png",
+    rate: 34,
   },
 
   {
@@ -88,6 +97,7 @@ export const salesProducts = [
     stars: 3,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777422/react%20eco/kpsdebbcmjx8awe9vobb.png",
+    rate: 29,
   },
   {
     id: 11,
@@ -96,6 +106,7 @@ export const salesProducts = [
     stars: 4,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777422/react%20eco/cugxfksc2dtlfhmhsc5g.png",
+    rate: 91,
   },
   {
     id: 12,
@@ -104,6 +115,7 @@ export const salesProducts = [
     stars: 5,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777422/react%20eco/zvkdcvxxfjs24xjeipmb.png",
+    rate: 83,
   },
   {
     id: 13,
@@ -112,6 +124,7 @@ export const salesProducts = [
     stars: 4,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777422/react%20eco/tfzjqy478idimwjq58rg.png",
+    rate: 63,
   },
   {
     id: 14,
@@ -120,6 +133,7 @@ export const salesProducts = [
     stars: 5,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777422/react%20eco/h6nvafzg2g6qnpdfwk4v.png",
+    rate: 56,
   },
   {
     id: 15,
@@ -128,6 +142,7 @@ export const salesProducts = [
     stars: 5,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777423/react%20eco/njvyfn4aassnllib0v4g.png",
+    rate: 29,
   },
   {
     id: 16,
@@ -136,6 +151,7 @@ export const salesProducts = [
     stars: 4,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777424/react%20eco/n8ml1978wazxqamahg56.png",
+    rate: 84,
   },
   {
     id: 17,
@@ -144,6 +160,7 @@ export const salesProducts = [
     stars: 4,
     image:
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777423/react%20eco/v9angyigizbeytkgqpjl.png",
+    rate: 23,
   },
 ];
 

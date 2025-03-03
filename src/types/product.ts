@@ -7,6 +7,7 @@ export type Productpro = {
   stars?: number;
   quantity?: number;
   isLove?: boolean;
+  rate?: number;
 
 };
 

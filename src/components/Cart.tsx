@@ -85,7 +85,8 @@ const Cart = () => {
       )}
 
       <div className="justify-between w-[91.4%] mt-10 flex">
-        <Link to="/">
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+               >
           <button className="mr-[1rem] border-2 border-gray-300 hover:bg-red-500 px-8 rounded text-black hover:text-white py-3 text-center">
             Return To Shop
           </button>
@@ -127,9 +128,15 @@ const Cart = () => {
               ${items.reduce((a, b) => a + b.afterdiscount * b.quantity, 0)}
             </p>
           </div>
-          <button className="ml-14 bg-red-500 px-8 justify-center rounded m-5 mt-10 text-white py-3 text-center">
+        <Link to="/checkout">
+        <button className="ml-14 bg-red-500 px-8 justify-center rounded m-5 mt-10 text-white py-3 text-center"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+               
+          
+          >
             Procees To Checkout
           </button>
+        </Link>
         </div>
       </div>
     </div>
