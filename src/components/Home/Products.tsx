@@ -50,13 +50,13 @@ const Products = () => {
                 />
               )}
 
-              <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
+              <IoEyeOutline
+                className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px] cursor-pointer"
+                onClick={() => goToProduct(product.id)}
+              />
             </div>
 
-            <img 
-
-            onClick={()=>goToProduct(product.id)}
-            
+            <img
               src={product.image}
               alt="product"
               className="w-[230px] h-[180px] hover:opacity-80"
@@ -77,18 +77,19 @@ const Products = () => {
             </div>
             <div className="flex">
               {[...Array(5)].map((_, i) => (
-                <><span key={i} className="flex pr-1 mt-2">
-                  {(product.stars || 0) > i ? (
-                    <FaStar className="text-yellow-500" />
-                  ) : (
-                    <CiStar className="text-gray-900" />
-                  )}
-                </span>
-                           
+                <>
+                  <span key={i} className="flex pr-1 mt-2">
+                    {(product.stars || 0) > i ? (
+                      <FaStar className="text-yellow-500" />
+                    ) : (
+                      <CiStar className="text-gray-900" />
+                    )}
+                  </span>
                 </>
-                
               ))}
-              <div className="text-gray-600 mt-2 ml-1 text-sm">({product.rate})</div>
+              <div className="text-gray-600 mt-2 ml-1 text-sm">
+                ({product.rate})
+              </div>
             </div>
           </div>
         </div>

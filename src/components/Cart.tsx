@@ -18,6 +18,10 @@ const Cart = () => {
     dispatch(decFromCart(product.id));
   };
 
+  const goToProduct = (id: number) => {
+    window.location.href = `/product/${id}`;
+  };
+
   return (
     <div className="mt-52 ml-40">
       <span className="text-gray-400">Home / </span>
@@ -46,7 +50,8 @@ const Cart = () => {
                   <img
                     src={item.image}
                     alt="product img"
-                    className="w-10 h-10 mr-4"
+                    onClick={() => goToProduct(item.id)}
+                    className="w-10 h-10 mr-4 cursor-pointer"
                   />
                   <p className="max-w-xs">
                     {item.name.split(" ").slice(0, 2).join(" ")}
@@ -85,8 +90,10 @@ const Cart = () => {
       )}
 
       <div className="justify-between w-[91.4%] mt-10 flex">
-        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-               >
+        <Link
+          to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
           <button className="mr-[1rem] border-2 border-gray-300 hover:bg-red-500 px-8 rounded text-black hover:text-white py-3 text-center">
             Return To Shop
           </button>
@@ -112,7 +119,6 @@ const Cart = () => {
         <div className="border-[0.1rem] border-black p-5 px-10 rounded">
           <h1 className="text-[1.2rem]">Cart Total</h1>
           <div className="flex justify-between mt-5 pb-3 border-gray-400 border-b-[0.1rem] w-full">
-         
             <p>Subtotal</p>
             <p>
               ${items.reduce((a, b) => a + b.afterdiscount * b.quantity, 0)}
@@ -128,15 +134,14 @@ const Cart = () => {
               ${items.reduce((a, b) => a + b.afterdiscount * b.quantity, 0)}
             </p>
           </div>
-        <Link to="/checkout">
-        <button className="ml-14 bg-red-500 px-8 justify-center rounded m-5 mt-10 text-white py-3 text-center"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-               
-          
-          >
-            Procees To Checkout
-          </button>
-        </Link>
+          <Link to="/checkout">
+            <button
+              className="ml-14 bg-red-500 px-8 justify-center rounded m-5 mt-10 text-white py-3 text-center"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Procees To Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>

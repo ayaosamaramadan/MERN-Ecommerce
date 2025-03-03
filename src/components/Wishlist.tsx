@@ -27,6 +27,11 @@ const Wishlist = () => {
     dispatch(removeFromWish(product));
   };
 
+  const goToProduct = (id: number) => {
+    window.location.href = `/product/${id}`;
+  };
+
+
   return (
     <>
       <div className="mt-52 ml-24 mr-20">
@@ -60,6 +65,7 @@ const Wishlist = () => {
                     <img
                       src={item.image}
                       alt="item"
+                      onClick={()=>goToProduct(item.id)}
                       className="w-[230px] h-[180px] hover:opacity-80"
                     />
 
@@ -97,7 +103,7 @@ const Wishlist = () => {
               <img
                 src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
                 alt=""
-              />
+                            />
               <p className="ml-5 text-[1.5rem] mt-2">Just For You</p>
             </div>
           </div>
@@ -116,13 +122,14 @@ const Wishlist = () => {
                 <div className="justify-items-end w-full">
                   <IoEyeOutline
                     className="bg-white rounded-2xl cursor-pointer text-[2rem] p-1.5 mr-[14px]"
-                    onClick={() => removefromwish(item)}
+                    onClick={()=>goToProduct(item.id)}
                   />
                 </div>
 
                 <img
                   src={item.image}
                   alt="item"
+                
                   className="w-[230px] h-[180px] hover:opacity-80"
                 />
 

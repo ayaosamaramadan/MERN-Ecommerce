@@ -55,14 +55,15 @@ const Sales = () => {
                     onClick={() => addtowish(product)}
                   />
                 )}
-                <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px]" />
+                <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px] cursor-pointer" 
+                 onClick={()=>goToProduct(product.id)}
+                 />
               </div>
               <img
                 src={product.image}
                 alt="product"
-                onClick={()=>goToProduct(product.id)}
-             
-                className="w-[230px] h-[180px] hover:opacity-80"
+              
+                className="w-[230px] h-[180px] hover:opacity-80 "
               />
               <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
                 <button type="submit" onClick={() => handleAddToCart(product)}>
