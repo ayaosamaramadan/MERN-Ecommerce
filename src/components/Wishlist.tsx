@@ -161,6 +161,9 @@ const Wishlist = () => {
                         )}
                       </span>
                     ))}
+                     <div className="text-gray-600 mt-2 ml-1 text-sm">
+                  ({item.rate})
+                </div>
                   </div>
                 </div>
               </div>
