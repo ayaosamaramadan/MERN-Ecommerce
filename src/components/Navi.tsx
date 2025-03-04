@@ -4,10 +4,12 @@ import { IoCartOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../main";
+import { FiUser } from "react-icons/fi";
 
 const Navi = () => {
   const item1 = useSelector((state: RootState) => state.cartt.items);
   const items2 = useSelector((state: RootState) => state.wish.items);
+  const theAuth = useSelector((state: RootState) => state.auth);
   const cartItemCount = item1.reduce((total, item) => total + item.quantity, 0);
   const wishItemCount = items2.reduce(
     (total, item) => total + (item.quantity || 0),
@@ -108,6 +110,13 @@ const Navi = () => {
                 {cartItemCount}
               </span>
             )}
+
+           {(theAuth._id)? <Link
+              to="./cart"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <FiUser className="ml-[20px]" />
+            </Link>:null}
           </div>
         </div>
       </div>
