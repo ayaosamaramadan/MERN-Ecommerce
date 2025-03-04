@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 export interface WishItem {
@@ -9,22 +9,28 @@ export interface WishItem {
   afterdiscount: number;
   quantity?: number;
   isLove?: boolean;
+  userEmail: string;
 }
 
 interface WishState {
   items: WishItem[];
+  userEmail: string | null;
 }
 
 const initialState: WishState = {
-  items: localStorage.getItem("favs")
-    ? JSON.parse(localStorage.getItem("favs")!)
-    : [],
+  items: [],
+  userEmail: null,
 };
 
 const wishSlice = createSlice({
   name: "favorite",
   initialState,
   reducers: {
+    setUserWish: (state, action: PayloadAction<string>) => {
+      state.userEmail = action.payload;
+      const storedItems = localStorage.getItem(`wishlist_${state.userEmail}`);
+      state.items = storedItems ? JSON.parse(storedItems) : [];
+    },
     addToWish: (state, action) => {
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
@@ -36,9 +42,13 @@ const wishSlice = createSlice({
         state.items.push(newItem);
       }
       toast.success("Item added to your wishlist");
-      localStorage.setItem("favs", JSON.stringify(state.items));
+      if (state.userEmail) {
+        localStorage.setItem(
+          `wishlist_${state.userEmail}`,
+          JSON.stringify(state.items)
+        );
+      }
     },
-
     removeFromWish: (state, action) => {
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
@@ -48,11 +58,15 @@ const wishSlice = createSlice({
         state.items.splice(index, 1);
       }
       toast.error("Item removed from your wishlist");
-      localStorage.setItem("favs", JSON.stringify(state.items));
+      if (state.userEmail) {
+        localStorage.setItem(
+          `wishlist_${state.userEmail}`,
+          JSON.stringify(state.items)
+        );
+      }
     },
   },
 });
 
-export const { addToWish, removeFromWish } = wishSlice.actions;
-
+export const { addToWish, removeFromWish, setUserWish } = wishSlice.actions;
 export default wishSlice.reducer;

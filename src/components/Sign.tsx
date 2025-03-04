@@ -31,6 +31,7 @@ const Sign = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // console.log(user);
+    
     dispatch(registerUser(user));
   };
 

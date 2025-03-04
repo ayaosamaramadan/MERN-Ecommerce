@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import { RootState, AppDispatch } from "../main";
 import { loginUser } from "../reducers/auth";
+import { setUserCart } from "../reducers/cart";
+import { setUserWish } from "../reducers/wishlistt";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,6 +19,8 @@ const Login = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(loginUser(user));
+    dispatch(setUserCart(user.email));
+    dispatch(setUserWish(user.email));
   };
 
   useEffect(() => {
@@ -24,6 +28,7 @@ const Login = () => {
       navigate("/cart");
     }
   }, [auth._id, navigate]);
+
 
 
   return (
@@ -59,7 +64,7 @@ const Login = () => {
             />
 
             <div className="flex py-[0.7rem] mt-3 text-center rounded text-[0.9rem] justify-between ">
-              <button
+             <button
                 onClick={handleSubmit}
          
                 type="submit"
@@ -67,7 +72,7 @@ const Login = () => {
               >
                 Log In
               </button>
-
+            
               <button type="submit" className="text-red-500">
                 Forget Password?
               </button>

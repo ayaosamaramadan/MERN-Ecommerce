@@ -85,7 +85,7 @@ const Sign = () => {
               />
               <button type="submit">Sign up with Google</button>
             </div>
-          </div>{" "}
+          </div>
           <p>
             Already have account?
             <Link to="login" className="underline">

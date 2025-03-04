@@ -1,8 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 export interface CartItem {
- 
   id: number;
   name: string;
   image: string;
@@ -10,26 +9,30 @@ export interface CartItem {
   afterdiscount: number;
   quantity: number;
   stars: number;
-  
-
+  userEmail: string;
 }
 
 interface CartState {
   items: CartItem[];
   status: string | null;
+  userEmail: string | null;
 }
 
 const initialState: CartState = {
-  items: localStorage.getItem("cartiteem")
-    ? JSON.parse(localStorage.getItem("cartiteem")!)
-    : [],
+  items: [],
   status: null,
+  userEmail: null,
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    setUserCart: (state, action: PayloadAction<string>) => {
+      state.userEmail = action.payload;
+      const storedItems = localStorage.getItem(`cartiteem_${state.userEmail}`);
+      state.items = storedItems ? JSON.parse(storedItems) : [];
+    },
     addToCart: (state, action) => {
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
@@ -38,13 +41,13 @@ const cartSlice = createSlice({
         state.items[index].quantity++;
       } else {
         const newItem = { ...action.payload, quantity: 1 };
-
         state.items.push(newItem);
       }
       toast.success("Item added to cart");
-      localStorage.setItem("cartiteem", JSON.stringify(state.items));
+      if (state.userEmail) {
+        localStorage.setItem(`cartiteem_${state.userEmail}`, JSON.stringify(state.items));
+      }
     },
-
     inctoCart: (state, action) => {
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
@@ -53,31 +56,28 @@ const cartSlice = createSlice({
         state.items[index].quantity++;
       } else {
         const newItem = { ...action.payload, quantity: 1 };
-
         state.items.push(newItem);
       }
-      localStorage.setItem("cartiteem", JSON.stringify(state.items));
+      if (state.userEmail) {
+        localStorage.setItem(`cartiteem_${state.userEmail}`, JSON.stringify(state.items));
+      }
     },
-
     decFromCart: (state, action) => {
-      const data = localStorage.getItem("cartiteem");
-
-      if (data) {
-        const index = state.items.findIndex(
-          (item) => item.id === action.payload
-        );
-        if (index >= 0) {
-          state.items[index].quantity--;
-          if (state.items[index].quantity === 0) {
-            state.items.splice(index, 1);
-          }
+      const index = state.items.findIndex(
+        (item) => item.id === action.payload
+      );
+      if (index >= 0) {
+        state.items[index].quantity--;
+        if (state.items[index].quantity === 0) {
+          state.items.splice(index, 1);
         }
-        localStorage.setItem("cartiteem", JSON.stringify(state.items));
+      }
+      if (state.userEmail) {
+        localStorage.setItem(`cartiteem_${state.userEmail}`, JSON.stringify(state.items));
       }
     },
   },
 });
 
-
-export const { addToCart, decFromCart, inctoCart } = cartSlice.actions;
+export const { addToCart, decFromCart, inctoCart, setUserCart } = cartSlice.actions;
 export default cartSlice.reducer;
