@@ -10,11 +10,18 @@ const Navi = () => {
   const item1 = useSelector((state: RootState) => state.cartt.items);
   const items2 = useSelector((state: RootState) => state.wish.items);
   const theAuth = useSelector((state: RootState) => state.auth);
+  const theemail = useSelector((state: RootState) => state.auth.email);
   const cartItemCount = item1.reduce((total, item) => total + item.quantity, 0);
   const wishItemCount = items2.reduce(
     (total, item) => total + (item.quantity || 0),
     0
   );
+
+  const handlelOut = (email: string) => {
+    localStorage.removeItem(`cartiteem_${email}`);
+    localStorage.removeItem(`wishlist_${email}`);
+    window.location.href = "/";
+  }
 
   return (
     <>
@@ -68,12 +75,22 @@ const Navi = () => {
               </Link>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
+            {theAuth._id ? (
+              <Link
+                onClick={() => handlelOut(theemail)}
+                to="/"
+              >
+                Log Out
+              </Link>
+            ) : (
               <Link
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/sign"
               >
                 Sign Up
               </Link>
+            )}
+                
             </li>
           </ul>
 

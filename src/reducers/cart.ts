@@ -45,7 +45,10 @@ const cartSlice = createSlice({
       }
       toast.success("Item added to cart");
       if (state.userEmail) {
-        localStorage.setItem(`cartiteem_${state.userEmail}`, JSON.stringify(state.items));
+        localStorage.setItem(
+          `cartiteem_${state.userEmail}`,
+          JSON.stringify(state.items)
+        );
       }
     },
     inctoCart: (state, action) => {
@@ -59,13 +62,14 @@ const cartSlice = createSlice({
         state.items.push(newItem);
       }
       if (state.userEmail) {
-        localStorage.setItem(`cartiteem_${state.userEmail}`, JSON.stringify(state.items));
+        localStorage.setItem(
+          `cartiteem_${state.userEmail}`,
+          JSON.stringify(state.items)
+        );
       }
     },
     decFromCart: (state, action) => {
-      const index = state.items.findIndex(
-        (item) => item.id === action.payload
-      );
+      const index = state.items.findIndex((item) => item.id === action.payload);
       if (index >= 0) {
         state.items[index].quantity--;
         if (state.items[index].quantity === 0) {
@@ -73,11 +77,15 @@ const cartSlice = createSlice({
         }
       }
       if (state.userEmail) {
-        localStorage.setItem(`cartiteem_${state.userEmail}`, JSON.stringify(state.items));
+        localStorage.setItem(
+          `cartiteem_${state.userEmail}`,
+          JSON.stringify(state.items)
+        );
       }
     },
   },
 });
 
-export const { addToCart, decFromCart, inctoCart, setUserCart } = cartSlice.actions;
+export const { addToCart, decFromCart, inctoCart, setUserCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;
