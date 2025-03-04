@@ -12,6 +12,8 @@ import Wishlist from "./components/Wishlist";
 import { ToastContainer } from "react-toastify";
 import Checkout from "./components/Checkout";
 import Theproduct from "./components/Theproduct";
+import Sign from "./components/Sign";
+import Login from "./components/Login";
 
 const App = () => {
   return (
@@ -33,6 +35,9 @@ const App = () => {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/product/:id" element={<Theproduct/>} />
+        <Route path="/sign" element={<Sign />} />
+        <Route path="sign/login" element={<Login />} />
+        
 
       </Routes>
       <Footer/>

@@ -6,7 +6,7 @@ import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../main";
-import { decFromCart, inctoCart } from "../reducers/cart";
+import { addToCart, decFromCart, inctoCart } from "../reducers/cart";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { addToWish, removeFromWish } from "../reducers/wishlistt";
 import { IoCartOutline, IoEyeOutline } from "react-icons/io5";
@@ -40,6 +40,14 @@ const Theproduct = () => {
   const removefromwish = (product: Productpro) => {
     dispatch(removeFromWish(product));
   };
+
+   const handleAddToCart = (product: Productpro) => {
+      dispatch(addToCart(product));
+    };
+   const goToProduct = (id: number) => {
+      window.location.href = `/product/${id}`;
+    };
+  
 
   const cartItem = cart.find((item) => item.id === product.id);
 
@@ -136,7 +144,11 @@ const Theproduct = () => {
             </div>
             <div className="flex items-center mb-4 text-[1rem]">
               <Link to="/cart">
-                <button className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded">
+                <button
+                   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+       
+                
+                className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded">
                   Buy Now
                 </button>
               </Link>
@@ -204,7 +216,7 @@ const Theproduct = () => {
                       <div className="justify-items-end w-full">
                         <IoEyeOutline
                           className="bg-white rounded-2xl cursor-pointer text-[2rem] p-1.5 mr-[14px]"
-                          // onClick={()=>goToProduct(item.id)}
+                          onClick={()=>goToProduct(item.id)}
                         />
                       </div>
       
@@ -219,7 +231,7 @@ const Theproduct = () => {
                         <IoCartOutline className="text-[1.2rem]" />
                         <button
                           type="submit"
-                          // onClick={() => handleAddToCart(item)}
+                          onClick={() => handleAddToCart(item)}
                           className="text-[0.9rem]"
                         >
                           Add To Cart

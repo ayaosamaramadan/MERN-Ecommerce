@@ -22,15 +22,15 @@ const Wishlist = () => {
   const handleAddToCart = (product: Productpro) => {
     dispatch(addToCart(product));
   };
+ const goToProduct = (id: number) => {
+    window.location.href = `/product/${id}`;
+  };
 
   const removefromwish = (product: Productpro) => {
     dispatch(removeFromWish(product));
   };
 
-  const goToProduct = (id: number) => {
-    window.location.href = `/product/${id}`;
-  };
-
+ 
 
   return (
     <>

@@ -64,7 +64,12 @@ const Navi = () => {
               </Link>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-              Sign Up
+            <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/sign"
+              >
+                Sign Up
+              </Link>
             </li>
           </ul>
 
