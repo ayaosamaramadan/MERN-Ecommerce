@@ -93,7 +93,11 @@ const Navi = () => {
             >
               <IoIosHeartEmpty className="mr-[10px]" />
               {wishItemCount === 0 ? null : (
-                <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]">
+                <span
+                  className={`bg-red-500 text-white p-1 ${
+                    theAuth._id ? "right-[8.2rem]" : "right-[5.5rem]"
+                  } rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]`}
+                >
                   {wishItemCount}
                 </span>
               )}
@@ -106,7 +110,11 @@ const Navi = () => {
               <IoCartOutline className="ml-[10px]" />
             </Link>
             {cartItemCount === 0 ? null : (
-              <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[2.5rem] text-[0.8rem] pb-[0.4rem]">
+              <span
+                className={`bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] ${
+                  theAuth._id ? "right-[5.5rem]" : "right-[2.5rem]"
+                } text-[0.8rem] pb-[0.4rem]`}
+              >
                 {cartItemCount}
               </span>
             )}
