@@ -8,10 +8,11 @@ import { removeFromWish } from "../reducers/wishlistt";
 import { salesProducts } from "../api/productss";
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
+import { toast } from "react-toastify";
 
 const Wishlist = () => {
   const items = useSelector((state: RootState) => state.wish.items);
-
+const theAuth = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
 
   const wishItemCount = items.reduce(
@@ -134,7 +135,9 @@ const Wishlist = () => {
                   <IoCartOutline className="text-[1.2rem]" />
                   <button
                     type="submit"
-                    onClick={() => handleAddToCart(item)}
+                    
+                      onClick={() => theAuth._id ? handleAddToCart(item) : toast.error("Please login to add to wishlist")}
+                                    
                     className="text-[0.9rem]"
                   >
                     Add To Cart

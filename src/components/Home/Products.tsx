@@ -8,11 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../reducers/cart";
 import { addToWish, removeFromWish } from "../../reducers/wishlistt";
 import { RootState } from "../../main";
-// import { Link } from "react-router";
+import { toast } from "react-toastify";
 
 const Products = () => {
   const wishitem = useSelector((state: RootState) => state.wish.items);
-
+  const theAuth = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
 
   const handleAddToCart = (product: Productpro) => {
@@ -46,7 +46,9 @@ const Products = () => {
               ) : (
                 <IoIosHeartEmpty
                   className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
-                  onClick={() => addtowish(product)}
+                
+                    onClick={() => theAuth._id ? addtowish(product) : toast.error("Please login to add to cart")} 
+                                
                 />
               )}
 
@@ -63,7 +65,10 @@ const Products = () => {
             />
 
             <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
-              <button type="submit" onClick={() => handleAddToCart(product)}>
+              <button type="submit" 
+                onClick={() => theAuth._id ? handleAddToCart(product) : toast.error("Please login to add to cart")} 
+                            
+                >
                 Add To Cart
               </button>
             </div>

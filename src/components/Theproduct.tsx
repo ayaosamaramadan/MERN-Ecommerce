@@ -10,10 +10,12 @@ import { addToCart, decFromCart, inctoCart } from "../reducers/cart";
 import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
 import { addToWish, removeFromWish } from "../reducers/wishlistt";
 import { IoCartOutline, IoEyeOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
 
 const Theproduct = () => {
   const cart = useSelector((state: RootState) => state.cartt.items);
   const wishitem = useSelector((state: RootState) => state.wish.items);
+ const theAuth = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
   const ref = useRef<HTMLDivElement>(null);
   const { id } = useParams<{ id: string }>();
@@ -124,7 +126,8 @@ const Theproduct = () => {
               <button
                 type="submit"
                 title="btn"
-                onClick={() => dec(product)}
+                onClick={() => theAuth._id ? dec(product) : toast.error("Please login to add to wishlist")}
+                  
                 className="border-r-[0.1rem] hover:bg-red-500 hover:border-red-500 hover:text-white border-gray-500 px-3 text-xl rounded"
               >
                 -
@@ -135,13 +138,16 @@ const Theproduct = () => {
               <button
                 type="submit"
                 title="btn"
-                onClick={() => inc(product)}
+                
+                onClick={() => theAuth._id ? inc(product) : toast.error("Please login to add to wishlist")}
+                  
                 className="border-l-[0.1rem] hover:bg-red-500 hover:border-red-500 hover:text-white border-gray-500 px-3 text-xl rounded"
               >
                 +
               </button>
             </div>
             <div className="flex items-center mb-4 text-[1rem]">
+            {theAuth._id ? (
               <Link to="/cart">
                 <button
                   onClick={() =>
@@ -152,7 +158,20 @@ const Theproduct = () => {
                   Buy Now
                 </button>
               </Link>
+            ) : (
+              <Link to="/sign">
+                <button
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded"
+                >
+                  Buy Now
+                </button>
+              </Link>
+            )}
               <div className="border-2 border-gray-200 p-2 rounded ml-2 text-[1.1rem]">
+              {/* className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded" */}
                 {wishitem.find((item) => item.id === product.id) ? (
                   <IoIosHeart
                     className="cursor-pointer text-red-500 bg-white rounded-2xl"
@@ -161,7 +180,8 @@ const Theproduct = () => {
                 ) : (
                   <IoIosHeartEmpty
                     className="cursor-pointer bg-white rounded-2xl"
-                    onClick={() => addtowish(product)}
+                    onClick={() => theAuth._id ? addtowish(product) : toast.error("Please login to add to wishlist")}
+                                      
                   />
                 )}
               </div>

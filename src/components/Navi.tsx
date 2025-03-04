@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../main";
 import { FiUser } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 const Navi = () => {
   const item1 = useSelector((state: RootState) => state.cartt.items);
@@ -19,8 +20,7 @@ const Navi = () => {
   const handlelOut = () => {
     localStorage.removeItem("token");
     theAuth.token = "";
- 
-  }
+  };
 
   return (
     <>
@@ -74,22 +74,20 @@ const Navi = () => {
               </Link>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-            {theAuth._id ? (
-              <Link
-                onClick={handlelOut}
-                to="/"
-              >
-                Log Out
-              </Link>
-            ) : (
-              <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="/sign"
-              >
-                Sign Up
-              </Link>
-            )}
-                
+              {theAuth._id ? (
+                <Link onClick={handlelOut} to="/">
+                  Log Out
+                </Link>
+              ) : (
+                <Link
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  to="/sign"
+                >
+                  Sign Up
+                </Link>
+              )}
             </li>
           </ul>
 
@@ -103,28 +101,43 @@ const Navi = () => {
           </div>
 
           <div className="text-black flex 2xl:text-[26px] xl:text-[26px] sm:text-[22px] 2sm:text-[22px]  mt-4 lg:mt-0 lg:mr-[50px] xl:pl-5">
-            <Link
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              to="./wishlist"
-            >
-              <IoIosHeartEmpty className="mr-[10px]" />
-              {wishItemCount === 0 ? null : (
-                <span
-                  className={`bg-red-500 text-white p-1 ${
-                    theAuth._id ? "right-[8.2rem]" : "right-[5.5rem]"
-                  } rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]`}
-                >
-                  {wishItemCount}
-                </span>
-              )}
-            </Link>
+            {theAuth._id ? (
+              <Link
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="./wishlist"
+              >
+                <IoIosHeartEmpty className="mr-[10px] cursor-pointer" />
+              </Link>
+            ) : (
+              <IoIosHeartEmpty
+                className="mr-[10px] cursor-pointer"
+                onClick={() => toast.error("Please login first")}
+              />
+            )}
+            {wishItemCount === 0 ? null : (
+              <span
+                className={`bg-red-500 text-white p-1 ${
+                  theAuth._id ? "right-[8.2rem]" : "right-[5.5rem]"
+                } rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]`}
+              >
+                {wishItemCount}
+              </span>
+            )}
 
-            <Link
-              to="./cart"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              <IoCartOutline className="ml-[10px]" />
-            </Link>
+            {theAuth._id ? (
+              <Link
+                to="./cart"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                <IoCartOutline className="ml-[10px] cursor-pointer" />
+              </Link>
+            ) : (
+              <IoCartOutline
+                className="ml-[10px] cursor-pointer"
+                onClick={() => toast.error("Please login first")}
+              />
+            )}
+
             {cartItemCount === 0 ? null : (
               <span
                 className={`bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] ${
@@ -135,12 +148,14 @@ const Navi = () => {
               </span>
             )}
 
-           {(theAuth._id)? <Link
-              to="./cart"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              <FiUser className="ml-[20px]" />
-            </Link>:null}
+            {theAuth._id ? (
+              <Link
+                to="./cart"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                <FiUser className="ml-[20px]" />
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>
