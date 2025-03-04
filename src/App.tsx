@@ -18,13 +18,12 @@ import Login from "./components/Login";
 const App = () => {
   return (
     <BrowserRouter>
-     <ToastContainer 
-     
-       hideProgressBar={true}
-         toastClassName="custom-toast"
-           position="bottom-right"
+      <ToastContainer
+        hideProgressBar={true}
+        toastClassName="custom-toast"
+        position="bottom-right"
       />
-     
+
       <Navi />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -34,13 +33,11 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/product/:id" element={<Theproduct/>} />
+        <Route path="/product/:id" element={<Theproduct />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="sign/login" element={<Login />} />
-        
-
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   );
 };

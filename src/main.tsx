@@ -7,11 +7,15 @@ import { Provider } from "react-redux";
 
 import cartReducer from "./reducers/cart";
 import wishReducer from "./reducers/wishlistt";
+import author from "./reducers/auth";
 
 const store = configureStore({
   reducer: {
     cartt: cartReducer,
     wish: wishReducer,
+    auth: author,
+    // [productApi.reducerPath]: productApi.reducer,
+    
   },
 });
 
@@ -24,3 +28,4 @@ createRoot(document.getElementById("root")!).render(
 );
 
 export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

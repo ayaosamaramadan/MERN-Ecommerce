@@ -9,8 +9,10 @@ const Navi = () => {
   const item1 = useSelector((state: RootState) => state.cartt.items);
   const items2 = useSelector((state: RootState) => state.wish.items);
   const cartItemCount = item1.reduce((total, item) => total + item.quantity, 0);
-  const wishItemCount = items2.reduce((total, item) => total + (item.quantity || 0), 0);
-
+  const wishItemCount = items2.reduce(
+    (total, item) => total + (item.quantity || 0),
+    0
+  );
 
   return (
     <>
@@ -64,7 +66,7 @@ const Navi = () => {
               </Link>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
-            <Link
+              <Link
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/sign"
               >
@@ -83,24 +85,29 @@ const Navi = () => {
           </div>
 
           <div className="text-black flex 2xl:text-[26px] xl:text-[26px] sm:text-[22px] 2sm:text-[22px]  mt-4 lg:mt-0 lg:mr-[50px] xl:pl-5">
-
-            <Link onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} to="./wishlist"> 
-             <IoIosHeartEmpty className="mr-[10px]" />
-           {wishItemCount===0 ? null :  <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]">
-              {wishItemCount}
-            </span>
-            }
-
+            <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              to="./wishlist"
+            >
+              <IoIosHeartEmpty className="mr-[10px]" />
+              {wishItemCount === 0 ? null : (
+                <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]">
+                  {wishItemCount}
+                </span>
+              )}
             </Link>
-          
-          <Link to="./cart" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <IoCartOutline className="ml-[10px]" />
-         
-          </Link>
-          {cartItemCount===0 ? null :   <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[2.5rem] text-[0.8rem] pb-[0.4rem]">
-              {cartItemCount}
-            </span>
-            }
+
+            <Link
+              to="./cart"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <IoCartOutline className="ml-[10px]" />
+            </Link>
+            {cartItemCount === 0 ? null : (
+              <span className="bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[2.5rem] text-[0.8rem] pb-[0.4rem]">
+                {cartItemCount}
+              </span>
+            )}
           </div>
         </div>
       </div>

@@ -22,15 +22,13 @@ const Wishlist = () => {
   const handleAddToCart = (product: Productpro) => {
     dispatch(addToCart(product));
   };
- const goToProduct = (id: number) => {
+  const goToProduct = (id: number) => {
     window.location.href = `/product/${id}`;
   };
 
   const removefromwish = (product: Productpro) => {
     dispatch(removeFromWish(product));
   };
-
- 
 
   return (
     <>
@@ -65,7 +63,7 @@ const Wishlist = () => {
                     <img
                       src={item.image}
                       alt="item"
-                      onClick={()=>goToProduct(item.id)}
+                      onClick={() => goToProduct(item.id)}
                       className="w-[230px] h-[180px] hover:opacity-80"
                     />
 
@@ -103,7 +101,7 @@ const Wishlist = () => {
               <img
                 src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
                 alt=""
-                            />
+              />
               <p className="ml-5 text-[1.5rem] mt-2">Just For You</p>
             </div>
           </div>
@@ -122,14 +120,13 @@ const Wishlist = () => {
                 <div className="justify-items-end w-full">
                   <IoEyeOutline
                     className="bg-white rounded-2xl cursor-pointer text-[2rem] p-1.5 mr-[14px]"
-                    onClick={()=>goToProduct(item.id)}
+                    onClick={() => goToProduct(item.id)}
                   />
                 </div>
 
                 <img
                   src={item.image}
                   alt="item"
-                
                   className="w-[230px] h-[180px] hover:opacity-80"
                 />
 
@@ -161,9 +158,9 @@ const Wishlist = () => {
                         )}
                       </span>
                     ))}
-                     <div className="text-gray-600 mt-2 ml-1 text-sm">
-                  ({item.rate})
-                </div>
+                    <div className="text-gray-600 mt-2 ml-1 text-sm">
+                      ({item.rate})
+                    </div>
                   </div>
                 </div>
               </div>

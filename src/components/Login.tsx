@@ -1,5 +1,4 @@
-
-const Signlogin = () => {
+const Login = () => {
   return (
     <>
       <div className="mt-52 flex">
@@ -38,7 +37,6 @@ const Signlogin = () => {
                 Forget Password?
               </button>
             </div>
-
           </div>
         </div>
       </div>
@@ -46,4 +44,4 @@ const Signlogin = () => {
   );
 };
 
-export default Signlogin;
+export default Login;

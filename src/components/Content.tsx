@@ -38,7 +38,6 @@ const Content = () => {
               <p>Emails: customer@exclusive.com</p>
               <p>Emails: support@exclusive.com</p>
             </div>
-
           </div>
         </div>
 
@@ -47,9 +46,7 @@ const Content = () => {
             <label
               htmlFor="name"
               className="flex text-gray-700 font-bold mb-2"
-            >
-              
-            </label>
+            ></label>
             <input
               className="bg-gray-100 border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
@@ -61,12 +58,9 @@ const Content = () => {
             <label
               htmlFor="email"
               className="flex ml-3 text-gray-700 font-bold mb-2"
-            >
-            
-            </label>
+            ></label>
             <input
-             className="bg-gray-100 border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-             
+              className="bg-gray-100 border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               placeholder="Your Email"
               title="Email"
             />
