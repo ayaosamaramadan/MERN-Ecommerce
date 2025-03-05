@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { RootState, AppDispatch } from "../../main";
-import { loginUser } from "../../reducers/auth";
+import {
+  loginUser,
+  loginUserSuccess,
+  loginUserFailure,
+} from "../../reducers/auth";
+import { setUserCart } from "../../reducers/cart";
+import { setUserWish } from "../../reducers/wishlistt";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -14,9 +20,20 @@ const Login = () => {
     password: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(loginUser(user));
+    try {
+      const response = await dispatch(loginUser(user)).unwrap();
+      dispatch(loginUserSuccess(response));
+      dispatch(setUserCart(user.email));
+      dispatch(setUserWish(user.email));
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(loginUserFailure(error.message));
+      } else {
+        dispatch(loginUserFailure(String(error)));
+      }
+    }
   };
 
   useEffect(() => {
@@ -37,7 +54,7 @@ const Login = () => {
         </div>
         <div className="m-10 ml-32">
           <h1 className="text-[1.9rem] mb-2">Log in to Exclusive</h1>
-          <p>Enter yout details below</p>
+          <p>Enter your details below</p>
 
           <div className="flex flex-col mt-5">
             <input
@@ -64,17 +81,17 @@ const Login = () => {
                 Log In
               </button>
 
-              <button type="submit" className="text-red-500">
+              <Link to="/forgot-password" className="text-red-500">
                 Forget Password?
-              </button>
-              {auth.loginStatus === "success" && (
-                <p className="text-green-500 mt-4">Login successful</p>
-              )}
-              {auth.loginStatus === "failed" && (
-                <p className="text-red-500 mt-4">{auth.loginError}</p>
-              )}
+              </Link>
             </div>
           </div>
+          {auth.loginStatus === "success" && (
+            <p className="text-green-500 mt-4">Login successful</p>
+          )}
+          {auth.loginStatus === "failed" && (
+            <p className="text-red-500 mt-4">{auth.loginError}</p>
+          )}
         </div>
       </div>
     </>

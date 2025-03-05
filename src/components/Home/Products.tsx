@@ -9,11 +9,13 @@ import { addToCart } from "../../reducers/cart";
 import { addToWish, removeFromWish } from "../../reducers/wishlistt";
 import { RootState } from "../../main";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const Products = () => {
   const wishitem = useSelector((state: RootState) => state.wish.items);
   const theAuth = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleAddToCart = (product: Productpro) => {
     dispatch(addToCart(product));
@@ -28,8 +30,8 @@ const Products = () => {
   };
 
   const goToProduct = (id: number) => {
-    // window.location.href = `/product/${id}`;
-    window.location.href = `/product/${id}`;
+    // navigate(`/product/${id}`);
+    navigate(`/product/${id}`);
     // <Link to={`/product/${id}`} />
   };
   return (
@@ -46,9 +48,11 @@ const Products = () => {
               ) : (
                 <IoIosHeartEmpty
                   className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
-                
-                    onClick={() => theAuth._id ? addtowish(product) : toast.error("Please login to add to cart")} 
-                                
+                  onClick={() =>
+                    theAuth._id
+                      ? addtowish(product)
+                      : toast.error("Please login to add to cart")
+                  }
                 />
               )}
 
@@ -65,10 +69,14 @@ const Products = () => {
             />
 
             <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
-              <button type="submit" 
-                onClick={() => theAuth._id ? handleAddToCart(product) : toast.error("Please login to add to cart")} 
-                            
-                >
+              <button
+                type="submit"
+                onClick={() =>
+                  theAuth._id
+                    ? handleAddToCart(product)
+                    : toast.error("Please login to add to cart")
+                }
+              >
                 Add To Cart
               </button>
             </div>

@@ -15,11 +15,13 @@ export interface WishItem {
 interface WishState {
   items: WishItem[];
   userEmail: string | null;
+  itemCount: number;
 }
 
 const initialState: WishState = {
   items: [],
-  userEmail: null,
+  userEmail: localStorage.getItem("userEmail"),
+  itemCount: 0,
 };
 
 const wishSlice = createSlice({
@@ -29,27 +31,47 @@ const wishSlice = createSlice({
     setUserWish: (state, action: PayloadAction<string>) => {
       state.userEmail = action.payload;
       const storedItems = localStorage.getItem(`wishlist_${state.userEmail}`);
-      state.items = storedItems ? JSON.parse(storedItems) : [];
+      const backupItems = localStorage.getItem(
+        `wishlist_${state.userEmail}_backup`
+      );
+      state.items = storedItems
+        ? JSON.parse(storedItems)
+        : backupItems
+        ? JSON.parse(backupItems)
+        : [];
+      state.itemCount = state.items.length;
     },
     addToWish: (state, action) => {
+      if (!state.userEmail) {
+        toast.error("Please log in to add items to your wishlist");
+        return;
+      }
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
       );
       if (index >= 0) {
         return;
       } else {
-        const newItem = { ...action.payload, quantity: 1, isLove: true };
+        const newItem = {
+          ...action.payload,
+          quantity: 1,
+          isLove: true,
+          userEmail: state.userEmail,
+        };
         state.items.push(newItem);
       }
+      state.itemCount = state.items.length;
       toast.success("Item added to your wishlist");
-      if (state.userEmail) {
-        localStorage.setItem(
-          `wishlist_${state.userEmail}`,
-          JSON.stringify(state.items)
-        );
-      }
+      localStorage.setItem(
+        `wishlist_${state.userEmail}`,
+        JSON.stringify(state.items)
+      );
     },
     removeFromWish: (state, action) => {
+      if (!state.userEmail) {
+        toast.error("Please log in to remove items from your wishlist");
+        return;
+      }
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
       );
@@ -57,13 +79,12 @@ const wishSlice = createSlice({
         state.items[index].isLove = false;
         state.items.splice(index, 1);
       }
+      state.itemCount = state.items.length;
       toast.error("Item removed from your wishlist");
-      if (state.userEmail) {
-        localStorage.setItem(
-          `wishlist_${state.userEmail}`,
-          JSON.stringify(state.items)
-        );
-      }
+      localStorage.setItem(
+        `wishlist_${state.userEmail}`,
+        JSON.stringify(state.items)
+      );
     },
   },
 });

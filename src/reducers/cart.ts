@@ -16,12 +16,14 @@ interface CartState {
   items: CartItem[];
   status: string | null;
   userEmail: string | null;
+  itemCount: number;
 }
 
 const initialState: CartState = {
   items: [],
   status: null,
-  userEmail: null,
+  userEmail: localStorage.getItem("userEmail"),
+  itemCount: 0,
 };
 
 const cartSlice = createSlice({
@@ -30,45 +32,80 @@ const cartSlice = createSlice({
   reducers: {
     setUserCart: (state, action: PayloadAction<string>) => {
       state.userEmail = action.payload;
-      const storedItems = localStorage.getItem(`cartiteem_${state.userEmail}`);
-      state.items = storedItems ? JSON.parse(storedItems) : [];
+      const storedItems = localStorage.getItem(`cartitem_${state.userEmail}`);
+      const backupItems = localStorage.getItem(
+        `cartitem_${state.userEmail}_backup`
+      );
+      state.items = storedItems
+        ? JSON.parse(storedItems)
+        : backupItems
+        ? JSON.parse(backupItems)
+        : [];
+      state.itemCount = state.items.reduce(
+        (count, item) => count + item.quantity,
+        0
+      );
     },
     addToCart: (state, action) => {
+      if (!state.userEmail) {
+        toast.error("Please log in to add items to your cart");
+        return;
+      }
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
       );
       if (index >= 0) {
         state.items[index].quantity++;
       } else {
-        const newItem = { ...action.payload, quantity: 1 };
+        const newItem = {
+          ...action.payload,
+          quantity: 1,
+          userEmail: state.userEmail,
+        };
         state.items.push(newItem);
       }
+      state.itemCount = state.items.reduce(
+        (count, item) => count + item.quantity,
+        0
+      );
       toast.success("Item added to cart");
-      if (state.userEmail) {
-        localStorage.setItem(
-          `cartiteem_${state.userEmail}`,
-          JSON.stringify(state.items)
-        );
-      }
+      localStorage.setItem(
+        `cartitem_${state.userEmail}`,
+        JSON.stringify(state.items)
+      );
     },
     inctoCart: (state, action) => {
+      if (!state.userEmail) {
+        toast.error("Please log in to add items to your cart");
+        return;
+      }
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id
       );
       if (index >= 0) {
         state.items[index].quantity++;
       } else {
-        const newItem = { ...action.payload, quantity: 1 };
+        const newItem = {
+          ...action.payload,
+          quantity: 1,
+          userEmail: state.userEmail,
+        };
         state.items.push(newItem);
       }
-      if (state.userEmail) {
-        localStorage.setItem(
-          `cartiteem_${state.userEmail}`,
-          JSON.stringify(state.items)
-        );
-      }
+      state.itemCount = state.items.reduce(
+        (count, item) => count + item.quantity,
+        0
+      );
+      localStorage.setItem(
+        `cartitem_${state.userEmail}`,
+        JSON.stringify(state.items)
+      );
     },
     decFromCart: (state, action) => {
+      if (!state.userEmail) {
+        toast.error("Please log in to remove items from your cart");
+        return;
+      }
       const index = state.items.findIndex((item) => item.id === action.payload);
       if (index >= 0) {
         state.items[index].quantity--;
@@ -76,12 +113,14 @@ const cartSlice = createSlice({
           state.items.splice(index, 1);
         }
       }
-      if (state.userEmail) {
-        localStorage.setItem(
-          `cartiteem_${state.userEmail}`,
-          JSON.stringify(state.items)
-        );
-      }
+      state.itemCount = state.items.reduce(
+        (count, item) => count + item.quantity,
+        0
+      );
+      localStorage.setItem(
+        `cartitem_${state.userEmail}`,
+        JSON.stringify(state.items)
+      );
     },
   },
 });

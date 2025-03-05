@@ -15,11 +15,13 @@ import { addToCart } from "../../reducers/cart";
 import { addToWish, removeFromWish } from "../../reducers/wishlistt";
 import { RootState } from "../../main";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const Sales = () => {
   const wishitem = useSelector((state: RootState) => state.wish.items);
   const theAuth = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleAddToCart = (product: Productpro) => {
     dispatch(addToCart(product));
   };
@@ -32,11 +34,8 @@ const Sales = () => {
     dispatch(removeFromWish(product));
   };
 
-
   const goToProduct = (id: number) => {
- 
-    window.location.href = `/product/${id}`;
-   
+    navigate(`/product/${id}`);
   };
   return (
     <>
@@ -54,23 +53,32 @@ const Sales = () => {
                 ) : (
                   <IoIosHeartEmpty
                     className="cursor-pointer bg-white mt-2 rounded-2xl mr-[14px] text-3xl p-1"
-                    onClick={() => theAuth._id ? addtowish(product) : toast.error("Please login to add to wishlist")}
+                    onClick={() =>
+                      theAuth._id
+                        ? addtowish(product)
+                        : toast.error("Please login to add to wishlist")
+                    }
                   />
                 )}
-                <IoEyeOutline className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px] cursor-pointer" 
-                 onClick={()=>goToProduct(product.id)}
-                 />
+                <IoEyeOutline
+                  className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px] cursor-pointer"
+                  onClick={() => goToProduct(product.id)}
+                />
               </div>
               <img
                 src={product.image}
                 alt="product"
-              
                 className="w-[230px] h-[180px] hover:opacity-80 "
               />
               <div className="bg-black rounded text-white py-2 text-center mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 w-full">
-                <button type="submit"
-                   onClick={() => theAuth._id ? handleAddToCart(product) : toast.error("Please login to add to cart")}
-                 >
+                <button
+                  type="submit"
+                  onClick={() =>
+                    theAuth._id
+                      ? handleAddToCart(product)
+                      : toast.error("Please login to add to cart")
+                  }
+                >
                   Add To Cart
                 </button>
               </div>
@@ -86,20 +94,19 @@ const Sales = () => {
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <>
-                  <span key={i} className="flex pr-1 mt-2">
-                    {(product.stars || 0) > i ? (
-                      <FaStar className="text-yellow-500" />
-                    ) : (
-                      <CiStar className="text-gray-900" />
-                    )}
-                  </span>
-                 
-                  
+                    <span key={i} className="flex pr-1 mt-2">
+                      {(product.stars || 0) > i ? (
+                        <FaStar className="text-yellow-500" />
+                      ) : (
+                        <CiStar className="text-gray-900" />
+                      )}
+                    </span>
                   </>
                 ))}
-                    <div className="text-gray-600 mt-2 ml-1 text-sm">({product.rate})</div>
-              </div> 
-            
+                <div className="text-gray-600 mt-2 ml-1 text-sm">
+                  ({product.rate})
+                </div>
+              </div>
             </div>
           </div>
         ))}

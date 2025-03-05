@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { RootState, AppDispatch } from "../../main";
-import { registerUser } from "../../reducers/auth";
+import {
+  registerUser,
+  registerUserSuccess,
+  registerUserFailure,
+} from "../../reducers/auth";
+import { setUserCart } from "../../reducers/cart";
+import { setUserWish } from "../../reducers/wishlistt";
 
 const Sign = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -19,7 +25,6 @@ const Sign = () => {
     if (auth._id) {
       navigate("/cart");
     }
-    // console.log("Auth state:", auth._id);
   }, [auth._id, navigate]);
 
   useEffect(() => {
@@ -28,10 +33,20 @@ const Sign = () => {
     }
   }, [auth.registerStatus, auth.registerError]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // console.log(user);
-    dispatch(registerUser(user));
+    try {
+      const response = await dispatch(registerUser(user)).unwrap();
+      dispatch(registerUserSuccess(response));
+      dispatch(setUserCart(user.email));
+      dispatch(setUserWish(user.email));
+    } catch (error) {
+      if (error instanceof Error) {
+        dispatch(registerUserFailure(error.message));
+      } else {
+        dispatch(registerUserFailure(String(error)));
+      }
+    }
   };
 
   return (
@@ -46,7 +61,7 @@ const Sign = () => {
         </div>
         <div className="m-10 ml-32">
           <h1 className="text-[1.9rem] mb-2">Create an account</h1>
-          <p>Enter yout details below</p>
+          <p>Enter your details below</p>
           <div className="flex flex-col mt-5">
             <input
               className="border-b-[0.1rem] pb-2 mb-7 border-gray-400"

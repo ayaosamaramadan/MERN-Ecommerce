@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 
 interface RegisterValues {
   name: string;
@@ -50,6 +50,7 @@ export const registerUser = createAsyncThunk(
         }
       );
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userEmail", values.email);
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
@@ -73,6 +74,7 @@ export const loginUser = createAsyncThunk(
         }
       );
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userEmail", values.email);
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
@@ -108,10 +110,18 @@ const authSlice = createSlice({
       }
     },
     logoutUser: (state) => {
+      const userEmail = state.email;
+      if (userEmail) {
+        const cartItems = localStorage.getItem(`cartitem_${userEmail}`);
+        const wishItems = localStorage.getItem(`wishlist_${userEmail}`);
+        localStorage.setItem(`cartitem_${userEmail}_backup`, cartItems || "[]");
+        localStorage.setItem(`wishlist_${userEmail}_backup`, wishItems || "[]");
+      }
       localStorage.removeItem("token");
+      localStorage.removeItem("userEmail");
       return {
         ...state,
-        token: "",
+        token: null,
         name: "",
         email: "",
         _id: "",
@@ -120,6 +130,47 @@ const authSlice = createSlice({
         registerError: "",
         loginStatus: "",
         loginError: "",
+      };
+    },
+    registerUserSuccess: (state, action: PayloadAction<{ token: string }>) => {
+      const user: { name: string; email: string; _id: string } = jwtDecode(
+        action.payload.token
+      );
+      return {
+        ...state,
+        token: action.payload.token,
+        name: user.name,
+        email: user.email,
+        _id: user._id,
+        registerStatus: "success",
+      };
+    },
+    registerUserFailure: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        registerStatus: "rejected",
+        registerError: action.payload,
+      };
+    },
+    loginUserSuccess: (state, action: PayloadAction<{ token: string }>) => {
+      const user: { name: string; email: string; _id: string } = jwtDecode(
+        action.payload.token
+      );
+      return {
+        ...state,
+        token: action.payload.token,
+        name: user.name,
+        email: user.email,
+        _id: user._id,
+        loginStatus: "success",
+      };
+      
+    },
+    loginUserFailure: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        loginStatus: "rejected",
+        loginError: action.payload,
       };
     },
   },
@@ -177,6 +228,13 @@ const authSlice = createSlice({
   },
 });
 
-export const { loadUser, logoutUser } = authSlice.actions;
+export const {
+  loadUser,
+  logoutUser,
+  registerUserSuccess,
+  registerUserFailure,
+  loginUserSuccess,
+  loginUserFailure,
+} = authSlice.actions;
 
 export default authSlice.reducer;

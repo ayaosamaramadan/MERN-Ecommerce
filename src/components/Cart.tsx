@@ -1,14 +1,25 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../main";
+import { RootState, AppDispatch } from "../main";
+import { setUserCart } from "../reducers/cart";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { inctoCart, decFromCart } from "../reducers/cart";
 import { CartItem } from "../reducers/cart";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Cart = () => {
-  const items = useSelector((state: RootState) => state.cartt.items);
+  const dispatch = useDispatch<AppDispatch>();
+  const cart = useSelector((state: RootState) => state.cartt);
+  const auth = useSelector((state: RootState) => state.auth);
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    if (auth.email) {
+      dispatch(setUserCart(auth.email));
+    }
+  }, [auth.email, dispatch]);
+
+  const navigate = useNavigate();
+  const items = useSelector((state: RootState) => state.cartt.items);
 
   const inc = (product: CartItem) => {
     dispatch(inctoCart(product));
@@ -19,14 +30,15 @@ const Cart = () => {
   };
 
   const goToProduct = (id: number) => {
-    window.location.href = `/product/${id}`;
+    navigate(`/product/${id}`);
   };
 
   return (
     <div className="mt-52 ml-40">
       <span className="text-gray-400">Home / </span>
       <span>Cart</span>
-
+      <p>Total Items: {cart.itemCount}</p>
+     
       {items.length === 0 ? (
         <div className="justify-center flex w-[90%] mt-10 py-10 border-2">
           <p className="text-center text-gray-500">Your cart is empty</p>

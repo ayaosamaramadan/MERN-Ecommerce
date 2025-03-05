@@ -150,7 +150,7 @@ const Navi = () => {
 
             {theAuth._id ? (
               <Link
-                to="./cart"
+                to="./account"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
                 <FiUser className="ml-[20px]" />

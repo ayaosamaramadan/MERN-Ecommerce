@@ -13,7 +13,8 @@ import { ToastContainer } from "react-toastify";
 import Checkout from "./components/Checkout";
 import Theproduct from "./components/Theproduct";
 import Sign from "./components/Sign";
-import Login from "./components/Login";
+import Login from "./components/userActions/Login";
+import Account from "./components/userActions/Account";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/product/:id" element={<Theproduct />} />
         <Route path="/sign" element={<Sign />} />
         <Route path="sign/login" element={<Login />} />
+        <Route path="/account" element={<Account />}/>
       </Routes>
       <Footer />
     </BrowserRouter>
