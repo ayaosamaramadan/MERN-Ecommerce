@@ -120,25 +120,26 @@ const Sales = () => {
         </button>
       </div>
 
-      <div className="justify-between flex ml-32 mt-24 mr-32">
+      <div className="flex flex-col md:flex-row ml-[5%] mt-[5%] mr-[5%] justify-between">
+      
         <div>
-          <div className="flex mt-10">
+         
             <img
               src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
               alt=""
             />
-            <p className="text-red-500 font-bold ml-5 mt-2">Categories</p>
+            <p className="text-red-500 2xl:font-bold xl:font-bold lg:font-bold md:font-semibold ml-[3%] mt-2">Categories</p>
           </div>
           <div className=" mt-5">
-            <h1 className="text-[2rem] font-semibold">Browse By Category</h1>
+            <h1 className=" 2xl:text-[2rem] xl:text-[2rem] lg:text-[2rem] md:text-[1.4rem] md:w-[230px] font-semibold 2xl:w-auto xl:w-auto lg:w-auto">Browse By Category</h1>
           </div>
         </div>
 
-        <div className="flex ml-12 text-[2.5rem]">
+        <div className="flex ml-12 2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem]">
           <IoIosArrowRoundBack className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 rounded-3xl" />
           <IoIosArrowRoundForward className="bg-slate-100 mt-[105px] mr-3 rounded-3xl hover:bg-slate-300" />
         </div>
-      </div>
+    
 
       <div className="flex justify-center mt-10">
         <div>
@@ -146,14 +147,19 @@ const Sales = () => {
             {catigorys.map((catigory, index) => (
               <div
                 key={catigory.id}
-                className={`text-center px-10 py-7 flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 ${
-                  index === 3 ? "bg-red-500" : "bg-white"
-                } flex`}
+                className={`text-black text-center px-10 py-7 flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 ${
+                  index === 3 ? "bg-red-500" : "bg-white text-black"
+                  
+                }
+                hover:${index === 3 ? "" : `bg-red-500`}
+                hover:${index === 3 ? "" : `text-white`} 
+              
+                flex`}
               >
                 <img
                   src={catigory.image}
                   alt="product"
-                  className="w-[45px] h-[45px] hover:opacity-80 m-auto"
+                  className="w-[45px] h-[45px] hover:opacity-80 m-auto "
                 />
                 <p
                   className={`flex-col ${index === 3 ? "text-white" : ""} flex`}
@@ -165,6 +171,7 @@ const Sales = () => {
           </div>
         </div>
       </div>
+      
     </>
   );
 };

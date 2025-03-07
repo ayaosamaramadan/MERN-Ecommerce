@@ -24,7 +24,7 @@ const Navi = () => {
 
   return (
     <>
-      <div className="border-b-2 border-black-100 fixed top-0 left-0 w-full z-50 bg-white">
+      <div className="border-b-2 border-black-100 fixed top-0 left-0 w-full z-50 bg-white md:bg-opacity-90">
         <div className="bg-black flex p-4 justify-between pr-4 2xl:pl-50 xl:pl-[15%] lg:pl-[5%] w-full">
           <div className="pl-4 flex justify-center md:justify-start w-full md:w-auto sm:w-auto 2sm:w-[220px]">
             <span className="text-white pr-3 text-sm xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[13px] 2sm:text-[13px] ">
@@ -35,7 +35,6 @@ const Navi = () => {
               Shop Now
             </span>
           </div>
-
           <div className="text-white flex">
             <span className="xl:text-[15px] lg:text-[14px] md:text-[13px] sm:text-[13px] 2sm:text-[13px]">
               English
@@ -44,116 +43,116 @@ const Navi = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row mt-10 mb-5 justify-between items-center">
-          <div className="2xl:text-2xl xl:text-2xl lg:text-[1.3rem] md:text-[1.6rem] sm:text-[1.6rem] 2sm:text-[1.6rem] font-bold ml-4 lg:ml-10 mb-4 lg:mb-0">
+        <div className="flex flex-col lg:flex-row 2xl:mt-10 2xl:mb-5 xl:mt-10 xl:mb-5 lg:mt-10 lg:mb-5 md:mt-2 md:mb-4 justify-between items-center h-auto">
+          <div className="2xl:text-2xl xl:text-2xl lg:text-[1.3rem] md:text-[1.2rem] sm:text-[1.6rem] 2sm:text-[1.6rem] font-bold ml-4 lg:ml-10 mb-4 lg:mb-0 md:mb-1">
             Exclusive
           </div>
-          <ul className="flex flex-wrap justify-center xl:pl-3 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.8rem] ">
+          <ul className="flex flex-wrap justify-center xl:pl-3 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.8rem] md:text-[0.8rem] ">
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="/"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          to="/"
               >
-                Home
+          Home
               </Link>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="/content"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          to="/content"
               >
-                Content
+          Content
               </Link>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="/about"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          to="/about"
               >
-                About
+          About
               </Link>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               {theAuth._id ? (
-                <Link onClick={handlelOut} to="/">
-                  Log Out
-                </Link>
+          <Link onClick={handlelOut} to="/">
+            Log Out
+          </Link>
               ) : (
-                <Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to="/sign"
-                >
-                  Sign Up
-                </Link>
+          <Link
+            onClick={() =>
+              window.scrollTo({ top: 0, behavior: "smooth" })
+            }
+            to="/sign"
+          >
+            Sign Up
+          </Link>
               )}
             </li>
           </ul>
 
-          <div className="flex bg-slate-100 p-2 px-4 rounded w-full 2xl:lg:w-[300px] xl:w-[300px] md:w-[300px] sm:w-[290px] 2sm:w-[260px] lg:w-[200px] justify-between mt-4 lg:mt-0">
+          <div className="flex bg-slate-100 p-2 px-4 rounded 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.9rem] md:text-[0.8rem] w-full 2xl:lg:w-[300px] xl:w-[300px] md:w-[300px] sm:w-[290px] 2sm:w-[260px] lg:w-[200px] justify-between mt-2 lg:mt-0">
             <input
               type="search"
               placeholder="What are you looking for?"
-              className="bg-slate-100 w-full"
+              className="bg-slate-100 w-full outline-none"
             />
             <CiSearch className="text-black text-[25px] ml-2" />
           </div>
 
-          <div className="text-black flex 2xl:text-[26px] xl:text-[26px] sm:text-[22px] 2sm:text-[22px]  mt-4 lg:mt-0 lg:mr-[50px] xl:pl-5">
+          <div className="text-black flex 2xl:text-[26px] xl:text-[26px] md:text-[20px] sm:text-[22px] 2sm:text-[22px] mt-2 lg:mt-0 lg:mr-[50px] xl:pl-5">
             {theAuth._id ? (
               <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="./wishlist"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          to="./wishlist"
               >
-                <IoIosHeartEmpty className="mr-[10px] cursor-pointer" />
+          <IoIosHeartEmpty className="mr-[10px] cursor-pointer" />
               </Link>
             ) : (
               <IoIosHeartEmpty
-                className="mr-[10px] cursor-pointer"
-                onClick={() => toast.error("Please login first")}
+          className="mr-[10px] cursor-pointer"
+          onClick={() => toast.error("Please login first")}
               />
             )}
             {wishItemCount === 0 ? null : (
               <span
-                className={`bg-red-500 text-white p-1 ${
-                  theAuth._id ? "right-[8.2rem]" : "right-[5.5rem]"
-                } rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]`}
+          className={`bg-red-500 text-white p-1 ${
+            theAuth._id ? "right-[8.2rem]" : "right-[5.5rem]"
+          } rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]`}
               >
-                {wishItemCount}
+          {wishItemCount}
               </span>
             )}
 
             {theAuth._id ? (
               <Link
-                to="./cart"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          to="./cart"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-                <IoCartOutline className="ml-[10px] cursor-pointer" />
+          <IoCartOutline className="ml-[10px] cursor-pointer" />
               </Link>
             ) : (
               <IoCartOutline
-                className="ml-[10px] cursor-pointer"
-                onClick={() => toast.error("Please login first")}
+          className="ml-[10px] cursor-pointer"
+          onClick={() => toast.error("Please login first")}
               />
             )}
 
             {cartItemCount === 0 ? null : (
               <span
-                className={`bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] ${
-                  theAuth._id ? "right-[5.5rem]" : "right-[2.5rem]"
-                } text-[0.8rem] pb-[0.4rem]`}
+          className={`bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] ${
+            theAuth._id ? "right-[5.5rem]" : "right-[2.5rem]"
+          } text-[0.8rem] pb-[0.4rem]`}
               >
-                {cartItemCount}
+          {cartItemCount}
               </span>
             )}
 
             {theAuth._id ? (
               <Link
-                to="./account"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          to="./account"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-                <FiUser className="ml-[20px]" />
+          <FiUser className="ml-[20px]" />
               </Link>
             ) : null}
           </div>

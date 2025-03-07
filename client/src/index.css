@@ -2,7 +2,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;
+  overflow-x: hidden;  
 }
 
 input::placeholder {
@@ -11,13 +11,6 @@ input::placeholder {
   max-width: 300px;
 }
 
-.inputt {
-  width: 100%;
-  max-width: 300px;
-
-  border-radius: 4px;
-  background-color: transparent;
-}
 
 .input {
   width: 100%;

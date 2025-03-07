@@ -10,19 +10,19 @@ import { LuSendHorizontal } from "react-icons/lu";
 const Footer = () => {
   return (
     <>
-      <div className="justify-center pt-10 bg-black mt-10 text-white">
-        <div className="flex justify-center space-x-10 bg-black text-white">
-          <div>
-            <h2 className="text-[1.3rem] pb-3">Exclusive</h2>
-            <h3>Subscribe</h3>
-            <p className="text-[0.8rem] pb-3 pt-5">
+      <div className="pt-10 bg-black mt-10 w-full text-white">
+        <div className="flex flex-col md:flex-row justify-center space-y-0 sm:space-y-0 sm:space-x-10 bg-black text-white">
+          <div className="flex flex-col">
+            <h2 className="2xl:text-[1rem] xl:text-[1rem] lg:text-[1rem] md:text-[0.8rem] pb-3">Exclusive</h2>
+            <h3 className="text-[0.6rem]">Subscribe</h3>
+            <p className="text-[0.6rem] pb-3 pt-5">
               Get 10% off your first order
             </p>
-            <div className="flex border-2 rounded-md justify-between mt-2 w-[170px]">
+            <div className="flex border-2 rounded-md justify-between mt-2 w-full max-w-xs">
               <input
                 type="text"
                 placeholder="Enter your email"
-                className="inputt py-1 pl-3"
+                className="py-1 pl-3 w-full bg-transparent rounded-l-xl"
               />
               <button
                 className="text-white p-2 rounded-r-xl"
@@ -34,38 +34,38 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-1">
-            <h3 className="pb-3">Support</h3>
-            <p className="text-[0.8rem] pb-3">
+          <div className="flex flex-col items-left mt-1">
+            <h3 className="text-[0.6rem] pb-5">Support</h3>
+            <p className="text-[0.6rem] pb-3">
               111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
             </p>
-            <p className="text-[0.8rem] pb-3">exclusive@gmail.com</p>
-            <p className="text-[0.8rem] pb-3">+88015-88888-9999</p>
+            <p className="text-[0.6rem] pb-3">exclusive@gmail.com</p>
+            <p className="text-[0.6rem] pb-3">+88015-88888-9999</p>
           </div>
 
-          <div>
-            <h3 className="pb-3">Account</h3>
-            <p className="text-[0.8rem] pb-3">My Account</p>
-            <p className="text-[0.8rem] pb-3">Login / Register</p>
-            <p className="text-[0.8rem] pb-3">Cart</p>
-            <p className="text-[0.8rem] pb-3">Wishlist</p>
-            <p className="text-[0.8rem] pb-3">Shop</p>
+          <div className="flex flex-col items-left">
+            <h3 className="text-[0.6rem] pb-5">Account</h3>
+            <p className="text-[0.6rem] pb-3">My Account</p>
+            <p className="text-[0.6rem] pb-3">Login / Register</p>
+            <p className="text-[0.6rem] pb-3">Cart</p>
+            <p className="text-[0.6rem] pb-3">Wishlist</p>
+            <p className="text-[0.6rem] pb-3">Shop</p>
           </div>
 
-          <div>
-            <h3 className="pb-3">Quick Link</h3>
-            <p className="text-[0.8rem] pb-3">Privacy Policy</p>
-            <p className="text-[0.8rem] pb-3">Terms Of Use</p>
-            <p className="text-[0.8rem] pb-3">FAQ</p>
-            <p className="text-[0.8rem] pb-3">Contact</p>
+          <div className="flex flex-col items-left">
+            <h3 className="text-[0.6rem] pb-5">Quick Link</h3>
+            <p className="text-[0.6rem] pb-3">Privacy Policy</p>
+            <p className="text-[0.6rem] pb-3">Terms Of Use</p>
+            <p className="text-[0.6rem] pb-3">FAQ</p>
+            <p className="text-[0.6rem] pb-3">Contact</p>
           </div>
 
-          <div>
-            <h3 className="pb-3">Download App</h3>
+          <div className="flex flex-col items-left">
+            <h3 className="text-[0.6rem] pb-5">Download App</h3>
             <p className="text-[0.6rem] text-gray-400 pb-2">
               Save $3 with App New User Only
             </p>
-            <div className="flex space-x-2">
+            <div className="flex">
               <img
                 src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740784679/react%20eco/adhzzy7rvy8wjrkqv9nx.png"
                 alt="qrcode"

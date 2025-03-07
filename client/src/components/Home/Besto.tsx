@@ -69,12 +69,12 @@ const Besto = () => {
   };
   return (
     <>
-      <div className="justify-between flex ml-32 mt-24 mr-32">
-        <div>
+      <div className="flex flex-col md:flex-row ml-[5%] mt-[5%] mr-[5%] justify-between">
+      <div>
           <div className="flex mt-10">
             <img
               src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
-              alt=""
+              alt="Product image"
             />
             <p className="text-red-500 font-bold ml-5 mt-2">This Month</p>
           </div>
@@ -169,11 +169,11 @@ const Besto = () => {
         <img
           src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740776148/react%20eco/vecqbwrofwmkkalmj14b.png"
           alt=""
-          className="w-auto h-auto"
+          className="w-[80%] h-[80%]"
         />
       </div>
 
-      <div className="justify-between flex ml-32 mt-24 mb-16 mr-32">
+      <div className="flex flex-col md:flex-row ml-[5%] mt-[5%] mr-[5%] mb-[5%] justify-between">
         <div>
           <div className="flex mt-10">
             <img
@@ -206,7 +206,8 @@ const Besto = () => {
         </button>
       </div>
 
-      <div className="justify-between ml-40 mt-24 mb-10 mr-32">
+      <div className="justify-between ml-[5%] mr-32 mt-24 mb-10 ">
+    
         <div className="flex mt-10">
           <img
             src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
@@ -219,35 +220,37 @@ const Besto = () => {
         </div>
       </div>
 
-      <div className="flex ml-40">
-        <div className="flex ">
+      <div className="flex flex-col lg:flex-row 2xl:m-20 xl:m-10 lg:m-5 justify-center">
+        <div className="flex justify-center lg:justify-start mb-5 mr-5">
           <img
-            className="w-[500px] h-[523px] mr-5"
+            className="w-full mr-0 xl:mt-0 lg:mr-5"
             src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740781499/react%20eco/rx6lldjcbvsva9a8vg5k.png"
             alt=""
           />
         </div>
-        <div>
-          <div>
-            <img
-              className="w-[500px] h-[250px] mb-5"
-              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740781499/react%20eco/q7qxpob47cz0o4hgpdds.png"
-              alt=""
-            />
+        <div className="flex flex-col items-center lg:items-start">
+          <div className="mb-5">
+        <img
+          className="2xl:w-full 2xl:h-auto xl:w-full xl:h-auto lg:w-[500px] lg:h-[210px]"
+          src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740781499/react%20eco/q7qxpob47cz0o4hgpdds.png"
+          alt=""
+        />
           </div>
 
-          <div className="flex">
+            <div className="flex flex-col lg:flex-row">
             <img
-              className="w-[240px] mr-5"
+              key="image1"
+              className="w-full h-auto lg:w-[48%] lg:mr-5 mb-5 lg:mb-0"
               src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740781499/react%20eco/avunqcypikpcv9j9av77.png"
               alt=""
             />
             <img
-              className="w-[240px]"
+              key="image2"
+              className="w-full h-auto lg:w-[48%]"
               src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740781500/react%20eco/aa8lr7pgrhhd75rf3kmz.png"
               alt=""
             />
-          </div>
+            </div>
         </div>
       </div>
 
