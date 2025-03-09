@@ -55,7 +55,7 @@ const Theproduct = () => {
 
   return (
     <>
-      <div className="mt-52 ml-[10.5rem] space-x-2 flex">
+      <div className="2xl:mt-52 xl:mt-52 lg:mt-52 md:mt-64 sm:mt-64 2sm:mt-64 ml-4 md:ml-[10.5rem] space-x-2 flex">
         <span className="text-gray-400">Account</span>
         <span className="text-gray-400">/</span>
         <span className="text-gray-400">Gaming</span>
@@ -65,9 +65,9 @@ const Theproduct = () => {
 
       <div
         ref={ref}
-        className="flex mt-10 ml-[10rem] mr-[10rem] space-x-10 justify-center"
+        className="flex flex-col md:flex-row mt-10 ml-4 md:ml-[10rem] mr-4 md:mr-[10rem] space-x-0 md:space-x-10 justify-center"
       >
-        <div className="w-[100%] h-[50%] p-20 bg-slate-100">
+        <div className="w-full md:w-[100%] h-[50%] p-4 md:p-20 bg-slate-100">
           <img
             src={product.image}
             alt={product.name}
@@ -177,7 +177,6 @@ const Theproduct = () => {
                 </Link>
               )}
               <div className="border-2 border-gray-200 p-2 rounded ml-2 text-[1.1rem]">
-                {/* className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded" */}
                 {wishitem.find((item) => item.id === product.id) ? (
                   <IoIosHeart
                     className="cursor-pointer text-red-500 bg-white rounded-2xl"
@@ -197,7 +196,7 @@ const Theproduct = () => {
             </div>
           </div>
 
-          <div className="border-[0.2rem] rounded p-4 w-[80%] text-[1rem] mt-5">
+          <div className="border-[0.2rem] rounded p-4 w-full md:w-[80%] text-[1rem] mt-5">
             <div className="flex border-b-[0.2rem] pb-4">
               <div className="pr-2">
                 <img
@@ -230,7 +229,7 @@ const Theproduct = () => {
         </div>
       </div>
 
-      <div className="ml-24 mr-20">
+      <div className="ml-4 md:ml-24 mr-4 md:mr-20">
         <div className="justify-between flex mt-20 mr-4 ml-5 mb-3">
           <div>
             <div className="flex">
@@ -245,14 +244,17 @@ const Theproduct = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-4 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-center">
           {salesProducts.slice(8, 12).map((item) => (
             <div key={item.id}>
               <div className="flex flex-col col-span-4 rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
                 <div className="justify-items-end w-full">
                   <IoEyeOutline
                     className="bg-white rounded-2xl cursor-pointer text-[2rem] p-1.5 mr-[14px]"
-                    onClick={() => goToProduct(item.id)}
+                    onClick={() => {
+                      goToProduct(item.id);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
                   />
                 </div>
 

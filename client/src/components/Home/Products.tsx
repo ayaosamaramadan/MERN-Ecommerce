@@ -58,8 +58,10 @@ const Products = () => {
 
               <IoEyeOutline
                 className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px] cursor-pointer"
-                onClick={() => goToProduct(product.id)}
-              />
+                onClick={() => {
+                  goToProduct(product.id);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}/>
             </div>
 
             <img

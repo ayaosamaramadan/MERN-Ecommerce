@@ -96,6 +96,12 @@ const Sign = () => {
         dispatch(setUserCart(user.email));
         dispatch(setUserWish(user.email));
       } else {
+        if (data.message === "User already exists") {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            email: "Email already exists",
+          }));
+        }
         throw new Error(data.message || "Registration failed");
       }
     } catch (error) {
@@ -109,20 +115,20 @@ const Sign = () => {
 
   return (
     <>
-      <div className="mt-52 flex">
-        <div>
+      <div className="2xl:mt-[170px] xl:mt-[200px] 2sm:mt-[250px] flex flex-col lg:flex-row items-center lg:items-start">
+        <div className="mb-8 lg:mb-0 lg:mr-5">
           <img
-            className="w-[500px] h-[450px] mr-5"
+            className="w-full max-w-md h-auto"
             src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1741049369/leugzwtnkhrizpfn7wn3.png"
             alt=""
           />
         </div>
-        <div className="m-[-20px] ml-32">
-          <h1 className="text-[1.9rem] mb-2">Create an account</h1>
+        <div className="w-full max-w-md px-4 lg:px-0">
+          <h1 className="text-2xl mb-2">Create an account</h1>
           <p>Enter your details below</p>
           <div className="flex flex-col mt-5">
             <input
-              className="border-b-[0.1rem] pb-2 my-3 border-gray-400"
+              className="border-b pb-2 my-3 border-gray-400"
               type="text"
               placeholder="Name"
               value={user.name}
@@ -135,7 +141,7 @@ const Sign = () => {
               </p>
             )}
             <input
-              className="border-b-[0.1rem] pb-2 my-3 border-gray-400"
+              className="border-b pb-2 my-3 border-gray-400"
               type="email"
               placeholder="Email or Phone Number"
               value={user.email}
@@ -148,7 +154,7 @@ const Sign = () => {
               </p>
             )}
             <input
-              className="border-b-[0.1rem] pb-2 my-3 border-gray-400"
+              className="border-b pb-2 my-3 border-gray-400"
               type="password"
               placeholder="Password"
               value={user.password}
@@ -162,24 +168,24 @@ const Sign = () => {
             )}
             <button
               type="submit"
-              className="bg-red-500 py-[0.7rem] text-[0.9rem] hover:bg-red-700 text-white rounded"
+              className="bg-red-500 py-2 text-sm hover:bg-red-700 text-white rounded"
               onClick={handleSubmit}
             >
               Create Account
             </button>
 
-            <div className="flex py-[0.7rem] mt-3 text-center rounded hover:bg-gray-200 text-[0.9rem] justify-center border-[0.16rem] ">
+            <div className="flex py-2 mt-3 text-center rounded hover:bg-gray-200 text-sm justify-center border">
               <img
                 src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1741050642/juqnircfcappdkangtg7.png"
                 alt="AccountWithGoogle"
-                className="w-[24px] h-[24px] mr-3"
+                className="w-6 h-6 mr-3"
               />
               <button type="submit">Sign up with Google</button>
             </div>
           </div>
-          <p>
-            Already have account?
-            <Link to="login" className="underline">
+          <p className="mt-4">
+            Already have an account?
+            <Link to="login" className="underline ml-1">
               Log in
             </Link>
           </p>

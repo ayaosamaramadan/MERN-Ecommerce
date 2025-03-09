@@ -48,44 +48,44 @@ const Navi = () => {
             Exclusive
           </div>
           <ul className="flex flex-wrap justify-center xl:pl-3 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.8rem] md:text-[0.8rem] sm:text-[0.8rem] 2sm:text-[0.8rem] ">
-            <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
+            <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-11.4z sm:mr-5 2sm:mr-3 hover:underline">
               <Link
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to="/"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/"
               >
-          Home
+                Home
               </Link>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               <Link
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to="/content"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/content"
               >
-          Content
+                Content
               </Link>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               <Link
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to="/about"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/about"
               >
-          About
+                About
               </Link>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 hover:underline">
               {theAuth._id ? (
-          <Link onClick={handlelOut} to="/">
-            Log Out
-          </Link>
+                <Link onClick={handlelOut} to="/">
+                  Log Out
+                </Link>
               ) : (
-          <Link
-            onClick={() =>
-              window.scrollTo({ top: 0, behavior: "smooth" })
-            }
-            to="/sign"
-          >
-            Sign Up
-          </Link>
+                <Link
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  to="/sign"
+                >
+                  Sign Up
+                </Link>
               )}
             </li>
           </ul>
@@ -99,60 +99,52 @@ const Navi = () => {
             <CiSearch className="text-black text-[25px] ml-2" />
           </div>
 
-          <div className="text-black flex 2xl:text-[26px] xl:text-[26px] md:text-[20px] sm:text-[19px] 2sm:text-[18px] mt-2 lg:mt-0 lg:mr-[50px] xl:pl-5">
+          <div className="text-black flex 2xl:text-[26px] xl:text-[26px] md:text-[20px] sm:text-[19px] 2sm:text-[18px] mt-2 lg:mt-0 lg:mr-[50px] xl:pl-5 relative">
             {theAuth._id ? (
               <Link
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          to="./wishlist"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="./wishlist"
               >
-          <IoIosHeartEmpty className="mr-[10px] cursor-pointer" />
+                <IoIosHeartEmpty className="mr-[10px] cursor-pointer relative" />
+                {wishItemCount > 0 && (
+                  <span className="bg-red-500 text-white p-1 rounded-full 2xl:w-5 2xl:h-5 xl:w-5 lg:w-4 lg:h-4 md:w-4 md:h-4 sm:w-4 sm:h-4 2sm:w-4 2sm:h-4 xl:h-5 flex items-center justify-center absolute 2xl:top-[-10px] xl:top-[-10px] md:top-[-4px] lg:top-[-6px] 2sm:top-[-4px] sm:top-[-4px] 2xl:right-[81px] xl:right-[81px] lg:right-[69px] cmd:right-[29px] sm:right-[66px] 2sm:right-[66px] 2xl:text-[0.8rem] xl:text-[0.8rem] lg:text-[0.7rem] md:text-[0.7rem] sm:text-[0.6rem] 2sm:text-[0.5rem]">
+                    {wishItemCount}
+                  </span>
+                )}
               </Link>
             ) : (
               <IoIosHeartEmpty
-          className="mr-[10px] cursor-pointer"
-          onClick={() => toast.error("Please login first")}
+                className="mr-[10px] cursor-pointer relative"
+                onClick={() => toast.error("Please login first")}
               />
-            )}
-            {wishItemCount === 0 ? null : (
-              <span
-          className={`bg-red-500 text-white p-1 ${
-            theAuth._id ? "right-[8.2rem]" : "right-[5.5rem]"
-          } rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] right-[5.5rem] text-[0.8rem] pb-[0.4rem]`}
-              >
-          {wishItemCount}
-              </span>
             )}
 
             {theAuth._id ? (
               <Link
-          to="./cart"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="./cart"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-          <IoCartOutline className="ml-[10px] cursor-pointer" />
+                <IoCartOutline className="ml-[10px] cursor-pointer relative" />
+                {cartItemCount > 0 && (
+                  <span className="bg-red-500 text-white p-1 rounded-full 2xl:w-5 2xl:h-5 xl:w-5 xl:h-5 lg:w-4 lg:h-4 md:w-4 md:h-4 sm:w-4 sm:h-4 2sm:w-4 2sm:h-4 flex items-center justify-center absolute 2xl:top-[-10px] xl:top-[-10px] md:top-[-4px] lg:top-[-6px] 2sm:top-[-4px] sm:top-[-4px] 2xl:right-[33px] xl:right-[33px] lg:right-[29px] md:right-[29px] sm:right-[25px] 2sm:right-[26px] 2xl:text-[0.8rem] xl:text-[0.8rem] lg:text-[0.7rem] md:text-[0.7rem] sm:text-[0.6rem] 2sm:text-[0.5rem]">
+                    {cartItemCount}
+                  </span>
+                )}
+                
               </Link>
             ) : (
               <IoCartOutline
-          className="ml-[10px] cursor-pointer"
-          onClick={() => toast.error("Please login first")}
+                className="ml-[10px] cursor-pointer relative"
+                onClick={() => toast.error("Please login first")}
               />
-            )}
-
-            {cartItemCount === 0 ? null : (
-              <span
-          className={`bg-red-500 text-white p-1 rounded-full w-5 h-5 flex items-center justify-center absolute top-[6rem] ${
-            theAuth._id ? "right-[5.5rem]" : "right-[2.5rem]"
-          } text-[0.8rem] pb-[0.4rem]`}
-              >
-          {cartItemCount}
-              </span>
             )}
 
             {theAuth._id ? (
               <Link
-          to="./account"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="./account"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               >
-          <FiUser className="ml-[20px]" />
+                <FiUser className="ml-[20px]" />
               </Link>
             ) : null}
           </div>

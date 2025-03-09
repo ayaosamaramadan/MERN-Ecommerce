@@ -123,8 +123,10 @@ const Wishlist = () => {
                 <div className="justify-items-end w-full">
                   <IoEyeOutline
                     className="bg-white rounded-2xl cursor-pointer text-[2rem] p-1.5 mr-[14px]"
-                    onClick={() => goToProduct(item.id)}
-                  />
+                    onClick={() => {
+                      goToProduct(item.id);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}/>
                 </div>
 
                 <img

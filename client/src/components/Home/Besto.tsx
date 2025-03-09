@@ -113,8 +113,10 @@ const Besto = () => {
 
                 <IoEyeOutline
                   className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px] cursor-pointer"
-                  onClick={() => goToProduct(product.id)}
-                />
+                  onClick={() => {
+                    goToProduct(product.id);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}/>
               </div>
 
               <img
@@ -208,7 +210,7 @@ const Besto = () => {
 
       <div className="justify-between ml-[5%] mr-32 mt-24 mb-10 ">
     
-        <div className="flex mt-10">
+      <div className="flex mt-10">
           <img
             src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
             alt=""
@@ -219,6 +221,7 @@ const Besto = () => {
           <h1 className="2xl:text-[2rem] xl:text-[2rem] lg:text-[1.8rem] md:text-[1.4rem]  font-semibold">New Arrival</h1>
         </div>
       </div>
+      
 
       <div className="flex flex-col lg:flex-row 2xl:m-20 xl:m-10 lg:m-5 justify-center">
         <div className="flex justify-center lg:justify-start mb-5 mr-5">

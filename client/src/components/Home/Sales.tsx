@@ -19,8 +19,8 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useEffect, useState, useRef } from "react";
-// import { NextArrow, PrevArrow } from "./Arrow";
+import {  useRef } from "react";
+import Timeoutt from "./Timeoutt";
 
 const Sales = () => {
   const wishitem = useSelector((state: RootState) => state.wish.items);
@@ -51,97 +51,48 @@ const Sales = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    // nextArrow: <NextArrow className={`bg-black`}/>,
-    // prevArrow: <PrevArrow />,
     autoplay: true,
     autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1536, 
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1280, 
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 1024, 
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768, 
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640, 
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
-
-  const calcTime = () => {
-    let time = { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    const now = +new Date("2025-12-31") - +new Date();
-
-    time = {
-      days: 3,
-      hours: Math.floor((now / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((now / 1000 / 60) % 60),
-      seconds: Math.floor((now / 1000) % 60),
-    };
-
-    return time;
-  };
-
-  const [time, setTime] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(calcTime());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <>
-      <div className="flex ml-32 mt-32 mr-32 justify-between">
-        <div>
-          <div className="flex mt-10">
-            <img
-              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
-              alt=""
-            />
-            <p className="text-red-500 font-bold ml-5 mt-2">Today’s</p>
-          </div>
-          <div>
-            <div className="flex mt-5">
-              <h1 className="text-[2rem] font-semibold">Flash Sales</h1>
-              <div className="mt-[-34px] ml-12">
-                <ul className="flex">
-                  <li className="pl-3 font-semibold">Days </li>
-                  <li className="pl-14 font-semibold">Hours</li>
-                  <li className="pl-14 font-semibold">Minutes</li>
-                  <li className="pl-14 font-semibold">Seconds</li>
-                </ul>
-                <ul className="flex mt-[-10px]">
-                  <li className="text-[2rem] font-semibold p-5">
-                    {time.days || "00"}
-                  </li>
-                  <li className="text-[2rem] font-semibold p-5">
-                    <span className="text-red-600 pr-5 pl-3 font-bold">:</span>
-                    {time.hours || "00"}
-                  </li>
-                  <li className="text-[2rem] font-semibold p-5">
-                    <span className="text-red-600 pr-5 pl-3 font-bold">:</span>
-                    {time.minutes || "00"}
-                  </li>
-                  <li className="text-[2rem] font-semibold p-5">
-                    <span className="text-red-600 pr-5 pl-3 font-bold">:</span>
-                    {time.seconds || "00"}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+    <Timeoutt/>
+   
 
-        <div className="flex ml-12 text-[2.5rem]">
-          <IoIosArrowRoundBack
-            className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 rounded-3xl cursor-pointer"
-            onClick={() => sliderRef?.current?.slickPrev()}
-          />
-          <IoIosArrowRoundForward
-            className="bg-slate-100 mt-[105px] mr-3 rounded-3xl hover:bg-slate-300 cursor-pointer"
-            onClick={() => sliderRef?.current?.slickNext()}
-          />
-        </div>
-      </div>
-
-      <div className="justify-center ml-20 w-[90%]">
+      <div className="justify-center items-center 2xl:w-[90%] xl:w-[90%] lg:w-[90%] md:w-[70%] sm:w-[80%] 2sm:w-[90%] m-auto">
         <Slider ref={sliderRef} {...settings}>
           {salesProducts.map((product: Productpro) => (
             <div key={product.id}>
@@ -164,8 +115,10 @@ const Sales = () => {
                   )}
                   <IoEyeOutline
                     className="bg-white mt-2 rounded-2xl text-3xl p-1 mr-[14px] cursor-pointer"
-                    onClick={() => goToProduct(product.id)}
-                  />
+                    onClick={() => {
+                      goToProduct(product.id);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}/>
                 </div>
                 <img
                   src={product.image}
@@ -223,25 +176,28 @@ const Sales = () => {
         </button>
       </div>
 
-      <div className="justify-between flex ml-32 mt-24 mr-32">
-        <div>
-          <div className="flex mt-10">
-            <img
-              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
-              alt=""
-            />
-            <p className="text-red-500 font-bold ml-5 mt-2">Categories</p>
-          </div>
-          <div className=" mt-5">
-            <h1 className="text-[2rem] font-semibold">Browse By Category</h1>
-          </div>
-        </div>
+      <div className="flex flex-col md:flex-row ml-[5%] mt-[5%] mr-[5%] mb-[5%] justify-between">
 
-        <div className="flex ml-12 text-[2.5rem]">
-          <IoIosArrowRoundBack className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 rounded-3xl" />
-          <IoIosArrowRoundForward className="bg-slate-100 mt-[105px] mr-3 rounded-3xl hover:bg-slate-300" />
-        </div>
-      </div>
+<div>
+  <div className="flex mt-10">
+    <img
+      src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
+      alt=""
+    />
+    <p className="text-red-500 font-bold ml-5 mt-2">Categories</p>
+  </div>
+  <div className=" mt-5">
+    <h1 className="2xl:text-[2rem] xl:text-[2rem] lg:text-[1.8rem] md:text-[1.4rem] font-semibold">Browse By Category</h1>
+  </div>
+</div>
+
+<div className="flex justify-center md:justify-start 2xl:mt-0 xl:mt-0 lg:mt-[-60px] md:mt-[-80px] sm:mt-[-80px] 2sm:mt-[-80px] 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-[-90px] sm:ml-[250px] 2sm:ml-[-90px] 2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem] sm:text-[2rem] 2sm:text-[2rem]">
+  
+  <IoIosArrowRoundBack className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 rounded-3xl" />
+  <IoIosArrowRoundForward className="bg-slate-100 mt-[105px] mr-3 rounded-3xl hover:bg-slate-300" />
+</div>
+</div>
+
 
       <div className="flex justify-center mt-10">
         <div>

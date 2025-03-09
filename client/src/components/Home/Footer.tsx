@@ -10,8 +10,8 @@ import { LuSendHorizontal } from "react-icons/lu";
 const Footer = () => {
   return (
     <div className="pt-10 bg-black mt-10 w-full text-white">
-      <div className="flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-10 bg-black text-white px-5 md:px-10">
-        <div className="flex flex-col">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap justify-between space-y-10 sm:space-y-0 sm:space-x-10 bg-black text-white px-5 sm:px-10">
+        <div className="flex flex-col sm:w-1/2 md:w-1/5">
           <h2 className="text-lg pb-3">Exclusive</h2>
           <h3 className="text-base">Subscribe</h3>
           <p className="text-base pb-3 pt-5">Get 10% off your first order</p>
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-start mt-1">
+        <div className="flex flex-col items-start mt-1 sm:w-1/2 md:w-1/5">
           <h3 className="text-base pb-5">Support</h3>
           <p className="text-base pb-3">
             111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
@@ -40,7 +40,7 @@ const Footer = () => {
           <p className="text-base pb-3">+88015-88888-9999</p>
         </div>
 
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start sm:w-1/2 md:w-1/5">
           <h3 className="text-base pb-5">Account</h3>
           <p className="text-base pb-3">My Account</p>
           <p className="text-base pb-3">Login / Register</p>
@@ -49,7 +49,7 @@ const Footer = () => {
           <p className="text-base pb-3">Shop</p>
         </div>
 
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start sm:w-1/2 md:w-1/5">
           <h3 className="text-base pb-5">Quick Link</h3>
           <p className="text-base pb-3">Privacy Policy</p>
           <p className="text-base pb-3">Terms Of Use</p>
@@ -57,7 +57,7 @@ const Footer = () => {
           <p className="text-base pb-3">Contact</p>
         </div>
 
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start sm:w-1/2 md:w-1/5">
           <h3 className="text-base pb-5">Download App</h3>
           <p className="text-base text-gray-400 pb-2">
             Save $3 with App New User Only
