@@ -17,6 +17,9 @@ import { RootState } from "../../main";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 
+import Slider from "react-slick";
+
+
 const Sales = () => {
   const wishitem = useSelector((state: RootState) => state.wish.items);
   const theAuth = useSelector((state: RootState) => state.auth);
@@ -37,10 +40,24 @@ const Sales = () => {
   const goToProduct = (id: number) => {
     navigate(`/product/${id}`);
   };
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    // nextArrow: <NextArrow className={`bg-black`}/>,
+    // prevArrow: <PrevArrow />,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
     <>
       <Timeoutt />
       <div className="flex flex-wrap justify-center">
+      <Slider {...settings}>
         {salesProducts.slice(0, 4).map((product: Productpro) => (
           <div key={product.id}>
             <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
@@ -110,6 +127,7 @@ const Sales = () => {
             </div>
           </div>
         ))}
+        </Slider>
       </div>
       <div className="text-center mt-14">
         <button
