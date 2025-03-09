@@ -2,13 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { RootState, AppDispatch } from "../../main";
-import {
-  // registerUser,
-  registerUserSuccess,
-  registerUserFailure,
-} from "../../reducers/auth";
+import { registerUserSuccess, registerUserFailure } from "../../reducers/auth";
 import { setUserCart } from "../../reducers/cart";
 import { setUserWish } from "../../reducers/wishlistt";
+import { CgInfo } from "react-icons/cg";
 
 const Sign = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -16,6 +13,12 @@ const Sign = () => {
   const auth = useSelector((state: RootState) => state.auth);
 
   const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const [errors, setErrors] = useState({
     name: "",
     email: "",
     password: "",
@@ -33,8 +36,51 @@ const Sign = () => {
     }
   }, [auth.registerStatus, auth.registerError]);
 
+  const validate = () => {
+    let valid = true;
+    const newErrors = { name: "", email: "", password: "" };
+
+    if (!user.name) {
+      newErrors.name = "Name is required";
+      valid = false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!user.email) {
+      newErrors.email = "Email is required";
+      valid = false;
+    } else if (!emailRegex.test(user.email)) {
+      newErrors.email = "Enter a valid email Example@gmail.com";
+      valid = false;
+    }
+
+    if (!user.password) {
+      newErrors.password = "Password is required";
+      valid = false;
+    } else if (user.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+      valid = false;
+    } else if (!user.password.match(/[0-9]/)) {
+      newErrors.password = "Password must contain a number";
+      valid = false;
+    } else if (!user.password.match(/[a-z]/)) {
+      newErrors.password =
+        "Password must contain at least one lowercase letter";
+      valid = false;
+    } else if (!user.password.match(/[A-Z]/)) {
+      newErrors.password =
+        "Password must contain at least one uppercase letter";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
+
     const apiUrl = "https://ecommerce-server-coral-mu.vercel.app/api/users/register";
     try {
       const response = await fetch(apiUrl, {
@@ -71,31 +117,49 @@ const Sign = () => {
             alt=""
           />
         </div>
-        <div className="m-10 ml-32">
+        <div className="m-[-20px] ml-32">
           <h1 className="text-[1.9rem] mb-2">Create an account</h1>
           <p>Enter your details below</p>
           <div className="flex flex-col mt-5">
             <input
-              className="border-b-[0.1rem] pb-2 mb-7 border-gray-400"
+              className="border-b-[0.1rem] pb-2 my-3 border-gray-400"
               type="text"
               placeholder="Name"
               value={user.name}
               onChange={(e) => setUser({ ...user, name: e.target.value })}
             />
+            {errors.name && (
+              <p className="text-red-500 flex">
+                <CgInfo className="mt-[3px] mr-1" />
+                {errors.name}
+              </p>
+            )}
             <input
-              className="border-b-[0.1rem] pb-2 mb-7 border-gray-400"
+              className="border-b-[0.1rem] pb-2 my-3 border-gray-400"
               type="email"
               placeholder="Email or Phone Number"
               value={user.email}
               onChange={(e) => setUser({ ...user, email: e.target.value })}
             />
+            {errors.email && (
+              <p className="text-red-500 flex">
+                <CgInfo className="mt-[3px] mr-1" />
+                {errors.email}
+              </p>
+            )}
             <input
-              className="border-b-[0.1rem] pb-2 mb-7 border-gray-400"
+              className="border-b-[0.1rem] pb-2 my-3 border-gray-400"
               type="password"
               placeholder="Password"
               value={user.password}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
+            {errors.password && (
+              <p className="text-red-500 flex mb-3">
+                <CgInfo className="mt-[3px] mr-1" />
+                {errors.password}
+              </p>
+            )}
             <button
               type="submit"
               className="bg-red-500 py-[0.7rem] text-[0.9rem] hover:bg-red-700 text-white rounded"
