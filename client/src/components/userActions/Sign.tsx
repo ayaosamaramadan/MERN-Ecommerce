@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { RootState, AppDispatch } from "../../main";
 import {
-  registerUser,
+  // registerUser,
   registerUserSuccess,
   registerUserFailure,
 } from "../../reducers/auth";
@@ -35,8 +35,7 @@ const Sign = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const apiUrl =
-      "https://ecommerce-5kyb.vercel.app/api/users/register";
+    const apiUrl = "https://ecommerce-server-eight-sable.vercel.app/api/users/register";
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
