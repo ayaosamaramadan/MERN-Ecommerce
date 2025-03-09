@@ -120,25 +120,26 @@ const Sales = () => {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row ml-[5%] mt-[5%] mr-[5%] justify-between">
-      
+      <div className="flex flex-col md:flex-row ml-[5%] mt-[5%] mr-[5%] mb-[5%] justify-between">
         <div>
-         
+          <div className="flex mt-10">
             <img
               src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
               alt=""
             />
-            <p className="text-red-500 2xl:font-bold xl:font-bold lg:font-bold md:font-semibold ml-[3%] mt-2">Categories</p>
+            <p className="text-red-500 font-bold ml-5 mt-2">Categories</p>
           </div>
           <div className=" mt-5">
-            <h1 className=" 2xl:text-[2rem] xl:text-[2rem] lg:text-[2rem] md:text-[1.4rem] md:w-[230px] font-semibold 2xl:w-auto xl:w-auto lg:w-auto">Browse By Category</h1>
+            <h1 className="2xl:text-[2rem] xl:text-[2rem] lg:text-[1.8rem] md:text-[1.4rem] font-semibold">Browse By Category</h1>
           </div>
         </div>
 
-        <div className="flex ml-12 2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem]">
+        <div className="flex justify-center md:justify-start 2xl:mt-0 xl:mt-0 lg:mt-[-60px] md:mt-[-80px] sm:mt-[-80px] 2sm:mt-[-80px] 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-[-90px] sm:ml-[250px] 2sm:ml-[-90px] 2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem] sm:text-[2rem] 2sm:text-[2rem]">
+          
           <IoIosArrowRoundBack className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 rounded-3xl" />
           <IoIosArrowRoundForward className="bg-slate-100 mt-[105px] mr-3 rounded-3xl hover:bg-slate-300" />
         </div>
+      </div>
     
 
       <div className="flex justify-center mt-10">

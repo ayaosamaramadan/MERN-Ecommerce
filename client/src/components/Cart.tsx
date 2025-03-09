@@ -11,7 +11,6 @@ const Cart = () => {
   const dispatch = useDispatch<AppDispatch>();
   const cart = useSelector((state: RootState) => state.cartt);
   const auth = useSelector((state: RootState) => state.auth);
-
   useEffect(() => {
     if (auth.email) {
       dispatch(setUserCart(auth.email));
@@ -34,7 +33,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="mt-52 ml-40">
+    <div className="2xl:mt-52 xl:mt-52 lg:mt-52 md:mt-64 2sm:mt-64 sm:mt-64 2xl:ml-40 xl:ml-40 lg:ml-20 md:ml-20 2sm:ml-10 sm:ml-20 text-base">
       <span className="text-gray-400">Home / </span>
       <span>Cart</span>
       <p>Total Items: {cart.itemCount}</p>
@@ -115,7 +114,7 @@ const Cart = () => {
         </button>
       </div>
 
-      <div className="justify-between mt-14 mr-[7.3rem] flex">
+      <div className="justify-between mt-14 mr-[7.3rem] 2xl:flex xl:flex lg:flex md:block 2sm:block sm:block">
         <div className="w-[49%]">
           <input
             className="input"
@@ -128,7 +127,7 @@ const Cart = () => {
             Apply Coupon
           </button>
         </div>
-        <div className="border-[0.1rem] border-black p-5 px-10 rounded">
+        <div className="border-[0.1rem] border-black p-5 px-10 rounded w-full md:w-[49%]">
           <h1 className="text-[1.2rem]">Cart Total</h1>
           <div className="flex justify-between mt-5 pb-3 border-gray-400 border-b-[0.1rem] w-full">
             <p>Subtotal</p>
@@ -148,10 +147,11 @@ const Cart = () => {
           </div>
           <Link to="/checkout">
             <button
-              className="ml-14 bg-red-500 px-8 justify-center rounded m-5 mt-10 text-white py-3 text-center"
+              type="button"
+              className="w-full bg-red-500 px-8 justify-center rounded m-5 mt-10 text-white py-3 text-center"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              Procees To Checkout
+              Proceed To Checkout
             </button>
           </Link>
         </div>

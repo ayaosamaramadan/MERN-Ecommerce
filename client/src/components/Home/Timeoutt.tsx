@@ -43,7 +43,7 @@ const Timeoutt = () => {
         <div className="flex flex-col  md:flex-row mt-5">
           <h1 className=" 2xl:text-[2rem] xl:text-[2rem] lg:text-[2rem] md:text-[1.4rem] md:w-[50px] font-semibold 2xl:w-auto xl:w-auto lg:w-auto">Flash Sales</h1>
           
-          <div className="mt-5 2xl:mt-0 xl:mt-[-32px] lg:mt-3 md:mt-[6px] md:ml-10">
+          <div className="mt-5 2xl:mt-0 xl:mt-[-32px] lg:mt-[-35px] md:mt-[6px] md:ml-10">
             <ul className="flex justify-between md:justify-start ">
           <li className="2xl:pl-3 xl:pl-3 lg:pl-3 md:pl-0 font-semibold">Days</li>
           <li className="2xl:pl-14 xl:pl-12 lg:pl-11 md:pl-5 font-semibold">Hours</li>
@@ -72,7 +72,7 @@ const Timeoutt = () => {
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-start 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-[-80px] 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-[-90px] 2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem]">
+        <div className="flex justify-center md:justify-start 2xl:mt-0 xl:mt-0 lg:mt-[-60px] md:mt-[-80px] sm:mt-[-80px] 2sm:mt-[-80px] 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-[-90px] sm:ml-[250px] 2sm:ml-[-90px] 2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem] sm:text-[2rem] 2sm:text-[2rem]">
           <IoIosArrowRoundBack className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 rounded-3xl" />
           <IoIosArrowRoundForward className="bg-slate-100 mt-[105px] mr-3 rounded-3xl hover:bg-slate-300" />
         </div>

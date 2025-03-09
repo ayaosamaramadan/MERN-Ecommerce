@@ -51,15 +51,15 @@ const Sign = () => {
 
   return (
     <>
-      <div className="mt-52 flex">
-        <div>
+      <div className="mt-20 flex flex-col xl:flex-row 2xl:flex-row items-center xl:items-start 2xl:items-start">
+        <div className="mb-10 xl:mb-0 2xl:mb-0">
           <img
-            className="w-[500px] h-[450px] mr-5"
+            className="mr-5 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px]"
             src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1741049369/leugzwtnkhrizpfn7wn3.png"
             alt=""
           />
         </div>
-        <div className="m-10 ml-32">
+        <div className="m-10 xl:ml-32 2xl:ml-32">
           <h1 className="text-[1.9rem] mb-2">Create an account</h1>
           <p>Enter your details below</p>
           <div className="flex flex-col mt-5">

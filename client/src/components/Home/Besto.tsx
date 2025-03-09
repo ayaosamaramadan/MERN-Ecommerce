@@ -79,7 +79,7 @@ const Besto = () => {
             <p className="text-red-500 font-bold ml-5 mt-2">This Month</p>
           </div>
           <div className=" mt-5">
-            <h1 className="text-[2rem] font-semibold">Best Selling Products</h1>
+            <h1 className="2xl:text-[2rem] xl:text-[2rem] lg:text-[1.8rem] md:text-[1.4rem] font-semibold">Best Selling Products</h1>
           </div>
         </div>
 
@@ -183,7 +183,7 @@ const Besto = () => {
             <p className="text-red-500 font-bold ml-5 mt-2">Our Products</p>
           </div>
           <div className=" mt-5">
-            <h1 className="text-[2rem] font-semibold">Explore Our Products</h1>
+            <h1 className="2xl:text-[2rem] xl:text-[2rem] lg:text-[1.8rem] md:text-[1.4rem]  font-semibold">Explore Our Products</h1>
           </div>
         </div>
 
@@ -216,7 +216,7 @@ const Besto = () => {
           <p className="text-red-500 font-bold ml-5 mt-2">Featured</p>
         </div>
         <div className=" mt-5">
-          <h1 className="text-[2rem] font-semibold">New Arrival</h1>
+          <h1 className="2xl:text-[2rem] xl:text-[2rem] lg:text-[1.8rem] md:text-[1.4rem]  font-semibold">New Arrival</h1>
         </div>
       </div>
 

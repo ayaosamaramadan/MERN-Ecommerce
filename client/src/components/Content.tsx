@@ -1,13 +1,13 @@
 const Content = () => {
   return (
     <>
-      <div className="mt-52 ml-40">
+      <div className="2xl:mt-52 xl:mt-52 lg:mt-52 md:mt-64 2sm:mt-64 sm:mt-64 2xl:ml-40 xl:ml-40 lg:ml-20 md:ml-20 2sm:ml-10 sm:ml-20">
         <span className="text-gray-400">Home / </span>
         <span>Contact</span>
       </div>
 
-      <div className="ml-40 flex mt-14">
-        <div className="shadow-lg p-8 rounded w-[25%] pt-10">
+      <div className="2xl:ml-40 xl:ml-40 lg:ml-20 flex flex-col xl:flex-row mt-14">
+        <div className="shadow-lg p-8 rounded w-full xl:w-[25%] pt-10">
           <div className="border-b-2 pb-4 mb-4">
             <div className="flex items-center mb-4">
               <img
@@ -41,8 +41,8 @@ const Content = () => {
           </div>
         </div>
 
-        <div className="ml-5 shadow-lg p-4 pt-10 w-[62.5%] rounded">
-          <div className="w-full max-w-md flex">
+        <div className="ml-0 xl:ml-5 shadow-lg p-4 pt-10 w-full xl:w-[62.5%] rounded mt-5 xl:mt-0">
+          <div className="w-full max-w-md flex flex-col xl:flex-row">
             <label
               htmlFor="name"
               className="flex text-gray-700 font-bold mb-2"
@@ -57,7 +57,7 @@ const Content = () => {
             />
             <label
               htmlFor="email"
-              className="flex ml-3 text-gray-700 font-bold mb-2"
+              className="flex xl:ml-3 text-gray-700 font-bold mb-2"
             ></label>
             <input
               className="bg-gray-100 border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -66,7 +66,7 @@ const Content = () => {
             />
             <label
               htmlFor="phone"
-              className="flex ml-3 text-gray-700 font-bold mb-2"
+              className="flex xl:ml-3 text-gray-700 font-bold mb-2"
             ></label>
             <input
               className="bg-gray-100 border border-gray-300 rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -91,10 +91,10 @@ const Content = () => {
 
           <div className="mt-4">
             <button
-              className="ml-[525px] bg-red-600 hover:bg-red-700 px-8 rounded text-white py-3 text-center"
+              className="ml-auto bg-red-600 hover:bg-red-700 px-8 rounded text-white py-3 text-center"
               type="button"
             >
-              Send Massage
+              Send Message
             </button>
           </div>
         </div>
