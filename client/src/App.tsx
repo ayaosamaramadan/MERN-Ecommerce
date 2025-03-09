@@ -12,7 +12,7 @@ import Wishlist from "./components/Wishlist";
 import { ToastContainer } from "react-toastify";
 import Checkout from "./components/Checkout";
 import Theproduct from "./components/Theproduct";
-import Sign from "./components/Sign";
+import Sign from "./components/userActions/Sign";
 import Login from "./components/userActions/Login";
 import Account from "./components/userActions/Account";
 
