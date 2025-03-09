@@ -6,12 +6,12 @@ const userRoutes = require("./routes/userRoutes");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
   origin: process.env.CORS_ORIGIN,
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 app.use(cors(corsOptions));
@@ -42,6 +42,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server is running`);
 });
