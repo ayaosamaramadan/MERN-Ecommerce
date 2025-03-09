@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 interface RegisterValues {
   name: string;
@@ -42,7 +42,7 @@ export const registerUser = createAsyncThunk(
   async (values: RegisterValues, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://ecommerce-server-coral-mu.vercel.app/api/users/register", // Update this URL to your deployed backend URL
+        "http://localhost:5000/api/users/register", // Update this URL to your deployed backend URL
         {
           name: values.name,
           email: values.email,
@@ -67,7 +67,7 @@ export const loginUser = createAsyncThunk(
   async (values: LoginValues, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://ecommerce-server-coral-mu.vercel.app/api/users/login", // Update this URL to your deployed backend URL
+        "http://localhost:5000/api/users/login", // Update this URL to your deployed backend URL
         {
           email: values.email,
           password: values.password,
