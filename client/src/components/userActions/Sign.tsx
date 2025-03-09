@@ -35,7 +35,7 @@ const Sign = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const apiUrl = "https://ecommerce-server-eight-sable.vercel.app/api/users/register";
+    const apiUrl = "https://ecommerce-server-coral-mu.vercel.app/api/users/register";
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
