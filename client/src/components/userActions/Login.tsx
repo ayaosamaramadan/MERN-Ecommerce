@@ -30,7 +30,7 @@ const Login = () => {
     if (auth._id) {
       setTimeout(() => {
         navigate("/cart");
-      }, 3000);
+      }, 2000);
     }
   }, [auth._id, navigate]);
 
