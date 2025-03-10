@@ -19,7 +19,7 @@ import { addToCart } from "../../reducers/cart";
 import { addToWish, removeFromWish } from "../../reducers/wishlistt";
 import { RootState } from "../../main";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Besto = () => {
   const navigate = useNavigate();
@@ -200,12 +200,15 @@ const Besto = () => {
       </div>
 
       <div className="text-center mt-14">
+
+        <Link to="./Allproducts">
         <button
           type="submit"
           className="bg-red-600 hover:bg-red-700 px-8 rounded text-white py-3 text-center"
         >
           View All Products
         </button>
+        </Link>
       </div>
 
       <div className="justify-between ml-[5%] mr-32 mt-24 mb-10 ">

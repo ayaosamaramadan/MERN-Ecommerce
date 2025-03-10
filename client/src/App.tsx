@@ -15,6 +15,7 @@ import Theproduct from "./components/Theproduct";
 import Sign from "./components/userActions/Sign";
 import Login from "./components/userActions/Login";
 import Account from "./components/userActions/Account";
+import Allproducts from "./components/Allproducts";
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
       <Route path="/sign" element={<Sign />} />
       <Route path="sign/login" element={<Login />} />
       <Route path="/account" element={<Account />}/>
+      <Route path="/allproducts" element={<Allproducts />}/>
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -16,7 +16,7 @@ import { addToCart } from "../../reducers/cart";
 import { addToWish, removeFromWish } from "../../reducers/wishlistt";
 import { RootState } from "../../main";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {  useRef } from "react";
@@ -168,12 +168,14 @@ const Sales = () => {
         </Slider>
       </div>
       <div className="text-center mt-14">
+      <Link to="./Allproducts">
         <button
           type="submit"
           className="bg-red-600 hover:bg-red-700 px-8 rounded text-white py-3 text-center"
         >
           View All Products
         </button>
+        </Link>
       </div>
 
       <div className="flex flex-col md:flex-row ml-[5%] mt-[5%] mr-[5%] mb-[5%] justify-between">
