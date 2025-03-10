@@ -7,8 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const cart = useSelector((state: RootState) => state.cartt);
-  const auth = useSelector((state: RootState) => state.auth);
+ const auth = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
   const items = useSelector((state: RootState) => state.cartt.items);
 
