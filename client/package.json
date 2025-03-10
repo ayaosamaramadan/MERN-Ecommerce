@@ -27,6 +27,7 @@
     "react-router": "^7.2.0",
     "react-router-dom": "^7.2.0",
     "react-slick": "^0.30.3",
+    "react-spinners": "^0.15.0",
     "react-toastify": "^11.0.5",
     "redux": "^5.0.1",
     "slick-carousel": "^1.8.1"
@@ -35,7 +36,6 @@
     "@eslint/js": "^9.21.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "@types/react-slick": "^0.23.13",
     "@vitejs/plugin-react-swc": "^3.8.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.21.0",

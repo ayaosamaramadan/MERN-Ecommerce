@@ -23,6 +23,7 @@ interface AuthState {
   loginStatus: string;
   loginError: string;
   userLoaded: boolean;
+  loading: boolean;
 }
 
 const initialState: AuthState = {
@@ -35,6 +36,7 @@ const initialState: AuthState = {
   loginStatus: "",
   loginError: "",
   userLoaded: false,
+  loading: false,
 };
 
 export const registerUser = createAsyncThunk(
@@ -42,7 +44,7 @@ export const registerUser = createAsyncThunk(
   async (values: RegisterValues, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://ecommerce-server-coral-mu.vercel.app/users/register",
+        "https://ecommerce-server-coral-mu.vercel.app/api/users/register",
         {
           name: values.name,
           email: values.email,
@@ -67,7 +69,7 @@ export const loginUser = createAsyncThunk(
   async (values: LoginValues, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://ecommerce-server-coral-mu.vercel.app/users/login",
+        "https://ecommerce-server-coral-mu.vercel.app/api/users/login",
         {
           email: values.email,
           password: values.password,
@@ -130,6 +132,7 @@ const authSlice = createSlice({
         registerError: "",
         loginStatus: "",
         loginError: "",
+        loading: false,
       };
     },
     registerUserSuccess: (state, action: PayloadAction<{ token: string }>) => {
@@ -143,6 +146,7 @@ const authSlice = createSlice({
         email: user.email,
         _id: user._id,
         registerStatus: "success",
+        loading: true,
       };
     },
     registerUserFailure: (state, action: PayloadAction<string>) => {
@@ -150,6 +154,7 @@ const authSlice = createSlice({
         ...state,
         registerStatus: "rejected",
         registerError: action.payload,
+        loading: false,
       };
     },
     loginUserSuccess: (state, action: PayloadAction<{ token: string }>) => {
@@ -163,6 +168,7 @@ const authSlice = createSlice({
         email: user.email,
         _id: user._id,
         loginStatus: "success",
+        loading: true,
       };
     },
     loginUserFailure: (state, action: PayloadAction<string>) => {
@@ -170,12 +176,13 @@ const authSlice = createSlice({
         ...state,
         loginStatus: "rejected",
         loginError: action.payload,
+        loading: false,
       };
     },
   },
   extraReducers: (builder) => {
     builder.addCase(registerUser.pending, (state) => {
-      return { ...state, registerStatus: "pending" };
+      return { ...state, registerStatus: "pending", loading: true };
     });
     builder.addCase(registerUser.fulfilled, (state, action) => {
       if (action.payload) {
@@ -189,6 +196,7 @@ const authSlice = createSlice({
           email: user.email,
           _id: user._id,
           registerStatus: "success",
+          loading: false,
         };
       } else return state;
     });
@@ -197,10 +205,11 @@ const authSlice = createSlice({
         ...state,
         registerStatus: "rejected",
         registerError: action.payload as string,
+        loading: false,
       };
     });
     builder.addCase(loginUser.pending, (state) => {
-      return { ...state, loginStatus: "pending" };
+      return { ...state, loginStatus: "pending", loading: true };
     });
     builder.addCase(loginUser.fulfilled, (state, action) => {
       if (action.payload) {
@@ -214,6 +223,7 @@ const authSlice = createSlice({
           email: user.email,
           _id: user._id,
           loginStatus: "success",
+          loading: false,
         };
       } else return state;
     });
@@ -222,6 +232,7 @@ const authSlice = createSlice({
         ...state,
         loginStatus: "rejected",
         loginError: action.payload as string,
+        loading: false,
       };
     });
   },

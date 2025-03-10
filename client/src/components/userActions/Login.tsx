@@ -28,7 +28,9 @@ const Login = () => {
 
   useEffect(() => {
     if (auth._id) {
-      navigate("/cart");
+      setTimeout(() => {
+        navigate("/cart");
+      }, 3000);
     }
   }, [auth._id, navigate]);
 
@@ -189,26 +191,53 @@ const Login = () => {
                     {errors.password}
                   </p>
                 )}
-              <div className="flex py-[0.7rem] mt-3 text-center rounded text-[0.9rem] justify-between ">
-          <button
-          onClick={handleSubmit}
-          type="submit"
-          className="bg-red-500 py-[0.7rem] px-10 text-[0.9rem] hover:bg-red-700 text-white rounded"
-          >
-          Log In
-          </button>
+             <div className="flex py-[0.7rem] mt-3 text-center rounded text-[0.9rem] justify-between ">
+              <button
+              onClick={handleSubmit}
+              type="submit"
+              className="bg-red-500 py-[0.7rem] px-10 text-[0.9rem] hover:bg-red-700 text-white rounded flex items-center justify-center"
+              disabled={auth.loading}
+              >
+              {auth.loading ? (
+                <>
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                  ></circle>
+                  <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                Log In 
+                </>
+              ) : (
+                "Log In"
+              )}
+              </button>
 
-          <Link to="/forgot-password" className="text-red-500 mt-3">
-          Forget Password?
-          </Link>
+              <Link to="/forgot-password" className="text-red-500">
+              Forget Password?
+              </Link>
+            </div>
         </div>
-        </div>
-        {auth.loginStatus === "success" && (
+        {/* {auth.loginStatus === "success" && (
         <p className="text-green-500 mt-4">Login successful</p>
         )}
         {auth.loginStatus === "failed" && (
         <p className="text-red-500 mt-4">{auth.loginError}</p>
-        )}
+        )} */}
       
     
             

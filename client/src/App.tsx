@@ -20,24 +20,26 @@ const App = () => {
   return (
     <BrowserRouter>
       <ToastContainer
-        hideProgressBar={true}
-        toastClassName="custom-toast"
-        position="bottom-right"
+      hideProgressBar={true}
+      toastClassName="custom-toast"
+      position="bottom-right"
+      className="text-xs md:text-base lg:text-lg w-[250px] ml-1 p-[0px]"
+      
       />
 
       <Navi />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/content" element={<Content />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/product/:id" element={<Theproduct />} />
-        <Route path="/sign" element={<Sign />} />
-        <Route path="sign/login" element={<Login />} />
-        <Route path="/account" element={<Account />}/>
+      <Route path="/" element={<Home />} />
+      <Route path="/content" element={<Content />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/checkout" element={<Checkout />} />
+      <Route path="/product/:id" element={<Theproduct />} />
+      <Route path="/sign" element={<Sign />} />
+      <Route path="sign/login" element={<Login />} />
+      <Route path="/account" element={<Account />}/>
       </Routes>
       <Footer />
     </BrowserRouter>
