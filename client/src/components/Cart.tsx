@@ -31,8 +31,9 @@ const Cart = () => {
   };
 
   return (
-    <div className="mt-52 ml-4 sm:ml-10 text-xs xl:text-base 2xl:text-lg ">
-      <span className="text-gray-400 text-xs xl:text-base 2xl:text-lg 2xl:ml-28 lg:ml-20 md:ml-0 sm:ml-0 2sm:ml-0">Home / </span>
+    
+    <div className="2xl:mt-52 xl:mt-52 lg:mt-52 md:mt-64 2sm:mt-64 sm:mt-64 2xl:ml-40 xl:ml-40 lg:ml-20 md:ml-20 2sm:ml-10 sm:ml-20">
+        <span className="text-gray-400 text-xs xl:text-base 2xl:text-lg 2xl:ml-28 lg:ml-20 md:ml-0 sm:ml-0 2sm:ml-0">Home / </span>
       <span className="text-xs xl:text-base 2xl:text-lg">Cart</span>
     
       {items.length === 0 ? (

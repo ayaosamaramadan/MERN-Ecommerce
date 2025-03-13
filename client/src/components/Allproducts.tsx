@@ -51,7 +51,7 @@ const Allproducts = () => {
 
   return (
     <>
-      <div className="mt-52 ml-4 md:ml-16 flex flex-col md:flex-row mx-20 mb-10">
+      <div className="2xl:mt-52 xl:mt-52 lg:mt-52 md:mt-64 sm:mt-72 2sm:mt-72 ml-4 md:ml-16 flex flex-col md:flex-row mx-20 mb-10">
         <div className="mb-4 md:mb-0">
           <span className="text-gray-400">Home</span>
           <span className="text-gray-400 ml-2">/</span>
