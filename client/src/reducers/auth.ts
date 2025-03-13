@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 
 interface RegisterValues {
   name: string;
@@ -179,6 +179,24 @@ const authSlice = createSlice({
         loading: false,
       };
     },
+    updateUserName: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        name: action.payload,
+      };
+    },
+    updateUserEmail: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        email: action.payload,
+      };
+    },
+    updateUserPass: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        password: action.payload,
+      };
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(registerUser.pending, (state) => {
@@ -245,6 +263,9 @@ export const {
   registerUserFailure,
   loginUserSuccess,
   loginUserFailure,
+  updateUserName,
+  updateUserEmail,
+  updateUserPass,
 } = authSlice.actions;
 
 export default authSlice.reducer;
