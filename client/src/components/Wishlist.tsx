@@ -64,7 +64,7 @@ const Wishlist = () => {
             </div>
 
             <img
-              src={item.image}
+              src={item.image[0]}
               alt="item"
               onClick={() => goToProduct(item.id)}
               className="w-full h-[150px] sm:w-[230px] sm:h-[180px] hover:opacity-80"
@@ -133,7 +133,7 @@ const Wishlist = () => {
                    </div>
      
                    <img
-                     src={product.image}
+                     src={product.image[0]}
                      alt="product"
                      className="w-[230px] h-[180px] hover:opacity-80"
                    />

@@ -122,7 +122,7 @@ const Checkout = () => {
             {checkeditem.map((item) => (
               <div key={item.id} className="w-full md:w-[88%] ml-0 md:ml-9 flex justify-between">
                 <img
-                  src={item.image}
+                  src={item.image[0]}
                   alt="product"
                   className="w-[60px] h-[60px]"
                 />

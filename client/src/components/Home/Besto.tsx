@@ -135,7 +135,7 @@ const Besto = () => {
               </div>
 
               <img
-                src={product.image}
+                src={product.image[0]}
                 alt="product"
                 className="w-[230px] h-[180px] hover:opacity-80"
               />

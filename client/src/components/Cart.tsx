@@ -56,7 +56,7 @@ const Cart = () => {
                 <tr key={item.id} className="shadow-md">
                   <td className="flex items-center p-2 sm:p-5 text-center">
                     <img
-                      src={item.image}
+                      src={item.image[0]}
                       alt="product img"
                       onClick={() => goToProduct(item.id)}
                       className="w-10 h-10 mr-4 cursor-pointer"

@@ -220,7 +220,7 @@ const Sales = () => {
                 } flex`}
               >
                 <img
-                  src={catigory.image}
+                  src={catigory.image[0]}
                   alt="product"
                   className="w-[45px] h-[45px] hover:opacity-80 m-auto"
                 />
