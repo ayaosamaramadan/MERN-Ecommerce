@@ -82,7 +82,7 @@ const Sign = () => {
     if (!validate()) return;
 
     const apiUrl =
-      "https://ecommerce-server-coral-mu.vercel.app/api/users/register";
+      "http://localhost:5000/api/users/register";
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
