@@ -44,7 +44,7 @@ export const registerUser = createAsyncThunk(
   async (values: RegisterValues, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://ecommerce-server-seven-beta.vercel.app/api/users/register",
+        "http://localhost:5000/api/users/register",
         {
           name: values.name,
           email: values.email,
@@ -69,7 +69,7 @@ export const loginUser = createAsyncThunk(
   async (values: LoginValues, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://ecommerce-server-seven-beta.vercel.app/api/users/login",
+        "http://localhost:5000/api/users/login",
         {
           email: values.email,
           password: values.password,
