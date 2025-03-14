@@ -29,7 +29,7 @@ const Account = () => {
     const newName = `${firstName} ${lastName}`;
     try {
       await axios.put(
-        "http://localhost:5000/api/users/updateProfile",
+        "https://ecommerce-serv.vercel.app/api/users/updateProfile",
         { userId: theAuth._id, name: newName, email, password }
       );
       dispatch(updateUserName(newName));
