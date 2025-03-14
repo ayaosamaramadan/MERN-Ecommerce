@@ -93,7 +93,7 @@ const Sales = () => {
 
       <div className="justify-center items-center 2xl:w-[90%] xl:w-[90%] lg:w-[90%] md:w-[70%] sm:w-[80%] 2sm:w-[90%] m-auto">
         <Slider ref={sliderRef} {...settings}>
-          {salesProducts.map((product: Productpro) => (
+          {salesProducts.slice(0,6).map((product: Productpro) => (
             <div key={product.id}>
               <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
                 <div className="justify-items-end w-full">
@@ -121,7 +121,7 @@ const Sales = () => {
                   />
                 </div>
                 <img
-                  src={product.image}
+                  src={product.image[0]}
                   alt="product"
                   className="w-[230px] h-[180px] hover:opacity-80 "
                 />

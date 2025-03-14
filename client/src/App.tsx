@@ -16,6 +16,7 @@ import Sign from "./components/userActions/Sign";
 import Login from "./components/userActions/Login";
 import Account from "./components/userActions/Account";
 import Allproducts from "./components/Allproducts";
+import Phones from "./components/Home/Phones";
 
 const App = () => {
   return (
@@ -42,6 +43,8 @@ const App = () => {
       <Route path="sign/login" element={<Login />} />
       <Route path="/account" element={<Account />}/>
       <Route path="/allproducts" element={<Allproducts />}/>
+      <Route path="/phones" element={<Phones />}/>
+
       </Routes>
       <Footer />
     </BrowserRouter>

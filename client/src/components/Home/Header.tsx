@@ -1,6 +1,7 @@
 // import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
+import { Link } from "react-router";
 // import Button from '@mui/material/Button';
 
 const Header = () => {
@@ -18,7 +19,9 @@ const Header = () => {
               </li>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Electronics</li>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Home & Lifestyle</li>
-              <li className="pb-4 hover:text-red-500 cursor-pointer">Medicine</li>
+             <Link to="./phones"> <li className="pb-4 hover:text-red-500 cursor-pointer"
+              
+              >Phones</li></Link>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Sports & Outdoor</li>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Baby’s & Toys</li>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Groceries & Pets</li>

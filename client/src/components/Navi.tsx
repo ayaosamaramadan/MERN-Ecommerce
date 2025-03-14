@@ -37,7 +37,6 @@ const Navi = () => {
 
   return (
     <>
-   
       <div className="border-b-2 border-black-100 fixed top-0 left-0 w-full z-50 bg-white bg-opacity-90">
         <div className="bg-black flex p-4 justify-between pr-4 2xl:pl-50 xl:pl-[15%] lg:pl-[5%] w-full">
           <div className="pl-4 flex justify-center md:justify-start w-full md:w-auto sm:w-auto 2sm:w-[220px]">
@@ -69,52 +68,52 @@ const Navi = () => {
             Exclusive
           </div>
 
-            <ul className="flex flex-wrap justify-center xl:pl-3 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.8rem] md:text-[0.8rem] sm:text-[0.8rem] 2sm:text-[0.8rem] ">
+          <ul className="flex flex-wrap justify-center xl:pl-3 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.8rem] md:text-[0.8rem] sm:text-[0.8rem] 2sm:text-[0.8rem] ">
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 relative group">
               <Link
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              to="/"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/"
               >
-              Home
+                Home
               </Link>
               <span className="block h-[2px] bg-red-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 relative group">
               <Link
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              to="/content"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/content"
               >
-              Content
+                Content
               </Link>
               <span className="block h-[2px] bg-red-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             </li>
             <li className="2xl:mr-12 xl:mr-12 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 relative group">
               <Link
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              to="/about"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                to="/about"
               >
-              About
+                About
               </Link>
               <span className="block h-[2px] bg-red-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             </li>
             <li className="2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-6 sm:mr-5 2sm:mr-3 relative group">
               {theAuth._id ? (
-              <Link onClick={handleLogout} to="/">
-                Log Out
-              </Link>
+                <Link onClick={handleLogout} to="/">
+                  Log Out
+                </Link>
               ) : (
-              <Link
-                onClick={() =>
-                window.scrollTo({ top: 0, behavior: "smooth" })
-                }
-                to="/sign"
-              >
-                Sign Up
-              </Link>
+                <Link
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  to="/sign"
+                >
+                  Sign Up
+                </Link>
               )}
               <span className="block h-[2px] bg-red-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
             </li>
-            </ul>
+          </ul>
 
           <div>
             <div className="flex bg-slate-100 p-2 px-4 rounded 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.9rem] md:text-[0.8rem] sm:text-[0.6rem] 2sm:text-[0.8rem] w-full lg:w-[300px] md:w-[300px] sm:w-[250px] 2sm:w-[250px] justify-between mt-2 lg:mt-0">
@@ -146,7 +145,7 @@ const Navi = () => {
                           className="flex justify-between items-center p-2 border-b hover:bg-gray-100 transition-colors duration-200"
                         >
                           <img
-                            src={product.image}
+                            src={product.image[0]}
                             alt={product.name}
                             className="w-[50px] h-[50px] object-cover rounded"
                           />
@@ -211,46 +210,48 @@ const Navi = () => {
           </div>
         </div>
 
-           {isopen && (
-
-        <div className="z-50 2xl:hidden xl:hidden lg:hidden md:block 2sm:block sm:block border-r-2 border-black-100 w-[280px] bg-white opacity-95 shadow-lg fixed top-0 left-0 h-full overflow-y-auto">
-          <MdKeyboardBackspace
-            className="cursor-pointer ml-56 mt-5 text-2xl m-4 hover:text-gray-700 transition-colors duration-200 justify-end"
-            onClick={() => setIsopen(false)}
-          />
-          <div className="w-[250px] pt-10 pl-10">
-            <ul>
-              <li className="text-[0.9rem] flex pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Woman’s Fashion <FaChevronRight className="mt-1 ml-auto" />
-              </li>
-              <li className="text-[0.9rem] flex pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Men’s Fashion <FaChevronRight className="mt-1 ml-auto" />
-              </li>
-              <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Electronics
-              </li>
-              <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Home & Lifestyle
-              </li>
-              <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Medicine
-              </li>
-              <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Sports & Outdoor
-              </li>
-              <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Baby’s & Toys
-              </li>
-              <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Groceries & Pets
-              </li>
-              <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
-          Health & Beauty
-              </li>
-            </ul>
+        {isopen && (
+          <div className="z-50 2xl:hidden xl:hidden lg:hidden md:block 2sm:block sm:block border-r-2 border-black-100 w-[280px] bg-white opacity-95 shadow-lg fixed top-0 left-0 h-full overflow-y-auto">
+            <MdKeyboardBackspace
+              className="cursor-pointer ml-56 mt-5 text-2xl m-4 hover:text-gray-700 transition-colors duration-200 justify-end"
+              onClick={() => setIsopen(false)}
+            />
+            <div className="w-[250px] pt-10 pl-10">
+              <ul>
+                <li className="text-[0.9rem] flex pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
+                  Woman’s Fashion <FaChevronRight className="mt-1 ml-auto" />
+                </li>
+                <li className="text-[0.9rem] flex pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
+                  Men’s Fashion <FaChevronRight className="mt-1 ml-auto" />
+                </li>
+                <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
+                  Electronics
+                </li>
+                <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
+                  Home & Lifestyle
+                </li>
+                <Link to="./phones">
+                  {" "}
+                  <li className="pb-4 hover:text-red-500 cursor-pointer">
+                    Phones
+                  </li>
+                </Link>
+                <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
+                  Sports & Outdoor
+                </li>
+                <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
+                  Baby’s & Toys
+                </li>
+                <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
+                  Groceries & Pets
+                </li>
+                <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
+                  Health & Beauty
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      )}
+        )}
       </div>
     </>
   );

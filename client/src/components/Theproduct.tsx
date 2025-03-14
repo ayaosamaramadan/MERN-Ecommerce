@@ -56,9 +56,9 @@ const Theproduct = () => {
   return (
     <>
       <div className="2xl:mt-52 xl:mt-52 lg:mt-52 md:mt-64 sm:mt-64 2sm:mt-64 ml-4 md:ml-[10.5rem] space-x-2 flex">
-        <span className="text-gray-400">Account</span>
+        <span className="text-gray-400">Home</span>
         <span className="text-gray-400">/</span>
-        <span className="text-gray-400">Gaming</span>
+        <span className="text-gray-400">Product</span>
         <span className="text-gray-400">/</span>
         <span>{product.name}</span>
       </div>
@@ -69,9 +69,9 @@ const Theproduct = () => {
       >
         <div className="w-full md:w-[100%] h-[50%] p-4 md:p-20 bg-slate-100">
           <img
-            src={product.image}
+            src={product.image[0]}
             alt={product.name}
-            className="w-full h-full object-contain"
+            className="rounded-2xl w-full h-full object-contain"
           />
         </div>
         <div>
@@ -98,8 +98,20 @@ const Theproduct = () => {
           <div className="flex items-center mb-4">
             <h2 className="mr-2 text-[1rem]">Colours:</h2>
             <div className="flex space-x-2">
-              <div className="w-4 h-4 bg-red-500 rounded-full"></div>
-              <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
+          {/* <div className="w-4 h-4 bg-black rounded-full"></div>
+          <div className="w-4 h-4 bg-blue-500 rounded-full"></div> */}
+                {product.colors && product.colors.map((color, index) => (
+                    <div key={index} className={`w-4 h-4 bg-${color} rounded-full cursor-pointer border-2 border-black`}
+                    onClick={() => {
+                      if (ref.current) {
+                      const imgElement = ref.current.querySelector('img');
+                      if (imgElement) {
+                        imgElement.src = product.image[index];
+                      }
+                      }
+                    }}
+                    ></div>
+                ))}
             </div>
           </div>
           <div className="flex items-center mb-4">
@@ -259,7 +271,7 @@ const Theproduct = () => {
                 </div>
 
                 <img
-                  src={item.image}
+                  src={item.image[0]}
                   alt="item"
                   className="w-[230px] h-[180px] hover:opacity-80"
                 />
