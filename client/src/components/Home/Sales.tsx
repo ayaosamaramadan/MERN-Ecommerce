@@ -1,4 +1,4 @@
-
+import Button from "@mui/material/Button";
 import Slider from "react-slick";
 import { CiStar } from "react-icons/ci";
 import { catigorys, salesProducts } from "../../api/productss";
@@ -19,7 +19,7 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {  useRef } from "react";
+import { useRef } from "react";
 import Timeoutt from "./Timeoutt";
 
 const Sales = () => {
@@ -55,31 +55,31 @@ const Sales = () => {
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 1536, 
+        breakpoint: 1536,
         settings: {
           slidesToShow: 4,
         },
       },
       {
-        breakpoint: 1280, 
+        breakpoint: 1280,
         settings: {
           slidesToShow: 4,
         },
       },
       {
-        breakpoint: 1024, 
+        breakpoint: 1024,
         settings: {
           slidesToShow: 3,
         },
       },
       {
-        breakpoint: 768, 
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
         },
       },
       {
-        breakpoint: 640, 
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
         },
@@ -89,8 +89,7 @@ const Sales = () => {
 
   return (
     <>
-    <Timeoutt/>
-   
+      <Timeoutt />
 
       <div className="justify-center items-center 2xl:w-[90%] xl:w-[90%] lg:w-[90%] md:w-[70%] sm:w-[80%] 2sm:w-[90%] m-auto">
         <Slider ref={sliderRef} {...settings}>
@@ -118,7 +117,8 @@ const Sales = () => {
                     onClick={() => {
                       goToProduct(product.id);
                       window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}/>
+                    }}
+                  />
                 </div>
                 <img
                   src={product.image}
@@ -168,38 +168,46 @@ const Sales = () => {
         </Slider>
       </div>
       <div className="text-center mt-14">
-      <Link to="./Allproducts">
-        <button
-          type="submit"
-          className="bg-red-600 hover:bg-red-700 px-8 rounded text-white py-3 text-center"
+        <Link
+          to="./Allproducts"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          View All Products
-        </button>
+          <Button
+        variant="contained"
+        type="submit"
+        sx={{
+          backgroundColor: "#DB4444",
+          padding: "12px",
+          paddingX: "25px",
+          color: "#fff",
+        }}
+          >
+        View All Products
+          </Button>
         </Link>
       </div>
 
       <div className="flex flex-col md:flex-row ml-[5%] mt-[5%] mr-[5%] mb-[5%] justify-between">
+        <div>
+          <div className="flex mt-10">
+            <img
+              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
+              alt=""
+            />
+            <p className="text-red-500 font-bold ml-5 mt-2">Categories</p>
+          </div>
+          <div className=" mt-5">
+            <h1 className="2xl:text-[2rem] xl:text-[2rem] lg:text-[1.8rem] md:text-[1.4rem] font-semibold">
+              Browse By Category
+            </h1>
+          </div>
+        </div>
 
-<div>
-  <div className="flex mt-10">
-    <img
-      src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740961661/react%20eco/bexzrdyfcykbnoamh2zd.png"
-      alt=""
-    />
-    <p className="text-red-500 font-bold ml-5 mt-2">Categories</p>
-  </div>
-  <div className=" mt-5">
-    <h1 className="2xl:text-[2rem] xl:text-[2rem] lg:text-[1.8rem] md:text-[1.4rem] font-semibold">Browse By Category</h1>
-  </div>
-</div>
-
-<div className="flex justify-center md:justify-start 2xl:mt-0 xl:mt-0 lg:mt-[-60px] md:mt-[-80px] sm:mt-[-80px] 2sm:mt-[-80px] 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-[-90px] sm:ml-[250px] 2sm:ml-[-90px] 2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem] sm:text-[2rem] 2sm:text-[2rem]">
-  
-  <IoIosArrowRoundBack className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 rounded-3xl" />
-  <IoIosArrowRoundForward className="bg-slate-100 mt-[105px] mr-3 rounded-3xl hover:bg-slate-300" />
-</div>
-</div>
-
+        <div className="flex justify-center md:justify-start 2xl:mt-0 xl:mt-0 lg:mt-[-60px] md:mt-[-80px] sm:mt-[-80px] 2sm:mt-[-80px] 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-[-90px] sm:ml-[250px] 2sm:ml-[-90px] 2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem] sm:text-[2rem] 2sm:text-[2rem]">
+          <IoIosArrowRoundBack className="hover:bg-slate-300 bg-slate-100 mt-[105px] mr-3 rounded-3xl" />
+          <IoIosArrowRoundForward className="bg-slate-100 mt-[105px] mr-3 rounded-3xl hover:bg-slate-300" />
+        </div>
+      </div>
 
       <div className="flex justify-center mt-10">
         <div>

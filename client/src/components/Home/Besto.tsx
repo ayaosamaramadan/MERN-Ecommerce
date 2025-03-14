@@ -12,7 +12,7 @@ import { IoEyeOutline } from "react-icons/io5";
 import Products from "./Products";
 import { salesProducts } from "../../api/productss";
 import { Productpro } from "../../types/product";
-
+import Button from "@mui/material/Button";
 import Serv from "./Serv";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../reducers/cart";
@@ -84,9 +84,24 @@ const Besto = () => {
         </div>
 
         <div>
-          <button className="mb-5 bg-red-600 hover:bg-red-700 px-8 rounded text-white py-3 text-center mt-24">
+        
+            <Button
+            variant="contained"
+            type="submit"
+            sx={{
+              mb: 5,
+              backgroundColor: "#DB4444",
+              "&:hover": { backgroundColor: "#C43D3D" },
+              px: 6,
+              py: 2,
+              mt: 10,
+              color: "#fff",
+              textAlign: "center",
+              borderRadius: "4px",
+            }}
+            >
             View All
-          </button>
+            </Button>
         </div>
       </div>
 
@@ -201,13 +216,22 @@ const Besto = () => {
 
       <div className="text-center mt-14">
 
-        <Link to="./Allproducts">
-        <button
-          type="submit"
-          className="bg-red-600 hover:bg-red-700 px-8 rounded text-white py-3 text-center"
+      <Link
+          to="./Allproducts"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          View All Products
-        </button>
+          <Button
+        variant="contained"
+        type="submit"
+        sx={{
+          backgroundColor: "#DB4444",
+          padding: "12px",
+          paddingX: "25px",
+          color: "#fff",
+        }}
+          >
+        View All Products
+          </Button>
         </Link>
       </div>
 

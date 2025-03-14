@@ -1,7 +1,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        redbtn: 'red-500',
+      },
+    },
     screens: {
       '2sm': "320px",
       'sm': "375px",
