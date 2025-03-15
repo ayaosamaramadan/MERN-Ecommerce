@@ -47,7 +47,7 @@ const About = () => {
         }`}
           >
         <div className="flex flex-col items-center">
-          <img src={item.image[0]} alt="" className="w-[70px] h-[70px]" />
+          <img src={item.image} alt="" className="w-[70px] h-[70px]" />
           <p className="text-2xl pt-3 font-semibold mt-3">{item.num}</p>
           <p className="mt-2">{item.desc}</p>
         </div>
@@ -59,7 +59,7 @@ const About = () => {
         {aboutt2.map((item) => (
           <div key={item.id} className="rounded mt-10 ml-5">
         <div className="flex flex-col">
-          <img src={item.image[0]} alt="" className="w-[80%]" />
+          <img src={item.image} alt="" className="w-[80%]" />
           <p className="text-2xl pt-3 font-semibold mt-3">{item.name}</p>
           <p className="mt-2">{item.desc}</p>
         </div>

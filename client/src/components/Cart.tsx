@@ -32,8 +32,8 @@ const Cart = () => {
 
   return (
     
-    <div className="2xl:mt-52 xl:mt-52 lg:mt-52 md:mt-64 2sm:mt-64 sm:mt-64 2xl:ml-40 xl:ml-40 lg:ml-20 md:ml-20 2sm:ml-10 sm:ml-20">
-        <span className="text-gray-400 text-xs xl:text-base 2xl:text-lg 2xl:ml-28 lg:ml-20 md:ml-0 sm:ml-0 2sm:ml-0">Home / </span>
+    <div className="2xl:mt-52 xl:mt-52 lg:mt-52 md:mt-64 2sm:mt-64 sm:mt-64 2xl:ml-40 xl:ml-40 lg:ml-20 md:ml-20 2sm:ml-0 sm:ml-20">
+        <span className="text-gray-400 text-xs xl:text-base 2xl:text-lg 2xl:ml-28 lg:ml-20 md:ml-0 sm:ml-0 2sm:ml-5">Home / </span>
       <span className="text-xs xl:text-base 2xl:text-lg">Cart</span>
     
       {items.length === 0 ? (
@@ -51,6 +51,7 @@ const Cart = () => {
                 <th className="p-2 sm:p-5 sm:px-10 text-center">Subtotal</th>
               </tr>
             </thead>
+         
             <tbody>
               {items.map((item) => (
                 <tr key={item.id} className="shadow-md">
@@ -64,9 +65,9 @@ const Cart = () => {
                     <p className="max-w-xs">{item.name.split(" ").slice(0, 2).join(" ")}</p>
                   </td>
                   <td className="p-2 sm:p-5 text-center">${item.afterdiscount}</td>
-                  <td className="flex items-center p-2 sm:p-5 text-center">
+                  <td className="flex items-center p-2 sm:p-5 text-center ">
                     <p className="pr-2">{item.quantity}</p>
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-center ">
                       <button
                       title="btn"
                         type="submit"
@@ -93,7 +94,7 @@ const Cart = () => {
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row justify-between w-full sm:w-11/12 mt-10">
+      <div className="flex flex-col sm:flex-row justify-between sm:w-11/12 mt-10 ">
         <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <button type="button" className="border-2 hover:bg-red-500 px-8 rounded text-black hover:text-white py-3 text-center text-xs xl:text-base 2xl:text-lg">
             Return To Shop
@@ -107,15 +108,15 @@ const Cart = () => {
       <div className="flex flex-col md:flex-row justify-between mt-14 w-full sm:w-11/12">
         <div className="w-full md:w-1/2">
           <input
-            className="input w-full border-2 rounded px-4 py-2 text-xs xl:text-base 2xl:text-lg"
+            className="input w-full border-2 border-gray-200 rounded px-4 mr-5 py-2 text-xs xl:text-base 2xl:text-lg"
             type="text"
             placeholder="Coupon Code"
           />
-          <button type="button" className="bg-red-500 px-8 rounded mt-5 text-white py-3 text-center text-xs xl:text-base 2xl:text-lg">
+          <button type="button" className="bg-red-500 px-8 rounded mt-6 text-white py-3 text-center text-xs xl:text-base 2xl:text-lg">
             Apply Coupon
           </button>
         </div>
-        <div className="border-2 border-black p-5 rounded w-full md:w-1/2 mt-5 md:mt-0 text-xs xl:text-base 2xl:text-lg">
+        <div className="border-2 border-gray-200 p-5 rounded w-full md:w-1/2 mt-5 md:mt-0 text-xs xl:text-base 2xl:text-lg">
           <h1 className="text-lg xl:text-xl 2xl:text-2xl">Cart Total</h1>
           <div className="flex justify-between mt-5 pb-3 border-b border-gray-400">
             <p>Subtotal</p>

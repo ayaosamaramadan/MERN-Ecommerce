@@ -231,8 +231,7 @@ const Navi = () => {
                   Home & Lifestyle
                 </li>
                 <Link to="./phones">
-                  {" "}
-                  <li className="pb-4 hover:text-red-500 cursor-pointer">
+                <li className="text-[0.9rem] pb-4 hover:bg-gray-100 p-2 rounded transition-colors duration-200 hover:text-blue-500">
                     Phones
                   </li>
                 </Link>

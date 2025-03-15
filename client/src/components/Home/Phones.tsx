@@ -12,16 +12,22 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 import { addToCart } from "../../reducers/cart";
 
-const Allproducts = () => {
+const Phones = () => {
   const wishitem = useSelector((state: RootState) => state.wish.items);
   const theAuth = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [sortOption, setSortOption] = useState("default");
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedColors, setSelectedColors] = useState<{ [key: number]: string }>({});
 
   const handleAddToCart = (product: Productpro) => {
-    dispatch(addToCart(product));
+    const selectedColor = selectedColors[product.id];
+    if (!selectedColor) {
+      toast.error("Please select a color");
+      return;
+    }
+    dispatch(addToCart({ ...product, selectedColor }));
   };
 
   const goToProduct = (id: number) => {
@@ -44,11 +50,13 @@ const Allproducts = () => {
     setSearchTerm(e.target.value);
   };
 
-  const filteredProducts = salesProducts
-    .slice(16)
-    .filter((product) =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  const handleColorChange = (productId: number, color: string) => {
+    setSelectedColors((prev) => ({ ...prev, [productId]: color }));
+  };
+
+  const filteredProducts = salesProducts.slice(16).filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOption === "low") {
@@ -151,6 +159,18 @@ const Allproducts = () => {
                 <div className="flex">
                   <p className="text-red-600 pr-5">${product.afterdiscount}</p>
                 </div>
+                {product.colors && (
+                  <div className="flex mt-2">
+                    {product.colors.map((color, index) => (
+                      <div
+                        key={index}
+                        className={`w-6 h-6 rounded-full mr-2 cursor-pointer ${selectedColors[product.id] === color ? 'border-2 border-black' : ''}`}
+                        style={{ backgroundColor: color }}
+                        onClick={() => handleColorChange(product.id, color)}
+                      ></div>
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -174,4 +194,4 @@ const Allproducts = () => {
   );
 };
 
-export default Allproducts;
+export default Phones;
