@@ -104,7 +104,7 @@ const Phones = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 justify-center m-12">
         {sortedProducts.map((product: Productpro) => (
           <div key={product.id}>
             <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
@@ -159,18 +159,7 @@ const Phones = () => {
                 <div className="flex">
                   <p className="text-red-600 pr-5">${product.afterdiscount}</p>
                 </div>
-                {product.colors && (
-                  <div className="flex mt-2">
-                    {product.colors.map((color, index) => (
-                      <div
-                        key={index}
-                        className={`w-6 h-6 rounded-full mr-2 cursor-pointer ${selectedColors[product.id] === color ? 'border-2 border-black' : ''}`}
-                        style={{ backgroundColor: color }}
-                        onClick={() => handleColorChange(product.id, color)}
-                      ></div>
-                    ))}
-                  </div>
-                )}
+            
               </div>
               <div className="flex">
                 {[...Array(5)].map((_, i) => (

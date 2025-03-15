@@ -1,27 +1,34 @@
-// import { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
-import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router";
-// import Button from '@mui/material/Button';
+import Slider from "react-slick";
 
 const Header = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000
+  };
   return (
     <>
-      <div className="flex">
-        <div className="2xl:block xl:block lg:block md:hidden 2sm:hidden sm:hidden border-r-2 border-black-100 w-[280px] pr-20">
-          <div className="w-[250px] pt-10 pl-10">
+      <div className="flex flex-col md:flex-row">
+        <div className="2sm:hidden sm:hidden xl:block md:hidden 2xl:block border-r-2 border-black-100 w-[280px] pr-4 md:pr-20">
+          <div className="w-full md:w-[250px] pt-4 md:pt-10 pl-4 md:pl-10">
             <ul>
               <li className="flex pb-4 hover:text-red-500 cursor-pointer">
-          Woman’s Fashion <FaChevronRight className="mt-1 ml-[50px]" />
+                Woman’s Fashion <FaChevronRight className="mt-1 ml-auto md:ml-[50px]" />
               </li>
               <li className="flex pb-4 hover:text-red-500 cursor-pointer">
-          Men’s Fashion <FaChevronRight className="mt-1 ml-[79px]" />
+                Men’s Fashion <FaChevronRight className="mt-1 ml-auto md:ml-[79px]" />
               </li>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Electronics</li>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Home & Lifestyle</li>
-             <Link to="./phones"> <li className="pb-4 hover:text-red-500 cursor-pointer"
-              
-              >Phones</li></Link>
+              <Link to="./phones">
+                <li className="pb-4 hover:text-red-500 cursor-pointer">Phones</li>
+              </Link>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Sports & Outdoor</li>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Baby’s & Toys</li>
               <li className="pb-4 hover:text-red-500 cursor-pointer">Groceries & Pets</li>
@@ -30,36 +37,22 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="ml-[10%] mr-[10%] 2xl:mt-[5%] xl:mt-[5%] lg:mt-[5%] md:mt-[22%] sm:mt-[32%] 2sm:mt-[29%]">
-          <div className="text-white bg-black w-full p-10 ">
+        <Slider {...settings} className="text-white w-full md:w-[70%] items-center justify-center p-4 md:p-10 mx-auto">
+          <div className="flex justify-center">
             <img
-              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740722034/iphoneSlider_yc1km0.jpg"
+              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1742005703/bcrhl9xjz3jw9ic98vkj.png"
               alt="image"
-              className="w-auto"
+              className=""
             />
-            <div>
-              <ul className="flex w-[10%] mt-10 ml-[40%]">
-                <li>
-                  <GoDotFill />
-                </li>
-                <li>
-                  <GoDotFill />
-                </li>
-                <li>
-                  <GoDotFill />
-                </li>
-                <li>
-                  <GoDotFill />
-                </li>
-                <li>
-                  <GoDotFill />
-                </li>
-              </ul>
-            </div>
-
-        
           </div>
-        </div>
+          <div>
+            <img
+              src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1740776148/react%20eco/vecqbwrofwmkkalmj14b.png"
+              alt="image"
+              className=""
+            />
+          </div>
+        </Slider>
       </div>
     </>
   );

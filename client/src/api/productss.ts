@@ -159,7 +159,6 @@ export const salesProducts = [
     image: [
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1740777423/react%20eco/njvyfn4aassnllib0v4g.png",
     ],
-
     rate: 29,
     desc: "High-performance soccer cleats for juniors. Designed for comfort and agility on the field. The cleats offer excellent traction and support, helping young players perform their best.",
   },
@@ -190,28 +189,27 @@ export const salesProducts = [
     name: "SAMSUNG Galaxy S25",
     afterdiscount: 530,
     stars: 5,
-
     image: [
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1741984335/reactshoping/in9qvvdtnmwlvnj87tny.jpg",
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1741984492/reactshoping/i82bi0xwnhm3ik77aono.jpg",
     ],
-    colors: ["white","blue-500"],
-    rate: 24,
-    desc: "Stylish quilted satin jacket for all seasons. Offers warmth and a fashionable look for any occasion. The jacket is made from high-quality materials, ensuring durability and comfort in various weather conditions.",
+    colors: ["white", "blue-500"],
+    rate: 224,
+    desc: "Latest Samsung Galaxy S25 with advanced features and sleek design. Offers high performance and excellent camera quality. The phone is available in multiple colors, providing a stylish and modern look.",
   },
   {
     id: 20,
     name: "Apple iPhone 14 Pro Max",
     afterdiscount: 1920,
     stars: 5,
-    colors: ["black","white"],
-    
-    image: [
+    colors: ["red-500","black", "white"],
+    image: [  "https://res.cloudinary.com/dgjbaeyok/image/upload/v1742002887/reactshoping/hgbly2ezxo2pali7fb1z.jpg",
+   
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1741981656/reactshoping/pz16hs2ec1l7axa7ugzp.jpg",
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1741988323/reactshoping/cdmgqkbyjai8du8p7dac.jpg",
-    ],
-    rate: 24,
-    desc: "Stylish quilted satin jacket for all seasons. Offers warmth and a fashionable look for any occasion. The jacket is made from high-quality materials, ensuring durability and comfort in various weather conditions.",
+     ],
+    rate: 192,
+    desc: "Apple iPhone 14 Pro Max with cutting-edge technology and premium design. Offers exceptional performance and camera capabilities. Available in multiple colors, providing a luxurious and elegant appearance.",
   },
   {
     id: 18,
@@ -221,8 +219,8 @@ export const salesProducts = [
     image: [
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1741981656/reactshoping/dcg4wu80girj39bt4df5.jpg",
     ],
-    rate: 24,
-    desc: "Stylish quilted satin jacket for all seasons. Offers warmth and a fashionable look for any occasion. The jacket is made from high-quality materials, ensuring durability and comfort in various weather conditions.",
+    rate: 23,
+    desc: "Samsung Galaxy A16 5G with fast connectivity and reliable performance. Ideal for everyday use with a sleek design. The phone offers a great balance of features and affordability.",
   },
   {
     id: 19,
@@ -232,10 +230,58 @@ export const salesProducts = [
     image: [
       "https://res.cloudinary.com/dgjbaeyok/image/upload/v1741982679/reactshoping/p9ygjktvhaba894trnjd.jpg",
     ],
-    rate: 24,
-    desc: "Stylish quilted satin jacket for all seasons. Offers warmth and a fashionable look for any occasion. The jacket is made from high-quality materials, ensuring durability and comfort in various weather conditions.",
+    rate: 68,
+    desc: "Moto G Power 5G with long battery life and fast performance. Perfect for users who need a reliable and affordable smartphone. The phone features a modern design and essential functionalities.",
+  },
+  {
+    id: 22,
+    name: "Samsung A52 SM-A525M/DS, 4G LTE",
+    afterdiscount: 680,
+    stars: 4,
+    image: [
+     "https://res.cloudinary.com/dgjbaeyok/image/upload/v1742003067/reactshoping/exkfzq1ejggfdpq8f5fe.jpg" ],
+    rate: 98,
+    desc: "Brighter and Smoother – Enjoy your favorite show on Samsung’s beloved Super AMOLED display. Now with a 90Hz refresh rate on the Galaxy A52, the scrolling experience is even smoother. Keep watching and scrolling social media posts even when outside thanks to an increased 800 nits luminance.",
+  },
+  {
+    id: 23,
+    name: "Xiaomi Poco X6 Pro 5G",
+    afterdiscount: 299,
+    stars: 3,
+    image: [
+     "https://res.cloudinary.com/dgjbaeyok/image/upload/v1742003666/reactshoping/xdy55yiijcij2nbkcwrv.jpg" 
+    ],
+    rate: 98,
+    desc: "Brighter and Smoother – Enjoy your favorite show on Samsung’s beloved Super AMOLED display. Now with a 90Hz refresh rate on the Galaxy A52, the scrolling experience is even smoother. Keep watching and scrolling social media posts even when outside thanks to an increased 800 nits luminance.",
+  },
+  {
+    id: 24,
+    name: "Xiaomi Poco X6 Pro 5G",
+    afterdiscount: 299,
+    stars: 3,
+    colors: ["green","black"],
+    image: [
+     "https://res.cloudinary.com/dgjbaeyok/image/upload/v1742010479/mg9dbycdczqzyzs9qfo3.jpg",
+     "https://res.cloudinary.com/dgjbaeyok/image/upload/v1742010622/nixxtwyavhtjti2rladu.jpg"
+     ],
+    rate: 98,
+    desc: "Brighter and Smoother – Enjoy your favorite show on Samsung’s beloved Super AMOLED display. Now with a 90Hz refresh rate on the Galaxy A52, the scrolling experience is even smoother. Keep watching and scrolling social media posts even when outside thanks to an increased 800 nits luminance.",
+  },
+  {
+    id: 25,
+    name: "Xiaomi Poco X6 Pro 5G",
+    afterdiscount: 299,
+    stars: 3,
+    colors: ["black","white"],
+    image: [
+     "https://res.cloudinary.com/dgjbaeyok/image/upload/v1742011128/rugemu3kvwttjx6yoziw.jpg",
+     "https://res.cloudinary.com/dgjbaeyok/image/upload/v1742011271/nbdafr2y8lu9nccfmpvw.jpg"
+     ],
+    rate: 98,
+    desc: "Brighter and Smoother – Enjoy your favorite show on Samsung’s beloved Super AMOLED display. Now with a 90Hz refresh rate on the Galaxy A52, the scrolling experience is even smoother. Keep watching and scrolling social media posts even when outside thanks to an increased 800 nits luminance.",
   },
 ];
+
 
 export const catigorys = [
   {

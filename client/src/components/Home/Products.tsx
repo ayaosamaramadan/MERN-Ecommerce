@@ -38,7 +38,7 @@ const Products = () => {
     <>
       {salesProducts.slice(9, 16).map((product: Productpro) => (
         <div key={product.id}>
-          <div className="flex flex-col rounded hover:opacity-100 relative group m-4 border border-gray-200 p-4 bg-slate-100">
+          <div className="m-4 flex flex-col rounded hover:opacity-100 relative group border border-gray-200 p-4 bg-slate-100">
             <div className="justify-items-end w-full">
               {wishitem.find((item) => item.id === product.id) ? (
                 <IoIosHeart
