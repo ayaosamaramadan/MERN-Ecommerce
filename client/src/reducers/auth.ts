@@ -154,7 +154,7 @@ const authSlice = createSlice({
         ...state,
         registerStatus: "rejected",
         registerError: action.payload,
-        loading: false,
+        loading: true,
       };
     },
     loginUserSuccess: (state, action: PayloadAction<{ token: string }>) => {
