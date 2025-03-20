@@ -34,7 +34,7 @@ Here are some screenshots of the application in action:
 <br/>
 
 <div style="text-align: center;">
-    <img src="https://github.com/user-attachments/assets/e6224954-5baf-4efe-83d0-c28a73d42158" alt="" style="width: 300px; height: auto;">
-    <img src="https://github.com/user-attachments/assets/05b91729-64fd-4b65-9230-8612a09450ce" alt="" style="width: 300px; height: auto;">
-    <img src="https://github.com/user-attachments/assets/90b57925-42e0-45a6-a143-ae64e20be1ec" alt="" style="width: 300px; height: auto;">
+    <img src="https://github.com/user-attachments/assets/e6224954-5baf-4efe-83d0-c28a73d42158" alt="" style="width: 250px; height: auto;">
+    <img src="https://github.com/user-attachments/assets/05b91729-64fd-4b65-9230-8612a09450ce" alt="" style="width: 250px; height: auto;">
+    <img src="https://github.com/user-attachments/assets/90b57925-42e0-45a6-a143-ae64e20be1ec" alt="" style="width: 250px; height: auto;">
 </div>
