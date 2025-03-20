@@ -168,13 +168,13 @@ const Login = () => {
           </div>
         </div>
       </div>
-
+{/* 
       {auth.registerStatus === "success" && (
         <p className="text-green-500 mt-4">Registration successful</p>
       )}
       {auth.registerStatus === "failed" && (
         <p className="text-red-500 mt-4">{auth.registerError}</p>
-      )}
+      )} */}
     </>
   );
 };

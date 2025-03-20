@@ -37,7 +37,7 @@ const Header = () => {
           </div>
         </div>
 
-        <Slider {...settings} className="text-white w-full md:w-[70%] items-center justify-center p-4 md:p-10 mx-auto">
+        <Slider {...settings} className="text-white w-full md:w-[70%] items-center 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-15 sm:mt-20 2sm:mt-20 justify-center p-4 md:p-10 mx-auto">
           <div className="flex justify-center">
             <img
               src="https://res.cloudinary.com/dgjbaeyok/image/upload/v1742005703/bcrhl9xjz3jw9ic98vkj.png"

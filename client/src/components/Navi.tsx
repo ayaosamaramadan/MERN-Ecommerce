@@ -213,7 +213,7 @@ const Navi = () => {
         {isopen && (
           <div className="z-50 2xl:hidden xl:hidden lg:hidden md:block 2sm:block sm:block border-r-2 border-black-100 w-[280px] bg-white opacity-95 shadow-lg fixed top-0 left-0 h-full overflow-y-auto">
             <MdKeyboardBackspace
-              className="cursor-pointer ml-56 mt-5 text-2xl m-4 hover:text-gray-700 transition-colors duration-200 justify-end"
+              className=" cursor-pointer ml-56 mt-5 text-2xl m-4 hover:text-gray-700 transition-colors duration-200 justify-end"
               onClick={() => setIsopen(false)}
             />
             <div className="w-[250px] pt-10 pl-10">
