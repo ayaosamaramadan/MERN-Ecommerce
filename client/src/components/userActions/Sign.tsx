@@ -26,7 +26,9 @@ const Sign = () => {
 
   useEffect(() => {
     if (auth._id) {
-      navigate("/cart");
+      setTimeout(() => {
+        navigate("/cart");
+      }, 2000);
     }
   }, [auth._id, navigate]);
 
@@ -86,7 +88,7 @@ const Sign = () => {
     if (!validate()) return;
 
     const apiUrl =
-      "https://ecommerce-serv.vercel.app/api/users/register";
+      "http://localhost:5000/api/users/register";
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -172,7 +174,7 @@ const Sign = () => {
               </p>
             )}
          
-            <button
+         <button
                 onClick={handleSubmit}
                 type="submit"
                 className="bg-red-500 py-[0.7rem] px-10 text-[0.9rem] hover:bg-red-700 text-white rounded flex items-center justify-center"
@@ -203,7 +205,7 @@ const Sign = () => {
                     Create Account
                   </>
                 ) : (
-                  " Create Account"
+                  "Create Account"
                 )}
               </button>
 
