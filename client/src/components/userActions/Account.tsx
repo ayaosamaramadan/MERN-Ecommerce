@@ -21,6 +21,7 @@ const Account = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleProfileUpdate = async () => {
+    window.scrollTo(0, 0);
     if (password !== confirmPassword) {
       toast.error("Passwords do not match");
       return;
