@@ -19,15 +19,9 @@ const Phones = () => {
   const dispatch = useDispatch();
   const [sortOption, setSortOption] = useState("default");
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedColors, setSelectedColors] = useState<{ [key: number]: string }>({});
 
   const handleAddToCart = (product: Productpro) => {
-    const selectedColor = selectedColors[product.id];
-    if (!selectedColor) {
-      toast.error("Please select a color");
-      return;
-    }
-    dispatch(addToCart({ ...product, selectedColor }));
+    dispatch(addToCart(product));
   };
 
   const goToProduct = (id: number) => {
@@ -50,9 +44,7 @@ const Phones = () => {
     setSearchTerm(e.target.value);
   };
 
-  const handleColorChange = (productId: number, color: string) => {
-    setSelectedColors((prev) => ({ ...prev, [productId]: color }));
-  };
+
 
   const filteredProducts = salesProducts.slice(16).filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())

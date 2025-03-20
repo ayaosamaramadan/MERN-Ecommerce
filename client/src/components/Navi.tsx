@@ -16,7 +16,7 @@ const Navi = () => {
   const item1 = useSelector((state: RootState) => state.cartt.items);
   const items2 = useSelector((state: RootState) => state.wish.items);
   const theAuth = useSelector((state: RootState) => state.auth);
-  const cartItemCount = item1.reduce((total, item) => total + item.quantity, 0);
+  const cartItemCount = item1.reduce((total: number, item: { quantity: number; }) => total + item.quantity, 0);
   const wishItemCount = items2.reduce(
     (total, item) => total + (item.quantity || 0),
     0
