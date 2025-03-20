@@ -142,7 +142,7 @@ const Theproduct = () => {
                 onClick={() =>
                   theAuth._id
                     ? dec(product)
-                    : toast.error("Please login to add to wishlist")
+                    : toast.error("Please login to add to Cart")
                 }
                 className="border-r-[0.1rem] hover:bg-red-500 hover:border-red-500 hover:text-white border-gray-500 px-3 text-xl rounded"
               >
@@ -157,7 +157,7 @@ const Theproduct = () => {
                 onClick={() =>
                   theAuth._id
                     ? inc(product)
-                    : toast.error("Please login to add to wishlist")
+                    : toast.error("Please login to add to Cart")
                 }
                 className="border-l-[0.1rem] hover:bg-red-500 hover:border-red-500 hover:text-white border-gray-500 px-3 text-xl rounded"
               >
